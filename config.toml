@@ -1,6 +1,6 @@
 baseurl = "https://luk3ya0.github.io"
 languageCode = "en-us"
-theme = "terminal"
+theme = "PaperMod"
 paginate = 5
 
 [params]
