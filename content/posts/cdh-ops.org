@@ -1,13 +1,10 @@
 ---
 title: "CDH Operations"
-date: 2021-03-12T20:27:56+08:00
+date: 2021-02-09T20:27:56+08:00
 draft: false
 ---
 
 以下为回收宝 CDH 构建实验过程记录
-
-
-
 
 * CDH Ops
 
