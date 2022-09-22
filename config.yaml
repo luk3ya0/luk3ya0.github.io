@@ -1,15 +1,11 @@
 baseURL: https://luk3ya0.github.io/
 languageCode: en-us 
-title: Acme Corporation 
+title: Luke's Code Life
 theme: Eclectic 
 author: 
-  facebook: "https://facebook.com/example" 
-  twitter: "https://twitter.com/example" 
   email: "contact@example.org" 
-  name: "Acme Corporation" 
-  location: New York 
-  phone: (999) 999-9999 
-  hours: "**Mon-Fri:** 9:00AM - 6:00PM, ET" 
+  name: "Luke Yao" 
+  location: Shen Zhend
 
 menu:
   main: 
