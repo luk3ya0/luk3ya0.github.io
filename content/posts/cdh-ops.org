@@ -278,13 +278,15 @@ ok保存退出，请求服务器前，请先使用ntpdate手动同步一下时�
 
 ** 9. 设置swap
 
-为了避免服务器使用swap功能而影响服务器性能，一般都会把vm.swappiness修改为0（cloudera建议10以下）
-vim /etc/sysctl.conf  设置vm.swappiness = 0 重启生效
+为了避免服务器使用swap功能而影响服务器性能，一般都会把vm.swappiness修改为0（cloudera建议10以下） vim /etc/sysctl.conf  设置 vm.swappiness = 0 重启生效
 
-上述方法rhel6有效，rhel7.2中:tuned服务会动态调整系统参数
-查找tuned中配置，直接修改配置
-cd /usr/lib/tuned/
-grep “vm.swappiness” * -R 查询出后依次修改
+上述方法rhel6有效，rhel7.2中:tuned服务会动态调整系统参数, 查找tuned中配置，直接修改配置
+
+#+begin_src shell
+  cd /usr/lib/tuned/
+  grep “vm.swappiness” * -R 查询出后依次修改
+#+end_src
+
 参考：sysctl修改内核参数 重启不生效 https://blog.csdn.net/ygtlovezf/article/details/79014299
 
 ** 10. 禁用透明页
@@ -406,53 +408,84 @@ CDH不支持mysql的GTID功能
 
 ** 14. 安装Httpd服务（manager节点）
 
-yum install httpd
-service httpd start
-systemctl enable httpd.service 设置httpd服务开机自启
+#+begin_src shell
+  yum install httpd
+  service httpd start
+  systemctl enable httpd.service # 设置httpd服务开机自启
+#+end_src
 
 ** 15. 安装createrepo（manager节点）
-yum install createrepo
+
+#+begin_src shell
+  yum install createrepo
+#+end_src
 
 ** 16. 配置Cloudera Manager包yum源（manager节点）
-mkdir -p /var/www/html/cloudera-repos/
+
+#+begin_src shell
+  mkdir -p /var/www/html/cloudera-repos/
+#+end_src
 将下载的cm包文件移到此目录下:
-mv cm6 /var/www/html/cloudera-repos/
-cd /var/www/html/cloudera-repos/cm6/
+
+#+begin_src shell
+  mv cm6 /var/www/html/cloudera-repos/
+  cd /var/www/html/cloudera-repos/cm6/
+#+end_src
+
 创建repodata：
-createrepo /var/www/html/cloudera-repos/cm6
+
+#+begin_src shell
+  createrepo /var/www/html/cloudera-repos/cm6
+#+end_src
+
 则会在该目录下生成repodata
 
-vim /etc/yum.repos.d/cloudera-manager.repo
+#+begin_src conf
+  # vim /etc/yum.repos.d/cloudera-manager.repo
 
-[cloudera-manager]
-name=Cloudera Manager, Version
-baseurl=http://10.0.0.73/cloudera-repos/cm6/
-enable=true
-gpgcheck=false
-
+  [cloudera-manager]
+  name=Cloudera Manager, Version
+  baseurl=http://10.0.0.73/cloudera-repos/cm6/
+  enable=true
+  gpgcheck=false
+#+end_src
 
 注意路径：http://10.0.0.73/cloudera-repos/cm6/
 
 将该配置复制到其他节点
-scp /etc/yum.repos.d/cloudera-manager.repo bitest002:/etc/yum.repos.d
 
-yum clean all
-yum makecache
+#+begin_src shell
+  scp /etc/yum.repos.d/cloudera-manager.repo bitest002:/etc/yum.repos.d
+
+  yum clean all
+  yum makecache
+#+end_src
 
 ** 17. 安装 Cloudera Manager（manager节点）
 
-yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server --skip-broken --nogpgcheck
+#+begin_src shell
+  yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server --skip-broken --nogpgcheck
 
-yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server
+  yum install cloudera-manager-daemons cloudera-manager-agent cloudera-manager-server
+#+end_src
 
 安装完CM后/opt/ 下会出现cloudera目录
-mv /opt/parcels/* /opt/cloudera/parcel-repo # 将parcel包移动到指定位置
+
+#+begin_src shell
+  mv /opt/parcels/* /opt/cloudera/parcel-repo # 将parcel包移动到指定位置
+#+end_src
+
 在/opt/cloudera/parcel-repo执行以下命令：
-sha1sum CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel | awk '{ print $1 }' > CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha
+
+#+begin_src shell
+  sha1sum CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel | awk '{ print $1 }' > CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha
+#+end_src
 
 执行初始化脚本:
 
-/opt/cloudera/cm/schema/scm_prepare_database.sh -h172.16.0.122 mysql scm scm 123456
+#+begin_src shell
+  /opt/cloudera/cm/schema/scm_prepare_database.sh -h172.16.0.122 mysql scm scm 123456
+#+end_src
 
 172.16.0.122为mysql所在IP
 
@@ -469,11 +502,22 @@ service cloudera-scm-server start
 3. Install Agents时有可能会失败，一般为网络原因，多重试几次直到成功。
 
 #+begin_src shell
-  curl -X POST -u admin:adminbi123 -i --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{}' 'http://10.0.0.73:7180/api/v32/clusters/Cluster_1/services/impala/roles/impala-IMPALAD-d38eb94f83ef28f6c8dcdc71601ab2b4/roleCommands/stop'
+  curl -X POST -u admin:adminbi123 -i \
+      --header 'Content-Type: application/json' \
+      --header 'Accept: application/json' \
+      -d '{}' \
+      'http://10.0.0.73:7180/api/v32/clusters/Cluster_1/services/impala/roles/impala-IMPALAD-d38eb94f83ef28f6c8dcdc71601ab2b4/roleCommands/stop'
 
-  curl -X GET -u admin:adminbi123 -i --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{}' 'http://10.0.0.73:7180/api/v32/clusters/Cluster_1/services/impala/commandsByName'
+  curl -X GET -u admin:adminbi123 -i \
+      --header 'Content-Type: application/json' \
+      --header 'Accept: application/json' \
+      -d '{}' \
+      'http://10.0.0.73:7180/api/v32/clusters/Cluster_1/services/impala/commandsByName'
 
 
-  curl -X POST -u admin:adminbi123 -i --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{}' 'http://10.0.0.73:7180/api/v32/clusters/Cluster_1/services/impala/roleCommands/restart'
-  http://cm_server_host:7180/api/v32/clusters/clusterName/services/serviceName/roles
+  curl -X POST -u admin:adminbi123 -i \
+      --header 'Content-Type: application/json' \
+      --header 'Accept: application/json' \
+      -d '{}' \
+      'http://10.0.0.73:7180/api/v32/clusters/Cluster_1/services/impala/roleCommands/restart'
 #+end_src
