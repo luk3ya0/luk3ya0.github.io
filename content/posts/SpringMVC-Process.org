@@ -4,7 +4,11 @@ date: 2020-01-12T20:27:56+08:00
 draft: false
 ---
 
+[[/spring/10-0.png]]
+
 ** Spring MVC Process Overview
+
+上图是 Spring 与 Servlet 交互的大体概览, 但是 The devil is in the details. DispatcherServlet 分发了请求之后的细节满满, 下面尝试深入 Spring MVC 的源码, 理解一下 Spring MVC 流程原理.
 
 *** Spring MVC Process
 
