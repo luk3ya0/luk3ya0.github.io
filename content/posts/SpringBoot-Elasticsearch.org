@@ -81,9 +81,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
       private Integer connectionRequestTimeout;
 
       /**
-       ,* 初始化客户端
-       ,* @return
-       ,*/
+       * 初始化客户端
+       * @return
+       */
       @Bean(name = "restHighLevelClient")
       public RestHighLevelClient restClientBuilder() {
           HttpHost[] hosts = Arrays.stream(address.split(","))
@@ -110,10 +110,10 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
       /**
-       ,* 根据配置创建HttpHost
-       ,* @param s
-       ,* @return
-       ,*/
+       * 根据配置创建HttpHost
+       * @param s
+       * @return
+       */
       private HttpHost buildHttpHost(String s) {
           String[] address = s.split(":");
           if (address.length == ADDRESS_LENGTH) {
@@ -126,9 +126,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
       }
 
       /**
-       ,* 构建认证服务
-       ,* @return
-       ,*/
+       * 构建认证服务
+       * @return
+       */
       private CredentialsProvider buildCredentialsProvider(){
           final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
           credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(userName,
@@ -152,9 +152,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
          private RestHighLevelClient client;
 
          /**
-          ,* 创建索引（简单模式）
-          ,* @throws IOException
-          ,*/
+          * 创建索引（简单模式）
+          * @throws IOException
+          */
          @Test
          public void createIndex() throws IOException {
              CreateIndexRequest request = new CreateIndexRequest("cs_index");
@@ -164,10 +164,10 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
          /**
-          ,* 创建索引（复杂模式）
-          ,* 可以直接把对应的文档结构也一并初始化
-          ,* @throws IOException
-          ,*/
+          * 创建索引（复杂模式）
+          * 可以直接把对应的文档结构也一并初始化
+          * @throws IOException
+          */
          @Test
          public void createIndexComplete() throws IOException {
              CreateIndexRequest request = new CreateIndexRequest();
@@ -212,9 +212,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
          private RestHighLevelClient client;
 
          /**
-          ,* 删除索引
-          ,* @throws IOException
-          ,*/
+          * 删除索引
+          * @throws IOException
+          */
          @Test
          public void deleteIndex() throws IOException {
              DeleteIndexRequest request = new DeleteIndexRequest("cs_index1");
@@ -238,9 +238,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
          private RestHighLevelClient client;
 
          /**
-          ,* 查询索引
-          ,* @throws IOException
-          ,*/
+          * 查询索引
+          * @throws IOException
+          */
          @Test
          public void getIndex() throws IOException {
              // 创建请求
@@ -266,9 +266,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
          private RestHighLevelClient client;
 
          /**
-          ,* 检查索引是否存在
-          ,* @throws IOException
-          ,*/
+          * 检查索引是否存在
+          * @throws IOException
+          */
          @Test
          public void exists() throws IOException {
              // 创建请求
@@ -294,9 +294,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
          private RestHighLevelClient client;
 
          /**
-          ,* 查询所有的索引名称
-          ,* @throws IOException
-          ,*/
+          * 查询所有的索引名称
+          * @throws IOException
+          */
          @Test
          public void getAllIndices() throws IOException {
              GetAliasesRequest request = new GetAliasesRequest();
@@ -323,9 +323,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
          private RestHighLevelClient client;
 
          /**
-          ,* 查询索引映射字段
-          ,* @throws IOException
-          ,*/
+          * 查询索引映射字段
+          * @throws IOException
+          */
          @Test
          public void getMapping() throws IOException {
              GetMappingsRequest request = new GetMappingsRequest();
@@ -351,9 +351,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
          private RestHighLevelClient client;
 
          /**
-          ,* 添加索引映射字段
-          ,* @throws IOException
-          ,*/
+          * 添加索引映射字段
+          * @throws IOException
+          */
          @Test
          public void addMapping() throws IOException {
              PutMappingRequest request = new PutMappingRequest();
@@ -404,9 +404,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
          /**
-          ,* 添加文档
-          ,* @throws IOException
-          ,*/
+          * 添加文档
+          * @throws IOException
+          */
          @Test
          public void addDocument() throws IOException {
              // 创建对象
@@ -448,9 +448,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
          /**
-          ,* 更新文档（按需修改）
-          ,* @throws IOException
-          ,*/
+          * 更新文档（按需修改）
+          * @throws IOException
+          */
          @Test
          public void updateDocument() throws IOException {
              // 创建对象
@@ -489,9 +489,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
          /**
-          ,* 删除文档
-          ,* @throws IOException
-          ,*/
+          * 删除文档
+          * @throws IOException
+          */
          @Test
          public void deleteDocument() throws IOException {
              // 创建索引,即获取索引
@@ -523,9 +523,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
          /**
-          ,* 查询文档是不是存在
-          ,* @throws IOException
-          ,*/
+          * 查询文档是不是存在
+          * @throws IOException
+          */
          @Test
          public void exists() throws IOException {
              // 创建索引,即获取索引
@@ -554,9 +554,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
          /**
-          ,* 通过ID，查询指定文档
-          ,* @throws IOException
-          ,*/
+          * 通过ID，查询指定文档
+          * @throws IOException
+          */
          @Test
          public void getById() throws IOException {
              // 创建索引,即获取索引
@@ -585,9 +585,9 @@ SpringBoot 连接 ElasticSearch，主流的 有以下四种
 
 
          /**
-          ,* 批量添加文档
-          ,* @throws IOException
-          ,*/
+          * 批量添加文档
+          * @throws IOException
+          */
          @Test
          public void batchAddDocument() throws IOException {
              // 批量请求
