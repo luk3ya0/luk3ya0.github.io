@@ -44,11 +44,13 @@ RHEL7：/etc/hostname  cdh01
 {{</code>}}
 
 1. 检查硬盘设备是否有数据盘
+
    {{< code language="shell" >}}
      fdisk -l
    {{</code>}}
 
 2. 数据硬盘分区
+
    {{< code language="shell" >}}
      fdisk /dev/vdb
    {{</code>}}
@@ -56,15 +58,25 @@ RHEL7：/etc/hostname  cdh01
    依次输入 n , p,  1.  回车, 回车, wq
 
    当容量大于2T时需要使用GPT分区：使用 parted 建立大小超过2T的分区
-　　1，parted /dev/vdb
+
+　　1. parted /dev/vdb
+
 　　可以输入p打印磁盘信息，查看分区的情况，找到起始和结束位置。
-　　2，mklabel gpt
+
+　　2. mklabel gpt
+
 　　设置分区类型为gpt
-　　3，mkpart primary 0% 100%
+
+　　3. mkpart primary 0% 100%
+
 　　primary指分区类型为主分区，0是分区开始位置，100%是分区结束位置。相同的命令为：mkpart primary 0-1 或者是：mkpart ?primary 0 ?XXXXXX结束的空间
-　　4，print
+
+　　4. print
+
 　　打印当前分区,查看分区设置是否正确
-　　5，quit
+
+　　5. quit
+
 　　完成后用quit命令退出。
 
 3. ext4 格式化硬盘
