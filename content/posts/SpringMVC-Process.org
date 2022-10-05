@@ -10,40 +10,40 @@ draft: false
 
 Spring MVC 框架整体的请求流程如图所示, 该图显示了用户从请求到响应的完整流程.
 
-1. Client request 请求, 该请求被 DispatcherServlet 处理.
+(1) Client request 请求, 该请求被 DispatcherServlet 处理.
 
-2. DispatcherServlet 请求 HandlerMapping 查找 Handler.
+(2) DispatcherServlet 请求 HandlerMapping 查找 Handler.
 
-3. HandlerMapping 根据配置查找相关的 HandlerExecutionChain, 返回给 DispatcherServlet.
+(3) HandlerMapping 根据配置查找相关的 HandlerExecutionChain, 返回给 DispatcherServlet.
 
-4. DispatcherServlet 请求 HandlerAdapter 执行相应的 Handler (或称为 Controller).
+(4) DispatcherServlet 请求 HandlerAdapter 执行相应的 Handler (或称为 Controller).
 
-5. HandlerAdapter 执行 Handler.
+(5) HandlerAdapter 执行 Handler.
 
-6. Handler 执行完毕后会返回 ModelAndView 给 HandlerAdapter.
+(6) Handler 执行完毕后会返回 ModelAndView 给 HandlerAdapter.
 
 #+caption: Spring MVC 框架整体的请求流程
 [[/spring/10-1.png]]
 
-7. HandlerAdapter 接收到 Handler 返回的 ModelAndView 后, 将其返回给 DispatcherServlet.
+(7) HandlerAdapter 接收到 Handler 返回的 ModelAndView 后, 将其返回给 DispatcherServlet.
 
-8. DispatcherServlet 接收到 ModelAndView 对象后, 请求 ViewResolver 对视图进行解析.
+(8) DispatcherServlet 接收到 ModelAndView 对象后, 请求 ViewResolver 对视图进行解析.
 
-9. ViewResolver 根据 View 信息匹配相应的视图结果, 返回给 DispatcherServlet.
+(9) ViewResolver 根据 View 信息匹配相应的视图结果, 返回给 DispatcherServlet.
 
-10. DispatcherServlet 收到 View 后, 对视图进行渲染, 将 Model 中的模型数据填充到 View 视图中的 request 域, 生成最终的视图.
+(10) DispatcherServlet 收到 View 后, 对视图进行渲染, 将 Model 中的模型数据填充到 View 视图中的 request 域, 生成最终的视图.
 
-11. DispatcherServlet 返回请求结果给 Client.
+(11) DispatcherServlet 返回请求结果给 Client.
 
 HandlerAdapter 执行 Handler(或称为 Controller) 的过程中, Spring 还做了一些额外的工作, 具体如图所示.
 
-- HttpMessageConverter: 将请求信息, 比如: JSON, XML 等数据转换成一个对象, 并将对象转换为指定的响应信息.
+- HttpMessageConverter :: 将请求信息, 比如: JSON, XML 等数据转换成一个对象, 并将对象转换为指定的响应信息.
 
-- Data Coversion：对请求的信息进行转换, 比如, String 转换为 Integerx Double 等.
+- Data Coversion :: 对请求的信息进行转换, 比如, String 转换为 Integerx Double 等.
 
-- Data Format：对请求消息进行数据格式化, 比如字符串转换为格式化数据或者格式化日期等.
+- Data Format ::  对请求消息进行数据格式化, 比如字符串转换为格式化数据或者格式化日期等.
 
-- Data Validation：验证请求数据的有效性, 并将验证的结果存储到 BindingResult 或 Error 中.
+- Data Validation :: 验证请求数据的有效性, 并将验证的结果存储到 BindingResult 或 Error 中.
 
 #+caption: 数据转换, 格式化, 校验
 [[/spring/10-2.png]]
@@ -165,7 +165,7 @@ DispatcherServlet 装配的组件, 具体内容如下所示:
 
 处理映射器 HandlerMapping 是指请求到处理器的映射时, 允许有多个实例. 如果映射成功返回一个 HandlerExecutionChain 对象(包含一个 Handler 处理器［页面控制器］对象, 多个 Handlerinterceptor 拦截器) 对象. Spring MVC 提供了多个处理映射器 HandlerMapping 实现类, 下面分别进行说明.
 
-1. BeanNamellrlHandlerMapping
+(1) BeanNamellrlHandlerMapping
 
 BeanNameUrlHandlerMapping 是默认映射器, 在不配置的情况下, 默认就使用这个类来映射请求. 其映射规则是根据请求的 URL 与 Spring 容器中定义的处理器 bean 的 name 属性值进行匹配, 从而在 Spring 容器中找到 Handler (处理器) 的 bean 实例.
 
@@ -177,7 +177,7 @@ BeanNameUrlHandlerMapping 是默认映射器, 在不配置的情况下, 默认�
         class="self.defined.Controller"></bean>
 #+end_src
 
-2. SimplellrlHandlerMapping
+(2) SimplellrlHandlerMapping
 
 SimpleUrlHandlerMapping 根据浏览器 URL 匹配 prop 标签中的 key, 通过 key 找到对应的 Controller.
 
@@ -202,7 +202,7 @@ SimpleUrlHandlerMapping 根据浏览器 URL 匹配 prop 标签中的 key, 通过
 
 Spring MVC 提供了多个处理适配器(HandlerAdapter) 实现类, 分别说明如下.
 
-1. SimpleControllerHandlerAdapter
+(1) SimpleControllerHandlerAdapter
 
 SimpleControllerHandlerAdapter 支持所有实现 Controller 接口的 Handler 控制器, 是 Controller 实现类的适配器类, 其本质是执行 Controller 类中的 handleRequest 方法. SimpleControllerHandlerAdapter 的源码如下:
 
@@ -247,7 +247,7 @@ Controller 接口的定义也很简单, 仅仅定义了一个 handleRequest 方�
   }
 #+end_src
 
-2. HttpRequestHandlerAdapter
+(2) HttpRequestHandlerAdapter
 
 HttpRequestHandlerAdapter 本质是调用 HttpRequestHandler 的 handleRequest 方法, 请看下述代码示例:
 
@@ -292,7 +292,7 @@ HttpRequestHandlerAdapter 本质是 HttpRequestH andl er 的适配器, 最终调
   }
 #+end_src
 
-3. RequestMappingHandlerAdapter
+(3) RequestMappingHandlerAdapter
 
 RequestMappingHandlerAdapter 其父类是 AbstractHandlerMethodAdapter 抽象类, AbstractHandlerMethodAdapter 只是简单地实现了 HandlerAdapter 中定义的接口, 最终还是在 RequestMappingHandlerAdapter 中对代码进行实现的, AbstractHandlerMethodAdapter 中增加了执行顺序 Order, 具体如图所示.
 
@@ -633,11 +633,11 @@ ViewResoIver 是 Spring MVC 处理流程中的最后一个环节, Spring MVC 流
 
 SpringMVC 的视图解析流程为:
 
-1. SpringMVC 调用目标方法, 将目标方法返回的 String, View, ModelMap 或 ModelAndView 都转换为一个 Model And View 对象.
+(1) SpringMVC 调用目标方法, 将目标方法返回的 String, View, ModelMap 或 ModelAndView 都转换为一个 Model And View 对象.
 
-2. 通过视图解析器 ViewResoIver 将 ModelAndView 对象中的 View 对象进行解析, 将逻辑视图 View 对象解析为一个物理视图 View 对象.
+(2) 通过视图解析器 ViewResoIver 将 ModelAndView 对象中的 View 对象进行解析, 将逻辑视图 View 对象解析为一个物理视图 View 对象.
 
-3. 调用物理视图 View 对象的 render() 方法进行视图渲染, 得到响应结果.
+(3) 调用物理视图 View 对象的 render() 方法进行视图渲染, 得到响应结果.
 
 *** Usual ViewResolver
 
@@ -648,7 +648,7 @@ SpringMVC 提供很多视图解析器类, 具体如图所示.
 
 下面介绍一些常用的视图解析器类. 除了上图所示的 resolver 之外, 还有 GroovyMarkupViewResolver, TilesViewResolver, 不过那些暂时不考虑, 所以先行省略了.
 
-1. ViewResolver
+(1) ViewResolver
 
 ViewResolver 是所有视图解析器的父类, 具体源码如下:
 
@@ -663,11 +663,11 @@ ViewResolver 是所有视图解析器的父类, 具体源码如下:
 
 ViewResolver 的主要作用是把一个逻辑上的视图名称解析为一个真正的视图, 然后通过 View 对象进行渲染.
 
-2. AbstractCachingViewResolver
+(2) AbstractCachingViewResolver
 
 抽象类, 这种视图解析器会把解析过的视图保存起来, 然后在每次解析视图时先从缓存里面查找, 如果找到了对应的视图就直接返回, 如果没有找到就创建一个新的视图对象, 然后把它存放到用于缓存的 Map 中, 接着再把新建的视图返回. 使用这种视图缓存的方式可以把解析视图的性能问题降到最低.
 
-3. UrlBasedViewResolver
+(3) UrlBasedViewResolver
 
 该类继承了 AbstractCachingViewResolver, 主要是提供一种拼接 URL 的方式来解析视图, 它可以通过 prefix 属性指定的前缀, 通过 suffix 属性指定后缀, 然后把返回的逻辑视图名称加上指定的前缀和后缀就是指定的视图 URL 了. 如 prefix=/WEB-INF/jsps/, suffix=.jsp, 返回的视图名称 viewName=test/indx, 贝 U UrlBasedViewResolver 解析出来的视图 URL 就是 AVEB-INF/jsps/test/index.jsp, 默认的 prefix 和 suffix 都是空串.
 
@@ -685,7 +685,7 @@ URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这�
 
 上述代码中, 当返回的逻辑视图名称为 test 时, UrlBasedViewResolver 将逻辑视图名称加上定义好的前缀和后缀, 即 "/WEB.INF/test.jsp", 然后新建一个 viewClass 属性指定的视图类型予以返回, 即返回一个 URL 为"/WEB-INF/test.jsp" 的 InternalResourceView 对象.
 
-4. InternalResourceViewResolver
+(4) InternalResourceViewResolver
 
 该类是 URLBasedViewResolver 的子类, 所以 URLBasedViewResolver 支持的特性它都支持. InternalResourceViewResolver 是使用最广泛的一个视图解析器. 可以把 InternalResourceViewResolver 解释为内部资源视图解析器, InternalResourceViewResolver 会把返回的视图名称都解析为 InternalResourceView 对象, InternalResourceView 会把 Controller 处理器方法返回的模型属性都存放到对应的 request 属性中, 然后通过 RequestDispatcher 在服务器端把请求 forword 重定向到目标 URL. 比如在 InternalResourceViewResolver 中定义了 prefix=AVEB-INF/, suffix=.jsp, 然后请求的 Controller 处理器方法返回的视图名称为 test, 那么这个时候 InternalResourceViewResolver 就会把 test 解析为一个 InternalResourceView 对象, 先把返回的模型属性都存放到对应的 HttpServletRequest 属性中, 然后利用 RequestDispatcher 在服务器端把请求 forword 到 /WEB-INF/test.jsp. 这就是 InternalResourceViewResolver 一个非常重要的特性.
 
@@ -693,7 +693,7 @@ URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这�
 
 上述代码是一个 InternalResourceViewResolver 的定义, 根据该定义当返回的逻辑视图名称是 test 的时候, InternalResourceViewResolver 会给它加上定义好的前缀和后缀, 组成 "/WEB-INF/test.jsp" 的形式, 然后把它当做一个 InternalResourceView 的 URL 新建一个 InternalResourceView 对象返回.
 
-5. XmlViewResolver
+(5) XmlViewResolver
 
 在实验的环境 (5.3.22) 中这个解析器已经被标了 deprecated. 但还是说一些老的吧.
 
@@ -734,7 +734,7 @@ URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这�
 
 当访问上面定义好的 index 方法的时候返回的逻辑视图名称为 "index", 这时候 Spring MVC 会从 views.xml 配置文件中寻找 id 或者 name 为 "index" 的 bean 对象予以返回, 这里 Spring 找到的是一个 URL 为 "/index.jsp" 的 InternalResourceView 对象, 然后进行视图解析, 将最终的视图页面显示给用户.
 
-6. BeanNameViewResolver
+(6) BeanNameViewResolver
 
 这个视图解析器跟 XmlViewResolver 有点类似, 也是通过把返回的逻辑视图名称匹配定义好的视图 bean 对象. 主要的区别有两点:
 
@@ -756,7 +756,7 @@ URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这�
 
 上述代码中, 在 Spring MVC 的配置文件中定义了一个 BeanNameViewResolver 视图解析器和一个 id 为 test 的 InternalResourceView bean 对象. 这样当返回的逻辑视图名称为 test 时, 就会解析为上面定义好的 id 为 test 的 InternalResourceView 对象, 然后跳转到 index.jsp 页面.
 
-7. ResourceBundleViewResolver
+(7) ResourceBundleViewResolver
 
 该类也是继承自 AbstractCaching ViewResolver 类, 但是它缓存的不是视图. 和 XmlViewResolver 一样, 它也需要有一个配置文件来定义逻辑视图名称和真正的 View 对象的对应关系, 不同的是 ResourceBundleViewResolver 的配置文件是一个属性文件, 而且必须是放在 classpath 路径下面的, 默认情况下这个配置文件是在 classpath 根目录下的 views.properties 文件, 如果不使用默认值, 则可以通过属性 baseName 或 baseNames 来指定. baseName R 是指定一个基名称, Spring 会在指定的 classpath 根目录下寻找已指定的 baseName 开始的属性文件进行 View 解析, 如指定的 baseName 是 base, 那么 base.properties, baseabc.properties 等以 base 开始的属性文件都会被 Spring 当做 ResourceBundleViewResolver 解析视图的资源文件. ResourceBundleViewResolver 使用的属性配置文件的内容类似于这样:
 
@@ -784,7 +784,7 @@ URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这�
   </bean>
 #+end_src
 
-8. FreeMarkerViewResolver
+(8) FreeMarkerViewResolver
 
 FreeMarkerViewResolver 是 UrlBasedViewResolver 的一个子类, 它会把 Controller 处理方法返回的逻辑视图解析为 FreeMarkerViewo FreeMarkerViewResolver 会按照 UrlBasedViewResolver 拼接 URL 的方式进行视图路径的解析, 但是使用 FreeMarkerViewResolver 的时候不需要指定其 viewClass, 因为 FreeMarkerViewResolver 中已经把 viewClass 定死为 FreeMarkerView 了. 先在 Spring MVC 的配置文件里面定义一个 FreeMarkerViewResolver 视图解析器, 并定义其解析视图的 order 顺序为 1, 代码示例如下:
 
