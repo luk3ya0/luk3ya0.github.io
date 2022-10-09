@@ -1,0 +1,3826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-10-09 Sun 18:20 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Luke Yao" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="https://tecosaur.com/resources/org/nib.ico" type="image/ico" />
+
+<!-- HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+<script>
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+window.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById("text-table-of-contents")) {
+        const sections = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        const activate = (entry) => {
+            entry.classList.add('active');
+            if (["LI", "UL"].includes(entry.parentElement.tagName)) {
+                activate(entry.parentElement);
+            }
+        };
+        const activateLast = () => {
+            document.querySelectorAll('#text-table-of-contents li.active, #text-table-of-contents ul.active').forEach(a => {
+                a.classList.remove('active')
+            });
+            let mostRecent = { section: sections[0], bottom: -Infinity };
+            const windowHeight = window.innerHeight;
+            sections.forEach((section) => {
+                const bounds = section.getBoundingClientRect()
+                if ( bounds.bottom > mostRecent.bottom && bounds.top < windowHeight ) {
+                    mostRecent = { section, bottom: bounds.bottom };
+                }
+            })
+            activate(document.querySelector(`#text-table-of-contents li a[href="#${mostRecent.section.getAttribute('id')}"]`).parentElement);
+        }
+        const observer = new IntersectionObserver(entries => {
+            activateLast();
+        });
+        sections.forEach((section) => {
+            observer.observe(section);
+        });}
+});
+
+function copyPreToClipbord(btn) {
+    const pre = btn.parentElement.parentElement.getElementsByTagName("PRE")[0];
+    const range = document.createRange();
+    range.selectNodeContents(pre);
+    range.setEnd(pre.childNodes[pre.childNodes.length-1], 0);
+    window.getSelection().addRange(range);
+    var successful = document.execCommand('copy');
+    window.getSelection().removeRange(range);
+}
+window.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById("text-table-of-contents")) {
+        const sections = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        const activate = (entry) => {
+            entry.classList.add('active');
+            if (["LI", "UL"].includes(entry.parentElement.tagName)) {
+                activate(entry.parentElement);
+            }
+        };
+        const activateLast = () => {
+            document.querySelectorAll('#text-table-of-contents li.active, #text-table-of-contents ul.active').forEach(a => {
+                a.classList.remove('active')
+            });
+            let mostRecent = { section: sections[0], bottom: -Infinity };
+            const windowHeight = window.innerHeight;
+            sections.forEach((section) => {
+                const bounds = section.getBoundingClientRect()
+                if ( bounds.bottom > mostRecent.bottom && bounds.top < windowHeight ) {
+                    mostRecent = { section, bottom: bounds.bottom };
+                }
+            })
+            activate(document.querySelector(`#text-table-of-contents li a[href="#${mostRecent.section.getAttribute('id')}"]`).parentElement);
+        }
+        const observer = new IntersectionObserver(entries => {
+            activateLast();
+        });
+        sections.forEach((section) => {
+            observer.observe(section);
+        });}
+});
+// @license-end
+</script>
+<style>
+@charset "UTF-8";
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: "Fira Code";
+    margin: 0;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+b {
+    font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+small {
+    font-size: 1em;
+}
+
+sub,
+sup {
+    font-size: 1em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 1em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button {
+    -webkit-appearance: button;
+}
+
+button::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+button:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+details {
+    display: block;
+}
+
+summary {
+    display: list-item;
+}
+
+@media (prefers-color-scheme: dark) {
+    #theme-switch:checked ~ #page {
+        --accent: #002642;
+        --accent-dark: #00151c;
+        --code-foreground: #2c3e50;
+        --code-background: #efefef;
+        --code-func: #6c3163;
+        --code-const: #4e3163;
+        --code-regex: #655370;
+        --back-white: #fff;
+        --back-light: #f0eeed;
+        --back-medium: #c8c8c8;
+        --text-light: #7b7b7b;
+        --text-gray: #444;
+        --text-medium: #222;
+        --text-dark: #000;
+        --switch-icon: "🌚";
+        --switch-shadow-color: #373d4e;
+        --switch-text: "dark mode?";
+    }
+
+    #theme-switch:checked ~ #page img.invertible, #theme-switch:checked ~ #page object[type="image/svg+xml"].invertible {
+        filter: none;
+    }
+
+    #page {
+        --accent: #002642;
+        --accent-dark: #daf1ff;
+        --code-foreground: #a1a8ae;
+        --code-background: #222;
+        --code-func: #bd56ad;
+        --code-const: #8755ab;
+        --code-regex: #a184b3;
+        --back-white: #000;
+        --back-light: #181818;
+        --back-medium: #444;
+        --text-light: #7b7b7b;
+        --text-gray: #c8c8c8;
+        --text-medium: #ddd;
+        --text-dark: #efefef;
+        --switch-icon: "🌝";
+        --switch-shadow-color: #fce477;
+        --switch-text: "light mode?";
+    }
+
+    #page img.invertible, #page object[type="image/svg+xml"].invertible {
+        filter: invert(90%) hue-rotate(180deg) sepia(1%);
+    }
+}
+
+/*! end normalise.css */
+@media (prefers-color-scheme: light) {
+    #page {
+        --accent: #002642;
+        --accent-dark: #00151c;
+        --code-foreground: #2c3e50;
+        --code-background: #efefef;
+        --code-func: #6c3163;
+        --code-const: #4e3163;
+        --code-regex: #655370;
+        --back-white: #fff;
+        --back-light: #f0eeed;
+        --back-medium: #c8c8c8;
+        --text-light: #7b7b7b;
+        --text-gray: #444;
+        --text-medium: #222;
+        --text-dark: #000;
+        --switch-icon: "🌚";
+        --switch-shadow-color: #373d4e;
+        --switch-text: "dark mode?";
+    }
+
+    #theme-switch:checked ~ #page {
+        --accent: #002642;
+        --accent-dark: #daf1ff;
+        --code-foreground: #a1a8ae;
+        --code-background: #222;
+        --code-func: #bd56ad;
+        --code-const: #8755ab;
+        --code-regex: #a184b3;
+        --back-white: #000;
+        --back-light: #181818;
+        --back-medium: #444;
+        --text-light: #7b7b7b;
+        --text-gray: #c8c8c8;
+        --text-medium: #ddd;
+        --text-dark: #efefef;
+        --switch-icon: "🌝";
+        --switch-shadow-color: #fce477;
+        --switch-text: "light mode?";
+    }
+
+    #theme-switch:checked ~ #page img.invertible, #theme-switch:checked ~ #page object[type="image/svg+xml"].invertible {
+        filter: invert(90%) hue-rotate(180deg) sepia(1%);
+    }
+}
+
+#theme-switch {
+    display: none;
+}
+
+#switch-label {
+    position: fixed;
+    bottom: 4rem;
+    left: 3rem;
+}
+
+#switch-label::before {
+    content: var(--switch-icon);
+    font-size: 1em;
+    transition: text-shadow .2s;
+}
+
+#switch-label::after {
+    content: var(--switch-text);
+    color: var(--switch-shadow-color);
+    font-size: 1em;
+    visibility: hidden;
+    margin-left: 0.5em;
+    z-index: 1;
+    position: fixed;
+    bottom: calc(4rem - 25px);
+    left: calc(3rem - 10px);
+}
+
+@media (max-width: 1000px) {
+    #switch-label {
+        left: auto;
+        bottom: auto;
+        right: 1vw;
+        top: 1vh;
+    }
+
+    #switch-label::after {
+        position: fixed;
+        top: calc(1vh + 3px);
+        right: calc(1vw + 30px);
+        left: auto;
+        bottom: auto;
+    }
+}
+
+#theme-switch:focus ~ #page #switch-label::before,
+#switch-label:hover::before {
+    text-shadow: 0 0 15px var(--switch-shadow-color);
+}
+
+#theme-switch:focus ~ #page #switch-label::after,
+#switch-label:hover::after {
+    visibility: visible;
+}
+
+*::selection {
+    background: var(--back-medium);
+}
+
+.pace .pace-progress {
+    background-color: var(--accent) !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--back-light);
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+}
+
+#page {
+    color: var(--text-dark);
+    background-color: var(--back-light);
+    transition-property: color, background-color;
+    transition-duration: 100ms;
+}
+
+#content, header, .page-header {
+    margin: 32px;
+    flex: 1 0 auto;
+}
+
+#content {
+    margin: 0 auto;
+    margin-top: 4rem;
+    min-height: calc(100vh - 4rem - 48px);
+}
+
+#content p {
+    line-height: 2 !important;
+}
+
+div#content {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix::before, .clearfix::after {
+    content: " ";
+    display: table;
+}
+
+.page-header {
+    margin-top: 80px;
+    margin-left: 0 !important;
+}
+
+.page-header h1 {
+    font-size: 1em;
+    text-transform: none;
+}
+
+.page-header .subtitle {
+    font-size: 1em;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.page-meta {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+header .site-nav {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+    font-weight: bold;
+    line-height: 2.0;
+    margin-top: 22px;
+}
+
+header .site-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header .site-nav a:hover {
+    color: var(--text-gray);
+}
+
+header .site-nav a.active {
+    border-bottom: solid;
+    border-bottom-width: 2px;
+}
+
+header .site-nav a:first-child {
+    margin-left: 0;
+}
+
+header > div {
+    display: inherit;
+}
+
+.site-title {
+    font-size: 1em;
+}
+
+.site-title span {
+    display: none !important;
+}
+
+.site-title ul {
+    display: block !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-title ul img {
+    border-radius: 2px;
+    max-width: 32px;
+}
+
+.site-header nav a {
+    color: var(--text-light);
+    font-family: "Fira Code", sans;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.site-header nav a:hover {
+    border: 0;
+    color: var(--accent);
+}
+
+@media (max-width: 1000px) {
+    header * {
+        display: inline;
+    }
+}
+
+@media (min-width: 1000px) {
+    #content, header, .page-header {
+        max-width: 720px;
+        margin-left: 164px;
+    }
+
+    header .site-title {
+        float: left;
+    }
+
+    header .site-nav {
+        float: right;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 2800px) {
+    #content, header, .page-header {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#content .page-intro {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+#content p, #content li, #content dd {
+    line-height: 2;
+    margin-top: 0;
+}
+
+#footer {
+    margin-top: 70px;
+    height: 10px;
+    background: var(--accent-dark);
+}
+
+.archive-item {
+    margin: 50px 0;
+}
+
+.archive-item .archive-title {
+    font-size: 1em;
+    margin: 5px 0;
+    background: none;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+.archive-item .archive-title:hover {
+    background: none;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+#postamble {
+    display: none;
+}
+
+aside {
+    background-color: var(--code-background);
+    border-radius: 5px;
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin: 20px 0;
+    padding: 5px 20px 10px;
+    line-height: 1.6 !important;
+}
+
+aside p {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+    line-height: 1.6 !important;
+}
+
+aside pre {
+    font-size: 1em;
+    border: none;
+    padding-left: 0;
+}
+
+@media (min-width: 1280px) {
+    aside {
+        float: right;
+        clear: right;
+        background-color: var(--back-white);
+        max-width: 45% !important;
+        margin-right: -52%;
+    }
+
+    aside::before {
+        content: '';
+    }
+}
+
+blockquote {
+    border-width: 0;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: var(--back-medium);
+    margin: 20px 0;
+    padding: 0;
+    padding-left: 15px;
+}
+
+blockquote p {
+    display: inline;
+    font-size: 1em;
+}
+
+blockquote footer {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+    text-transform: none;
+}
+
+div.info {
+    background: rgba(58, 129, 195, 0.15);
+    border-left: 4px solid rgba(58, 129, 195, 0.45);
+    margin: 1.8rem 0 1.25rem 15px;
+    padding: 0.8em;
+    line-height: 1.4;
+    text-align: center;
+    position: relative;
+    clear: both;
+}
+
+div.info p {
+    margin: 0;
+}
+
+div.info::before {
+    content: "i";
+    color: var(--back-white);
+    background: rgba(58, 129, 195, 0.8);
+    align-items: flex-end;
+    top: -1rem;
+    font-weight: 700;
+    font-size: 1em;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    position: absolute;
+    left: -1.2rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+div.success {
+    background: rgba(45, 149, 116, 0.15);
+    border-left: 4px solid rgba(45, 149, 116, 0.45);
+    margin: 1.8rem 0 1.25rem 15px;
+    padding: 0.8em;
+    line-height: 1.4;
+    text-align: center;
+    position: relative;
+    clear: both;
+}
+
+div.success p {
+    margin: 0;
+}
+
+div.success::before {
+    content: "✔";
+    color: var(--back-white);
+    background: rgba(45, 149, 116, 0.8);
+    align-items: flex-end;
+    top: -1rem;
+    font-weight: 700;
+    font-size: 1em;
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    position: absolute;
+    left: -1.2rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+div.warning {
+    background: rgba(220, 117, 47, 0.15);
+    border-left: 4px solid rgba(220, 117, 47, 0.45);
+    margin: 1.8rem 0 1.25rem 15px;
+    padding: 0.8em;
+    line-height: 1.4;
+    text-align: center;
+    position: relative;
+    clear: both;
+}
+
+div.warning p {
+    margin: 0;
+}
+
+div.warning::before {
+    content: "!";
+    color: var(--back-white);
+    background: rgba(220, 117, 47, 0.8);
+    align-items: flex-end;
+    top: -1rem;
+    font-weight: 700;
+    font-size: 1em;
+    -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    position: absolute;
+    left: -1.2rem;
+    line-height: 1.1;
+    text-align: center;
+}
+
+div.error {
+    background: rgba(186, 47, 89, 0.15);
+    border-left: 4px solid rgba(186, 47, 89, 0.45);
+    margin: 1.8rem 0 1.25rem 15px;
+    padding: 0.8em;
+    line-height: 1.4;
+    text-align: center;
+    position: relative;
+    clear: both;
+}
+
+div.error p {
+    margin: 0;
+}
+
+div.error::before {
+    content: "!";
+    color: var(--back-white);
+    background: rgba(186, 47, 89, 0.8);
+    align-items: flex-end;
+    top: -1rem;
+    font-weight: 700;
+    font-size: 1em;
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    width: 35px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    position: absolute;
+    left: -1.2rem;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.org-ref-bib-h1 {
+    border-width: 0;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: var(--back-light);
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+}
+
+.org-ref-bib {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+}
+
+.org-ref-bib li > a:nth-child(2) {
+    background: none;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+.org-ref-bib li > a:nth-child(2):hover {
+    background: none;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+.org-ref-bib .bib-link {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+    background: none;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+lable {
+    display: block;
+    margin: 1em auto;
+}
+
+pre.src, pre.example {
+    border-width: 0;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: var(--back-medium);
+    margin: 20px 0;
+    padding: 0;
+    padding-left: 15px;
+    font-family: "Fira Code", SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-size: 0.8em;
+    line-height: 1.5;
+    overflow-x: visible;
+    box-shadow: none;
+    position: relative;
+}
+
+pre.example {
+    border-left-style: dotted;
+    border-left-width: 2px;
+}
+
+pre.src::before {
+    display: inline-block;
+    margin-top: 1em;
+    position: absolute;
+    background-color: transparent;
+    top: unset;
+    bottom: -16px;
+    left: 20px;
+    padding: 0px;
+    border: none;
+    font-size: 0.8em;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+pre.src:empty {
+    display: none;
+}
+
+code {
+    font-family: "Fira Code", SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    color: var(--code-foreground);
+    font-size: 1em;
+    padding: 0 5px;
+}
+
+kbd {
+    display: inline-block;
+    padding: 0.25em 0.35em;
+    font: 80% SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-weight: inherit;
+    line-height: normal;
+    line-height: 80%;
+    color: var(--text-gray);
+    vertical-align: middle;
+    background-color: var(--back-light);
+    border: 1px solid #91959a88;
+    border-radius: 0.35em;
+    box-shadow: inset 0 -1px 0 #91959a88;
+}
+
+li code {
+    font-size: 1em;
+}
+
+li p code {
+    font-size: 1em;
+}
+
+details.code {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    position: relative;
+}
+
+details.code summary {
+    position: relative;
+    left: -2.5px;
+    padding-left: 10px;
+    padding-bottom: 4px;
+    margin-left: -10px;
+    z-index: 1;
+    outline: none;
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 0.8em;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+details.code[open] {
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+details.code summary .name {
+    font-size: 1em;
+    color: var(--text-medium);
+    margin-right: 0.7em;
+}
+
+details.code summary .lang {
+    font-family: "Fira Code", SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-style: italic;
+}
+
+details.code summary::marker {
+    color: var(--back-medium);
+}
+
+details.code[open] summary {
+    margin-bottom: -32px;
+}
+
+details.code[open] summary .lang {
+    display: none;
+}
+
+details.code[open] summary.named {
+    margin-bottom: -26px;
+}
+
+details.code:not([open]) summary {
+    margin-bottom: -5px;
+}
+
+.example,
+.src {
+    color: var(--code-foreground);
+}
+
+.example .org-keyword,
+.src .org-keyword {
+    color: #3a81c3;
+}
+
+.example .org-variable-name,
+.src .org-variable-name {
+    color: #715ab1;
+}
+
+.example .org-rainbow-delimiters-depth-1,
+.example .org-rainbow-delimiters-depth-2,
+.example .org-rainbow-delimiters-depth-3,
+.example .org-rainbow-delimiters-depth-4,
+.example .org-rainbow-delimiters-depth-5,
+.example .org-rainbow-delimiters-depth-6,
+.example .org-rainbow-delimiters-depth-7,
+.example .org-rainbow-delimiters-depth-8,
+.example .org-rainbow-delimiters-depth-9,
+.src .org-rainbow-delimiters-depth-1,
+.src .org-rainbow-delimiters-depth-2,
+.src .org-rainbow-delimiters-depth-3,
+.src .org-rainbow-delimiters-depth-4,
+.src .org-rainbow-delimiters-depth-5,
+.src .org-rainbow-delimiters-depth-6,
+.src .org-rainbow-delimiters-depth-7,
+.src .org-rainbow-delimiters-depth-8,
+.src .org-rainbow-delimiters-depth-9 {
+    color: #555555;
+}
+
+.example .org-string,
+.src .org-string {
+    color: #2d9574;
+}
+
+.example .org-comment,
+.example .org-comment-delimiter,
+.src .org-comment,
+.src .org-comment-delimiter {
+    color: #555555;
+}
+
+.example .org-function-name,
+.src .org-function-name {
+    color: var(--code-func);
+}
+
+.example .org-constant,
+.example .org-highlight-numbers-number,
+.src .org-constant,
+.src .org-highlight-numbers-number {
+    color: var(--code-const);
+}
+
+.gutter {
+    position: absolute;
+    top: 0;
+    left: -2.5rem;
+    width: 2rem;
+    padding-right: 0.3rem;
+    padding-top: 5px;
+    height: calc(100% - 10px);
+    z-index: 1;
+    transition: opacity 200ms;
+    opacity: 0;
+    font-size: 1em;
+}
+
+.gutter:hover {
+    opacity: 1;
+}
+
+.gutter * {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+    color: var(--text-light);
+}
+
+.gutter *:hover {
+    color: var(--text-gray);
+}
+
+.gutter *:active {
+    font-weight: bold;
+}
+
+.gutter a {
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.gutter button {
+    background: none;
+    border: none;
+}
+
+/* Languages per Org manual */
+pre.src-asymptote::before {
+    content: 'Asymptote';
+}
+
+pre.src-authinfo::before {
+    content: 'Authinfo';
+}
+
+pre.src-awk::before {
+    content: 'Awk';
+}
+
+pre.src-C::before {
+    content: 'C';
+}
+
+/* pre.src-C++ doesn't work in CSS */
+pre.src-clojure::before {
+    content: 'Clojure';
+}
+
+pre.src-css::before {
+    content: 'CSS';
+}
+
+pre.src-D::before {
+    content: 'D';
+}
+
+pre.src-ditaa::before {
+    content: 'ditaa';
+}
+
+pre.src-dot::before {
+    content: 'Graphviz';
+}
+
+pre.src-calc::before {
+    content: 'Emacs Calc';
+}
+
+pre.src-emacs-lisp::before {
+    content: 'Emacs Lisp';
+}
+
+pre.src-fortran::before {
+    content: 'Fortran';
+}
+
+pre.src-gnuplot::before {
+    content: 'gnuplot';
+}
+
+pre.src-haskell::before {
+    content: 'Haskell';
+}
+
+pre.src-hledger::before {
+    content: 'hledger';
+}
+
+pre.src-java::before {
+    content: 'Java';
+}
+
+pre.src-js::before {
+    content: 'Javascript';
+}
+
+pre.src-latex::before {
+    content: 'LaTeX';
+}
+
+pre.src-ledger::before {
+    content: 'Ledger';
+}
+
+pre.src-lisp::before {
+    content: 'Lisp';
+}
+
+pre.src-lilypond::before {
+    content: 'Lilypond';
+}
+
+pre.src-lua::before {
+    content: 'Lua';
+}
+
+pre.src-matlab::before {
+    content: 'MATLAB';
+}
+
+pre.src-mscgen::before {
+    content: 'Mscgen';
+}
+
+pre.src-ocaml::before {
+    content: 'Objective Caml';
+}
+
+pre.src-octave::before {
+    content: 'Octave';
+}
+
+pre.src-org::before {
+    content: 'Org mode';
+}
+
+pre.src-oz::before {
+    content: 'OZ';
+}
+
+pre.src-plantuml::before {
+    content: 'Plantuml';
+}
+
+pre.src-processing::before {
+    content: 'Processing.js';
+}
+
+pre.src-python::before {
+    content: 'Python';
+}
+
+pre.src-R::before {
+    content: 'R';
+}
+
+pre.src-ruby::before {
+    content: 'Ruby';
+}
+
+pre.src-sass::before {
+    content: 'Sass';
+}
+
+pre.src-scheme::before {
+    content: 'Scheme';
+}
+
+pre.src-screen::before {
+    content: 'Gnu Screen';
+}
+
+pre.src-sed::before {
+    content: 'Sed';
+}
+
+pre.src-sh::before {
+    content: 'shell';
+}
+
+pre.src-sql::before {
+    content: 'SQL';
+}
+
+pre.src-sqlite::before {
+    content: 'SQLite';
+}
+
+/* additional languages in org.el's org-babel-load-languages alist */
+pre.src-forth::before {
+    content: 'Forth';
+}
+
+pre.src-io::before {
+    content: 'IO';
+}
+
+pre.src-J::before {
+    content: 'J';
+}
+
+pre.src-makefile::before {
+    content: 'Makefile';
+}
+
+pre.src-maxima::before {
+    content: 'Maxima';
+}
+
+pre.src-perl::before {
+    content: 'Perl';
+}
+
+pre.src-picolisp::before {
+    content: 'Pico Lisp';
+}
+
+pre.src-scala::before {
+    content: 'Scala';
+}
+
+pre.src-shell::before {
+    content: 'Shell Script';
+}
+
+pre.src-systemd::before {
+    content: 'Systemd';
+}
+
+pre.src-ebnf2ps::before {
+    content: 'ebfn2ps';
+}
+
+/* additional language identifiers per \"defun org-babel-execute\"
+      in ob-*.el */
+pre.src-cpp::before {
+    content: 'C++';
+}
+
+pre.src-abc::before {
+    content: 'ABC';
+}
+
+pre.src-coq::before {
+    content: 'Coq';
+}
+
+pre.src-groovy::before {
+    content: 'Groovy';
+}
+
+/* additional language identifiers from org-babel-shell-names in
+    ob-shell.el: ob-shell is the only babel language using a lambda to put
+    the execution function name together. */
+pre.src-bash::before {
+    content: 'bash';
+}
+
+pre.src-csh::before {
+    content: 'csh';
+}
+
+pre.src-ash::before {
+    content: 'ash';
+}
+
+pre.src-dash::before {
+    content: 'dash';
+}
+
+pre.src-ksh::before {
+    content: 'ksh';
+}
+
+pre.src-mksh::before {
+    content: 'mksh';
+}
+
+pre.src-posh::before {
+    content: 'posh';
+}
+
+/* Additional Emacs modes also supported by the LaTeX listings package */
+pre.src-ada::before {
+    content: 'Ada';
+}
+
+pre.src-asm::before {
+    content: 'Assembler';
+}
+
+pre.src-caml::before {
+    content: 'Caml';
+}
+
+pre.src-delphi::before {
+    content: 'Delphi';
+}
+
+pre.src-html::before {
+    content: 'HTML';
+}
+
+pre.src-idl::before {
+    content: 'IDL';
+}
+
+pre.src-mercury::before {
+    content: 'Mercury';
+}
+
+pre.src-metapost::before {
+    content: 'MetaPost';
+}
+
+pre.src-modula-2::before {
+    content: 'Modula-2';
+}
+
+pre.src-pascal::before {
+    content: 'Pascal';
+}
+
+pre.src-ps::before {
+    content: 'PostScript';
+}
+
+pre.src-prolog::before {
+    content: 'Prolog';
+}
+
+pre.src-simula::before {
+    content: 'Simula';
+}
+
+pre.src-tcl::before {
+    content: 'tcl';
+}
+
+pre.src-tex::before {
+    content: 'LaTeX';
+}
+
+pre.src-plain-tex::before {
+    content: 'TeX';
+}
+
+pre.src-verilog::before {
+    content: 'Verilog';
+}
+
+pre.src-vhdl::before {
+    content: 'VHDL';
+}
+
+pre.src-xml::before {
+    content: 'XML';
+}
+
+pre.src-nxml::before {
+    content: 'XML';
+}
+
+pre.src-conf::before {
+    content: 'Configuration File';
+}
+
+.dropcap {
+    float: left;
+    font-size: 1em;
+    font-style: normal;
+    line-height: .1;
+    margin-right: 0.2em;
+    margin-top: 0.5em;
+    padding: 0;
+}
+
+figure {
+    text-align: center;
+}
+
+figure figcaption {
+    margin-top: 10px;
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+}
+
+figure figcaption .figure-number {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+img.zoomTarget:hover {
+    cursor: default !important;
+}
+
+img, object[type="image/svg+xml"] {
+    filter: invert(7%) sepia(4%);
+    max-width: 100%;
+}
+
+.org-svg {
+    width: 90%;
+}
+
+#footnotes {
+    margin-top: 70px;
+    padding-top: 30px;
+    border-width: 0;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: var(--back-light);
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+}
+
+#footnotes p, #footnotes li {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+}
+
+#footnotes h2.footnotes {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-family: "Fira Code", sans;
+    font-size: 1em;
+    letter-spacing: 5px;
+    display: none;
+}
+
+#footnotes .footnum {
+    color: var(--text-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-size: 1em !important;
+    font-family: "Fira Code", serif;
+    font-weight: normal;
+    line-height: 2;
+}
+
+h1 {
+   margin-bottom: 2em !important;
+}
+
+h2 {
+   margin-bottom: 2em !important;
+}
+
+h3 {
+   margin-bottom: 2em !important;
+}
+
+ol {
+   margin-top: 0 !important;
+   margin-bottom: 2em !important
+}
+
+h1::before {
+    content: "* "
+}
+
+h2::before {
+    content: "** "
+}
+
+h3::before {
+    content: "*** "
+}
+
+h4::before {
+    content: "***** "
+}
+
+h5::before {
+    content: "****** "
+}
+
+.section-number-1,
+.section-number-2,
+.section-number-3,
+.section-number-4,
+.section-number-5 {
+    display: none;
+}
+
+hr {
+    border: none;
+    border-top-style: solid;
+    border-top-width: 1px;
+    color: var(--back-medium);
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+
+a {
+    color: inherit;
+}
+
+figcaption a,
+p a,
+.page-tags a,
+table a,
+li a,
+dl a {
+    background-image: linear-gradient(var(--text-dark), var(--text-dark));
+    background-size: 1px 1px;
+    background-repeat: repeat-x;
+    background-position: 0% 95%;
+    border-radius: 1px;
+    text-decoration: none;
+}
+
+figcaption a::selection,
+p a::selection,
+.page-tags a::selection,
+table a::selection,
+li a::selection,
+dl a::selection {
+    background: var(--back-medium);
+}
+
+figcaption a *,
+figcaption a *:after, figcaption a:after,
+figcaption a *:before, figcaption a:before,
+p a *,
+p a *:after,
+p a:after,
+p a *:before,
+p a:before,
+.page-tags a *,
+.page-tags a *:after,
+.page-tags a:after,
+.page-tags a *:before,
+.page-tags a:before,
+table a *,
+table a *:after,
+table a:after,
+table a *:before,
+table a:before,
+li a *,
+li a *:after,
+li a:after,
+li a *:before,
+li a:before,
+dl a *,
+dl a *:after,
+dl a:after,
+dl a *:before,
+dl a:before {
+    text-shadow: none;
+}
+
+figcaption a:visited,
+p a:visited,
+.page-tags a:visited,
+table a:visited,
+li a:visited,
+dl a:visited {
+    color: var(--text-dark);
+}
+
+figcaption a:hover,
+p a:hover,
+.page-tags a:hover,
+table a:hover,
+li a:hover,
+dl a:hover {
+    opacity: 0.9;
+    filter: drop-shadow(1px 1px 1px var(--back-white));
+    background-image: linear-gradient(var(--text-dark), var(--text-dark));
+    background-size: 1px 1px;
+    background-repeat: repeat-x;
+    background-position: 0% 95%;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23000000' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E") !important;
+    background-position: 0% 100%;
+    background-size: 0.8em auto;
+    text-decoration: none;
+}
+
+figcaption a:hover::selection,
+p a:hover::selection,
+.page-tags a:hover::selection,
+table a:hover::selection,
+li a:hover::selection,
+dl a:hover::selection {
+    background: var(--back-white);
+}
+
+figcaption a[href^="#"],
+p a[href^="#"],
+.page-tags a[href^="#"],
+table a[href^="#"],
+li a[href^="#"],
+dl a[href^="#"] {
+    background-image: linear-gradient(var(--text-gray), var(--text-gray));
+    background-size: 1px 1px;
+    background-repeat: repeat-x;
+    background-position: 0% 95%;
+}
+
+figcaption a[href^="#"]::selection,
+p a[href^="#"]::selection,
+.page-tags a[href^="#"]::selection,
+table a[href^="#"]::selection,
+li a[href^="#"]::selection,
+dl a[href^="#"]::selection {
+    background: var(--back-white);
+}
+
+figcaption a[href^="#"]:hover,
+p a[href^="#"]:hover,
+.page-tags a[href^="#"]:hover,
+table a[href^="#"]:hover,
+li a[href^="#"]:hover,
+dl a[href^="#"]:hover {
+    opacity: 0.9;
+    filter: drop-shadow(1px 1px 1px var(--back-white));
+    background-image: linear-gradient(var(--text-medium), var(--text-medium));
+    background-size: 1px 1px;
+    background-repeat: repeat-x;
+    background-position: 0% 95%;
+}
+
+figcaption a[href^="#"]:hover::selection,
+p a[href^="#"]:hover::selection,
+.page-tags a[href^="#"]:hover::selection,
+table a[href^="#"]:hover::selection,
+li a[href^="#"]:hover::selection,
+dl a[href^="#"]:hover::selection {
+    background: var(--back-white);
+}
+
+#theme-switch:checked ~ #page #breadcrumbs a:hover,
+#theme-switch:checked ~ #page figcaption a:hover,
+#theme-switch:checked ~ #page p a:hover,
+#theme-switch:checked ~ #page .page-tags a:hover,
+#theme-switch:checked ~ #page table a:hover,
+#theme-switch:checked ~ #page #crosslinks a:not(.highlight):hover,
+#theme-switch:checked ~ #page li a:hover,
+#theme-switch:checked ~ #page dl a:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+}
+
+*:target::before {
+    display: none;
+    /* content: "🠖"; */
+    position: absolute;
+    left: -7rem;
+    top: calc(0.5em - 2rem);
+    line-height: 1;
+    color: #e65353aa;
+    font-size: 1em;
+    font-style: normal;
+}
+
+@media (max-width: 1000px) {
+    *:target::before {
+        content: "🠔";
+        left: unset;
+        right: 0;
+    }
+}
+
+#content .page-intro p a,
+#footnotes a {
+    background-image: linear-gradient(var(--text-gray), var(--text-gray));
+    background-size: 1px 1px;
+    background-repeat: repeat-x;
+    background-position: 0% 95%;
+    border-radius: 1px;
+    text-decoration: none;
+}
+
+#content .page-intro p a::selection,
+#footnotes a::selection {
+    background: var(--back-medium);
+}
+
+#content .page-intro p a *,
+#content .page-intro p a *:after, #content .page-intro p a:after,
+#content .page-intro p a *:before, #content .page-intro p a:before,
+#footnotes a *,
+#footnotes a *:after,
+#footnotes a:after,
+#footnotes a *:before,
+#footnotes a:before {
+    text-shadow: none;
+}
+
+#content .page-intro p a:visited,
+#footnotes a:visited {
+    color: var(--text-gray);
+}
+
+#content .page-intro p a:hover,
+#footnotes a:hover {
+    background-image: linear-gradient(var(--text-gray), var(--text-gray));
+    background-size: 1px 1px;
+    background-repeat: repeat-x;
+    background-position: 0% 95%;
+    border-radius: 1px;
+    text-decoration: none;
+}
+
+#content .page-intro p a:hover::selection,
+#footnotes a:hover::selection {
+    background: var(--back-medium);
+}
+
+#content .page-intro p a:hover *,
+#content .page-intro p a:hover *:after, #content .page-intro p a:hover:after,
+#content .page-intro p a:hover *:before, #content .page-intro p a:hover:before,
+#footnotes a:hover *,
+#footnotes a:hover *:after,
+#footnotes a:hover:after,
+#footnotes a:hover *:before,
+#footnotes a:hover:before {
+    text-shadow: none;
+}
+
+#content .page-intro p a:hover:visited,
+#footnotes a:hover:visited {
+    color: var(--text-gray);
+}
+
+.btn {
+    padding: 7px 14px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--back-light);
+    border-radius: 1px;
+    font-family: "Fira Code", sans;
+    font-variant: all-small-caps;
+    font-size: 1em;
+    font-style: normal;
+    letter-spacing: 2px;
+    background-image: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--back-light);
+    background-image: none;
+}
+
+.btn.disabled {
+    color: var(--text-light);
+}
+
+.btn.disabled:hover {
+    cursor: default;
+}
+
+.btn.small {
+    padding: 3px 6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--back-light);
+    border-radius: 1px;
+    font-family: "Fira Code", sans;
+    font-variant: all-small-caps;
+    font-size: 1em;
+    font-style: normal;
+    letter-spacing: 2px;
+    background-image: none;
+    padding-right: 9px;
+    padding-left: 9px;
+}
+
+.btn.small:hover {
+    background-color: var(--back-light);
+    background-image: none;
+}
+
+.btn.highlight {
+    text-shadow: none;
+    text-decoration: none;
+    color: var(--text-dark);
+    background-color: yellow;
+}
+
+.btn.primary {
+    text-shadow: none;
+    text-decoration: none;
+    color: var(--back-white);
+    background-color: var(--accent);
+}
+
+.btn.primary:hover {
+    background-color: var(--back-light);
+    background-image: none;
+    color: var(--text-dark);
+}
+
+.image-link, .image-link:hover {
+    background: none;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+div.link-preview {
+    border: 1px solid var(--back-medium);
+    border-radius: 0.5em;
+    overflow: hidden;
+    position: relative;
+    max-height: 5em;
+    padding-left: 0.5em;
+}
+
+div.link-preview a {
+    color: initial;
+    text-decoration: none;
+}
+
+div.link-preview img {
+    border-right: 1px solid var(--back-medium);
+    float: left;
+    height: 5em;
+    margin-left: -0.5em;
+    margin-right: 0.5em;
+}
+
+div.link-preview p {
+    margin: 0;
+    font-size: 1em;
+}
+
+div.link-preview p b {
+    font-size: 1em;
+}
+
+div.link-preview small {
+    float: right;
+    font-family: sans;
+    color: var(--text-light);
+    margin: 0.45em 0.6em;
+}
+
+ul, ol, dl {
+    list-style: none;
+    list-style-position: outside;
+    padding: 0;
+}
+
+ul li::before, ul dt::before, ol li::before, ol dt::before, dl li::before, dl dt::before {
+    display: inline-block;
+    width: 1em;
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+}
+
+ul li, ol li, dl li {
+    margin: 5px 0;
+    margin-left: 1em !important;
+    font-size: 1em;
+}
+
+ul li p, ol li p, dl li p {
+    font-size: 1em;
+}
+
+ul li::before {
+    content: "•";
+    margin-left: -1em;
+}
+
+ol {
+    counter-reset: li;
+}
+
+ol li::before {
+    content: counter(li);
+    margin-left: -1.5em;
+    margin-right: 0.5em;
+    text-align: right;
+    direction: rtl;
+}
+
+ol li {
+    counter-increment: li;
+}
+
+ul ul, ol ol {
+    padding-left: 20px;
+}
+
+ul ul ul, ol ol ol {
+    padding-left: 30px;
+}
+
+li p:first-child {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+dl dt::before {
+    content: "•";
+    margin-left: -1em;
+}
+
+dl dt {
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+dl dd {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+li .checkbox {
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    border-radius: 3px;
+    margin: 3px;
+    top: 4px;
+    position: relative;
+}
+
+li.on > .checkbox {
+    background: #2d9574;
+    box-shadow: 0 0 2px #2d9574;
+}
+
+li.trans > .checkbox {
+    background: #dc752f;
+    box-shadow: 0 0 2px #dc752f;
+}
+
+li.off > .checkbox {
+    background: #ba2f59;
+    box-shadow: 0 0 2px #ba2f59;
+    top: 6px;
+}
+
+li.on > .checkbox::after {
+    content: '';
+    height: 0.45em;
+    width: 0.225em;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    transform: scaleX(-1) rotate(135deg);
+    border-right: 2.8px solid #fff;
+    border-top: 2.8px solid #fff;
+    opacity: 0.9;
+    left: 0.10em;
+    top: 0.45em;
+    position: absolute;
+}
+
+li.trans > .checkbox::after {
+    content: '';
+    font-weight: bold;
+    font-size: 1em;
+    position: absolute;
+    top: 0.2em;
+    left: 0.11em;
+    width: 0.35em;
+    height: 0.12em;
+    background: #fff;
+    opacity: 0.9;
+    border-radius: 0.1em;
+}
+
+li.off > .checkbox::after {
+    content: '✖';
+    color: #fff;
+    opacity: 0.9;
+    position: relative;
+    top: -0.50rem;
+    left: 0.17em;
+    font-size: 1em;
+}
+
+#org-div-home-and-up {
+    display: none !important;
+}
+
+.outline-2 h2 {
+    font-size: 1em;
+}
+
+.outline-3 h3 {
+    font-size: 1em;
+    font-style: normal;
+}
+
+.outline-2 .section-number-2 {
+    font-size: 1em;
+}
+
+.outline-3 .section-number-3 {
+    font-size: 1em;
+}
+
+.timestamp,
+.timestamp-kwd {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+    background-color: var(--back-white);
+    border-radius: 1px;
+}
+
+.todo,
+.done {
+    padding: 0.1em 0.2em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--back-light);
+    border-radius: 1px;
+    font-family: "Fira Code", sans;
+    font-variant: all-small-caps;
+    font-size: 1em;
+    font-style: normal;
+    letter-spacing: 2px;
+    background-image: none;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0.1em 0.5em;
+    background-color: var(--back-white);
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.todo:hover,
+.done:hover {
+    background-color: var(--back-light);
+    background-image: none;
+}
+
+.todo:not(.active),
+.done:not(.active) {
+    border-color: var(--back-white);
+}
+
+.todo.active,
+.done.active {
+    text-shadow: none;
+    text-decoration: none;
+    color: var(--back-white);
+    background-color: var(--code-foreground);
+}
+
+.todo.active:hover,
+.done.active:hover {
+    background-color: var(--back-light);
+    background-image: none;
+    color: var(--text-dark);
+}
+
+.outline-2,
+.outline-3,
+.outline-4 {
+    contain: layout;
+}
+
+.outline-2 .todo,
+.outline-2 .done,
+.outline-3 .todo,
+.outline-3 .done,
+.outline-4 .todo,
+.outline-4 .done {
+    font-size: 1em;
+}
+
+.todo {
+    color: #ee3333;
+}
+
+.done {
+    color: var(--text-light);
+}
+
+.tag > span {
+    padding: 0.1em 0.2em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--back-light);
+    border-radius: 1px;
+    font-family: "Fira Code", sans;
+    font-variant: all-small-caps;
+    font-size: 1em;
+    font-style: normal;
+    letter-spacing: 2px;
+    background-image: none;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0.1em 0.5em;
+    background-color: var(--back-white);
+    border-radius: 100px;
+}
+
+.tag > span:hover {
+    background-color: var(--back-light);
+    background-image: none;
+}
+
+.tag > span:not(.active) {
+    border-color: var(--back-white);
+}
+
+.tag > span.active {
+    text-shadow: none;
+    text-decoration: none;
+    color: var(--back-white);
+    background-color: var(--code-foreground);
+}
+
+.tag > span.active:hover {
+    background-color: var(--back-light);
+    background-image: none;
+    color: var(--text-dark);
+}
+
+.priority {
+    color: var(--text-light);
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+}
+
+.footref {
+    text-shadow: none;
+}
+
+.footpara {
+    display: inline;
+}
+
+.footdef {
+    margin-bottom: 1em;
+}
+
+th.org-right {
+    text-align: center;
+}
+
+th.org-left {
+    text-align: center;
+}
+
+th.org-center {
+    text-align: center;
+}
+
+td.org-right {
+    text-align: right;
+}
+
+td.org-left {
+    text-align: left;
+}
+
+td.org-center {
+    text-align: center;
+}
+
+div.org-center {
+    text-align: center;
+}
+
+/* span.acr { */
+/*     font-variant-caps: all-small-caps; */
+/*     letter-spacing: 0.1em; */
+/* } */
+
+.music-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.music-track img {
+    height: 6rem;
+    margin-right: 2rem;
+}
+
+.music-track a {
+    text-decoration: none;
+}
+
+.music-track span {
+    min-width: 35%;
+}
+
+div.table {
+    position: relative;
+}
+
+div.table .gutter {
+    left: calc(20px - 2.5rem);
+    padding-top: 18px;
+}
+
+div.table .tabular {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    border-color: var(--text-light);
+    border-left: transparent;
+    border-right: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-collapse: collapse;
+    font-size: 1em;
+    font-family: "Fira Code", sans;
+    margin: 20px;
+    padding: 20px;
+}
+
+table thead {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+    font-size: 1em;
+}
+
+table thead tr th {
+    padding: 4px 10px;
+    background-color: #9991;
+}
+
+table thead tr:last-of-type th {
+    border-bottom: solid 1px var(--text-light);
+}
+
+table tr, table th, table td {
+    border: none;
+}
+
+table tbody tr td {
+    border-top: 0;
+    padding: 0 10px;
+}
+
+table tr {
+    line-height: 1.5;
+}
+
+table caption {
+    margin-bottom: 10px;
+    min-width: 20em;
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text-gray);
+}
+
+table caption .table-number {
+    font-family: "Fira Code", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #9992;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+@media (min-width: 1500px) {
+    #table-of-contents {
+        position: fixed;
+        width: 18rem;
+        right: 1rem;
+        top: 0;
+        padding: 1em;
+        line-height: 1.5;
+        margin-top: 4rem;
+    }
+
+    #table-of-contents h2 {
+        margin-top: 0;
+    }
+
+    #table-of-contents #text-table-of-contents {
+        position: relative;
+    }
+
+    #table-of-contents #text-table-of-contents::before, #table-of-contents #text-table-of-contents::after {
+        position: absolute;
+        content: '';
+        width: calc(100% - 10px);
+        height: 0.7rem;
+        left: 0;
+        z-index: 1;
+    }
+
+    #table-of-contents #text-table-of-contents::before {
+        top: 0;
+        background: linear-gradient(180deg, var(--back-light) 0%, var(--back-light) 35%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    #table-of-contents #text-table-of-contents::after {
+        bottom: 0;
+        background: linear-gradient(0deg, var(--back-light) 0%, var(--back-light) 35%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    #table-of-contents #text-table-of-contents > ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: calc(100vh - 5rem - 50px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+    }
+
+    #table-of-contents #text-table-of-contents > ul ul {
+        padding-left: 2em;
+    }
+
+    #table-of-contents #text-table-of-contents > ul ul.active {
+        display: inline-block;
+    }
+
+    #table-of-contents #text-table-of-contents > ul li.active > ul {
+        display: inline-block;
+    }
+
+    #table-of-contents #text-table-of-contents > ul li.active > label a, #table-of-contents #text-table-of-contents > ul li.active > a {
+        color: var(--text-dark);
+    }
+
+    #table-of-contents #text-table-of-contents > ul li.active > input:not(:checked) ~ label::after {
+        transform: rotate(90deg);
+        top: 5px;
+        opacity: 0.35;
+    }
+
+    #table-of-contents #text-table-of-contents > ul > li:last-child {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    #table-of-contents {
+        width: 20rem;
+        right: 2rem;
+    }
+}
+
+@media (min-width: 1640px) {
+    #table-of-contents {
+        right: 5rem;
+    }
+}
+
+@media (min-width: 2000px) {
+    #table-of-contents {
+        width: 25rem;
+    }
+}
+
+#table-of-contents #text-table-of-contents ul {
+    width: 100%;
+}
+
+#table-of-contents #text-table-of-contents > ul ul {
+    display: none;
+}
+
+#table-of-contents #text-table-of-contents li input[type=checkbox] {
+    display: none;
+}
+
+#table-of-contents #text-table-of-contents li label {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+#table-of-contents #text-table-of-contents li a {
+    display: inline-block;
+    color: var(--text-gray);
+    text-decoration: none !important;
+    text-shadow: none;
+    background: none !important;
+}
+
+#table-of-contents #text-table-of-contents li label::after {
+    /* content: "\25b6"; */
+    color: var(--text-gray);
+    margin-left: 0.5em;
+    font-size: 1em;
+    display: inline-block;
+    position: absolute;
+    top: 3.4px;
+    left: -20px;
+    opacity: 0;
+}
+
+#table-of-contents #text-table-of-contents li input:checked ~ ul {
+    display: inline-block !important;
+}
+
+#table-of-contents #text-table-of-contents li input:checked ~ label a {
+    font-weight: bold;
+}
+
+#table-of-contents #text-table-of-contents li input:checked ~ label::after {
+    transform: rotate(90deg);
+    top: 5px;
+}
+
+#table-of-contents #text-table-of-contents li::before {
+    content: "" !important;
+}
+
+.page-tags a {
+    padding: 0.1em 0.2em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--back-light);
+    border-radius: 1px;
+    font-family: "Fira Code", sans;
+    font-variant: all-small-caps;
+    font-size: 1em;
+    font-style: normal;
+    letter-spacing: 2px;
+    background-image: none;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0.1em 0.5em;
+    background-color: var(--back-white);
+    margin-right: 5px;
+    line-height: 3em;
+}
+
+.page-tags a:hover {
+    background-color: var(--back-light);
+    background-image: none;
+}
+
+.page-tags a:not(.active) {
+    border-color: var(--back-white);
+}
+
+.page-tags a.active {
+    text-shadow: none;
+    text-decoration: none;
+    color: var(--back-white);
+    background-color: var(--code-foreground);
+}
+
+.page-tags a.active:hover {
+    background-color: var(--back-light);
+    background-image: none;
+    color: var(--text-dark);
+}
+
+@media print {
+    h2 {
+        page-break-before: always;
+    }
+
+    h1, h2, h3, h4, h5 {
+        page-break-after: avoid;
+    }
+
+    #switch-label {
+        display: none;
+    }
+
+    #content, #page-header {
+        margin-top: 0;
+    }
+
+    #table-of-contents #text-table-of-contents > ul ul {
+        display: inline-block;
+    }
+
+    #table-of-contents #text-table-of-contents > ul a::after {
+        content: leader(".") target-counter(attr(href), page);
+    }
+
+    #table-of-contents #text-table-of-contents li label::after {
+        display: none;
+    }
+
+    img {
+        filter: none;
+    }
+}
+
+@page {
+    size: auto;
+    margin-top: 4mm;
+    margin-bottom: 4mm;
+}
+
+a[aria-hidden] {
+    display: none;
+}
+</style>
+</head>
+<body>
+<input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="content">
+<nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga77f42f">1. Spring MVC Process Overview</a>
+<ul>
+<li><a href="#orgc4cb87e">1.1. Spring MVC Process</a></li>
+<li><a href="#org396e785">1.2. DispatcherServlet</a></li>
+</ul>
+</li>
+<li><a href="#orge04840e">2. HandlerMapping and HandlerAdapter</a>
+<ul>
+<li><a href="#org1ed0e74">2.1. HandlerMapping</a></li>
+<li><a href="#orgabc3a98">2.2. HandlerAdapter</a></li>
+</ul>
+</li>
+<li><a href="#org749aabd">3. ViewResoIver</a>
+<ul>
+<li><a href="#orga8d10e2">3.1. ViewResolver Overview</a></li>
+<li><a href="#org9c17a53">3.2. Resolution Process</a></li>
+<li><a href="#orgd10b486">3.3. Usual ViewResolver</a></li>
+<li><a href="#orgbba9b9a">3.4. ViewResolver Chain</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<figure id="org8ccfce5">
+<img src="/spring/10-0.png" alt="10-0.png">
+
+</figure>
+
+<div id="outline-container-orga77f42f" class="outline-2">
+<h2 id="orga77f42f"><span class="section-number-2">1.</span> Spring MVC Process Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+上图是 Spring 与 Servlet 交互的大体概览, 但是 The devil is in the details. DispatcherServlet 分发了请求之后的细节满满, 下面尝试深入 Spring MVC 的源码, 理解一下 Spring MVC 流程原理.
+</p>
+</div>
+
+<div id="outline-container-orgc4cb87e" class="outline-3">
+<h3 id="orgc4cb87e"><span class="section-number-3">1.1.</span> Spring MVC Process</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Spring MVC 框架整体的请求流程如图所示, 该图显示了用户从请求到响应的完整流程.
+</p>
+
+<p>
+(1) Client request 请求, 该请求被 DispatcherServlet 处理.
+</p>
+
+<p>
+(2) DispatcherServlet 请求 HandlerMapping 查找 Handler.
+</p>
+
+<p>
+(3) HandlerMapping 根据配置查找相关的 HandlerExecutionChain, 返回给 DispatcherServlet.
+</p>
+
+<p>
+(4) DispatcherServlet 请求 HandlerAdapter 执行相应的 Handler (或称为 Controller).
+</p>
+
+<p>
+(5) HandlerAdapter 执行 Handler.
+</p>
+
+<p>
+(6) Handler 执行完毕后会返回 ModelAndView 给 HandlerAdapter.
+</p>
+
+
+<figure id="org8af7cc1">
+<img src="/spring/10-1.png" alt="10-1.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Spring MVC 框架整体的请求流程</figcaption>
+</figure>
+
+<p>
+(7) HandlerAdapter 接收到 Handler 返回的 ModelAndView 后, 将其返回给 DispatcherServlet.
+</p>
+
+<p>
+(8) DispatcherServlet 接收到 ModelAndView 对象后, 请求 ViewResolver 对视图进行解析.
+</p>
+
+<p>
+(9) ViewResolver 根据 View 信息匹配相应的视图结果, 返回给 DispatcherServlet.
+</p>
+
+<p>
+(10) DispatcherServlet 收到 View 后, 对视图进行渲染, 将 Model 中的模型数据填充到 View 视图中的 request 域, 生成最终的视图.
+</p>
+
+<p>
+(11) DispatcherServlet 返回请求结果给 Client.
+</p>
+
+<p>
+HandlerAdapter 执行 Handler(或称为 Controller) 的过程中, Spring 还做了一些额外的工作, 具体如图所示.
+</p>
+
+<dl class="org-dl">
+<dt>HttpMessageConverter</dt><dd>将请求信息, 比如: JSON, XML 等数据转换成一个对象, 并将对象转换为指定的响应信息.</dd>
+
+<dt>Data Coversion</dt><dd>对请求的信息进行转换, 比如, String 转换为 Integerx Double 等.</dd>
+
+<dt>Data Format</dt><dd>对请求消息进行数据格式化, 比如字符串转换为格式化数据或者格式化日期等.</dd>
+
+<dt>Data Validation</dt><dd>验证请求数据的有效性, 并将验证的结果存储到 BindingResult 或 Error 中.</dd>
+</dl>
+
+
+<figure id="orgba63a08">
+<img src="/spring/10-2.png" alt="10-2.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>数据转换, 格式化, 校验</figcaption>
+</figure>
+
+<p>
+以上就是 Sring MVC 请求到响应的整个工作流程, 中间使用到的组件有 DispatcherServlet, HandlerMapping, HandlerAdapter, Handler or Controller, ViewResolver 和 View 等.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org396e785" class="outline-3">
+<h3 id="org396e785"><span class="section-number-3">1.2.</span> DispatcherServlet</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+DispatcherServlet 的作用就是接受用户请求, 然后给用户响应结果. 它的作用相当于一个转发器或中央处理器, 控制整个流程的执行, 对各个组件进行统一调度, 以降低组件之间的耦合性, 有利于组件之间的扩展.
+</p>
+
+<p>
+DispatcherServlet 部分的源码如下所示:
+</p>
+
+<details id='org830d0be' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#org830d0be'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">class</span> <span class="org-type">DispatcherServlet</span> <span class="org-keyword">extends</span> <span class="org-type">FrameworkServlet</span> {
+    <span class="org-comment-delimiter">// </span><span class="org-comment">static variable ...</span>
+    <span class="org-comment-delimiter">//</span>
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">LocaleResolver</span> <span class="org-variable-name">localeResolver</span>;
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">ThemeResolver</span> <span class="org-variable-name">themeResolver</span>;
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">List</span>&lt;<span class="org-type">HandlerMapping</span>&gt; <span class="org-variable-name">handlerMappings</span>;
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">List</span>&lt;<span class="org-type">HandlerAdapter</span>&gt; <span class="org-variable-name">handlerAdapters</span>;
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">List</span>&lt;<span class="org-type">HandlerExceptionResolver</span>&gt; <span class="org-variable-name">handlerExceptionResolvers</span>;
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">RequestToViewNameTranslator</span> <span class="org-variable-name">viewNameTranslator</span>;
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">FlashMapManager</span> <span class="org-variable-name">flashMapManager</span>;
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">private</span> <span class="org-type">List</span>&lt;<span class="org-type">ViewResolver</span>&gt; <span class="org-variable-name">viewResolvers</span>;
+
+
+    <span class="org-keyword">protected</span> <span class="org-type">void</span> <span class="org-function-name">initStrategies</span>(<span class="org-type">ApplicationContext</span> <span class="org-variable-name">context</span>) {
+        <span class="org-keyword">this</span>.initMultipartResolver(context);
+        <span class="org-keyword">this</span>.initLocaleResolver(context);
+        <span class="org-keyword">this</span>.initThemeResolver(context);
+        <span class="org-keyword">this</span>.initHandlerMappings(context);
+        <span class="org-keyword">this</span>.initHandlerAdapters(context);
+        <span class="org-keyword">this</span>.initHandlerExceptionResolvers(context);
+        <span class="org-keyword">this</span>.initRequestToViewNameTranslator(context);
+        <span class="org-keyword">this</span>.initViewResolvers(context);
+        <span class="org-keyword">this</span>.initFlashMapManager(context);
+    }
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">other methods ...</span>
+}
+</pre>
+</div>
+        </details>
+
+<p>
+DispatcherServlet 类的类继承结构如图所示.
+</p>
+
+
+<figure id="orga47aaa1">
+<img src="/spring/10-3.png" alt="10-3.png">
+
+<figcaption><span class="figure-number">Figure 3: </span>DispatcherServlet 的类结构</figcaption>
+</figure>
+
+<p>
+由图可知, DispatcherServlet 最上层的父类是 Servlet 类, 也就是说 DispatcherServlet 也是一个 Servlet, 且包含有 deGet() 和 doPost() 方法. initStrategies 方法在 WebApplicationContext 初始化后自动执行, 自动扫描上下文的 Bean, 根据名称或者类型匹配的机制查找自定义的组件, 如果没有找到, 会装配 Spring 的默认组件. Spring 的默认组件在 org.springframework.web.servlet 路径下的 DispatcherServlet.properties 配置文件中配置. DispatcherServlet.properties 的具体代码如下:
+</p>
+
+<details id='org930be16' class='code' open><summary><span class="lang">Configuration File</span></summary>
+        <div class='gutter'>
+        <a href='#org930be16'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">Default implementation classes for DispatcherServlet's strategy interfaces.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Used as fallback when no matching beans are found in the DispatcherServlet context.</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Not meant to be customized by application developers.</span>
+
+<span class="org-variable-name">org.springframework.web.servlet.LocaleResolver</span>=org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
+
+<span class="org-variable-name">org.springframework.web.servlet.ThemeResolver</span>=org.springframework.web.servlet.theme.FixedThemeResolver
+
+<span class="org-variable-name">org.springframework.web.servlet.HandlerMapping</span>=org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,\
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping,\
+    org.springframework.web.servlet.function.support.RouterFunctionMapping
+
+<span class="org-variable-name">org.springframework.web.servlet.HandlerAdapter</span>=org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,\
+    org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,\
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter,\
+    org.springframework.web.servlet.function.support.HandlerFunctionAdapter
+
+
+<span class="org-variable-name">org.springframework.web.servlet.HandlerExceptionResolver</span>=org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver,\
+    org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver,\
+    org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver
+
+<span class="org-variable-name">org.springframework.web.servlet.RequestToViewNameTranslator</span>=org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator
+
+<span class="org-variable-name">org.springframework.web.servlet.ViewResolver</span>=org.springframework.web.servlet.view.InternalResourceViewResolver
+
+<span class="org-variable-name">org.springframework.web.servlet.FlashMapManager</span>=org.springframework.web.servlet.support.SessionFlashMapManager
+</pre>
+</div>
+        </details>
+
+<p>
+DispatcherServlet 类包含许多方法, 大致可以分为以下三类:
+</p>
+
+<p>
+(1) 初始化相关处理类的方法, 比如 initMultipartResolver(), initLocaleResolver() 等.
+</p>
+
+<p>
+(2) 响应 HTTP 请求的方法.
+</p>
+
+<p>
+(3) 执行处理请求逻辑的方法.
+</p>
+
+<p>
+DispatcherServlet 装配的组件, 具体内容如下所示:
+</p>
+
+<ul class="org-ul">
+<li>LocaleResolver: 本地化解析, 只允许一个实例. 因为 Spring 支持国际化, 所以 LocalResover 解析客户端的 Locale 信息从而方便进行国际化. 如果没有找至, 使用默认的实现类 AcceptHeaderLocaleResolveH 为该类型的组件.</li>
+
+<li>ThemeResovler: 主题解析, 只允许一个实例. 通过它来实现一个页面多套风格, 即常见的类似于软件皮肤效果. 如果没有找到, 使用默认的实现类 FixedThemeResolver 作为该类型的组件.</li>
+
+<li>HandlerMapping: 请求到处理器的映射, 允许多个实例. 如果映射成功返回一个 HandlerExecutionChain 对象(包含一个 Handler 处理器［页面控制器］) 对象, 多个 Handlerlnterceptoi- 拦截器) 对象；如果 detectHandlerMappings 的属性为 true(默认为 true), 则根据类型匹配机制查找上下文及 Spring 容器中所有类型为 HandlerMapping 的 Bean, 将它们作为该类型的组件. 如果 detectHandlerMappings 的属性为 false, 则查找名为 handlerMapping, 类型为 HandlerMapping 的 Bean 作为该类型组件. 如果以上两种方式都没有找到, 则使用 BeanNameUrlHandlerMapping 实现类创建该类型的组件. BeanNameUrlHandlerMapping 将 URL 与 Bean 名字映射, 映射成功的 Bean 就是此处的处理器.</li>
+
+<li>HandlerAdapter: 允许多个实例, HandlerAdapter 将会把处理器包装为适配器, 从而支持多种类型的处理器, 即适配器设计模式的应用, 从而很容易支持很多类型的处理器. 如 SimpleControllerHandlerAdapter 将对实现了 Controller 接口 的 Bean 进行适配, 并且按处理器的 handleRequest 方法进行功能处理. 默认使用 DispatcherServlet.properties 配置文件中指定的三个实现类分别创建一个适配器, 并将其添加到适配器列表中.</li>
+
+<li>HandlerExceptionResolver: 允许多个实例. 处理器异常解析可以将异常映射到相应的统一错误界面, 从而显示用户友好的界面(而不是给用户看到具体的错误信息). 默认使用 DispatcherServlet.properties 配置文件中定义的实现类.</li>
+
+<li>ViewNameTranslator: 只允许一个实例. 默认使用 DefaultRequestToViewNameTranslatoH 为该类型的组件.</li>
+
+<li>ViewResolver: 允许多个实例. ViewResolver 将把逻辑视图名解析为具体的 View, 通过这种策略模式, 很容易更换其他视图技术, 如 IntemalResourceViewResolver# 逻辑视图名映射为 JSP 视图.</li>
+
+<li>FlashMap 映射管理器：查找名为 FlashMapManager, 类型为 SessionFlashMapManager 的 bean 作为该类型组件, 用于管理 FlashMap, 即数据默认存储在 HttpSession 中.</li>
+</ul>
+
+<p>
+需要注意的是, DispatcherServlet 装配的各种组件, 有些只允许一个实例, 有些则允许多个实例. 如果同一个类型的组件存在多个, 可以通过 Order 属性确定优先级的顺序, 值越小的优先级越高.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge04840e" class="outline-2">
+<h2 id="orge04840e"><span class="section-number-2">2.</span> HandlerMapping and HandlerAdapter</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1ed0e74" class="outline-3">
+<h3 id="org1ed0e74"><span class="section-number-3">2.1.</span> HandlerMapping</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+处理映射器 HandlerMapping 是指请求到处理器的映射时, 允许有多个实例. 如果映射成功返回一个 HandlerExecutionChain 对象(包含一个 Handler 处理器［页面控制器］对象, 多个 Handlerinterceptor 拦截器) 对象. Spring MVC 提供了多个处理映射器 HandlerMapping 实现类, 下面分别进行说明.
+</p>
+
+<p>
+(1) BeanNamellrlHandlerMapping
+</p>
+
+<p>
+BeanNameUrlHandlerMapping 是默认映射器, 在不配置的情况下, 默认就使用这个类来映射请求. 其映射规则是根据请求的 URL 与 Spring 容器中定义的处理器 bean 的 name 属性值进行匹配, 从而在 Spring 容器中找到 Handler (处理器) 的 bean 实例.
+</p>
+
+<details id='orgac4aca3' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#orgac4aca3'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-comment-delimiter">&lt;!--</span><span class="org-comment">Default Handler Mapping</span><span class="org-comment-delimiter">--&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">id</span>=<span class="org-string">"testController"</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"/hello"</span>
+      <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"self.defined.Controller"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+(2) SimplellrlHandlerMapping
+</p>
+
+<p>
+SimpleUrlHandlerMapping 根据浏览器 URL 匹配 prop 标签中的 key, 通过 key 找到对应的 Controller.
+</p>
+
+<details id='org3e9c833' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#org3e9c833'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"mapping"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">props</span><span class="org-nxml-tag-delimiter">&gt;</span>
+      <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">prop</span> <span class="org-nxml-attribute-local-name">key</span>=<span class="org-string">"/hello"</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">helloController</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">prop</span><span class="org-nxml-tag-delimiter">&gt;</span>
+      <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">prop</span> <span class="org-nxml-attribute-local-name">key</span>=<span class="org-string">"/test"</span><span class="org-nxml-tag-delimiter">&gt;</span><span class="org-nxml-text">testController</span><span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">prop</span><span class="org-nxml-tag-delimiter">&gt;</span>
+    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">props</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">id</span>=<span class="org-string">"testController"</span>
+      <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"/test"</span> <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"self.define.TestController"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+上述配置了两个不同的 URL 映射, 对应于同一个 Controller 配置. 也就是说, 在浏览器中发起两个不同的 URL 请求, 会得到相同的处理结果.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgabc3a98" class="outline-3">
+<h3 id="orgabc3a98"><span class="section-number-3">2.2.</span> HandlerAdapter</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+处理适配器(HandlerAdapter) 允许多个实例, HandlerAdapter 将会把处理器包装为适配器, 从而支持多种类型的处理器, 即适配器设计模式的应用, 从而很容易支持多种类型的处理器. 如 SimpleControllerHandlerAdapter 将对实现了 Controller 接口的 Bean 进行适配, 并且按处理器的 handleRequest 方法进行功能处理. 默认使用 DispatcherServlet.properties 配置文件中指定的三个实现类分别创建一个适配器, 并将其添加到适配器列表中.
+</p>
+
+<p>
+Spring MVC 提供了多个处理适配器(HandlerAdapter) 实现类, 分别说明如下.
+</p>
+
+<p>
+(1) SimpleControllerHandlerAdapter
+</p>
+
+<p>
+SimpleControllerHandlerAdapter 支持所有实现 Controller 接口的 Handler 控制器, 是 Controller 实现类的适配器类, 其本质是执行 Controller 类中的 handleRequest 方法. SimpleControllerHandlerAdapter 的源码如下:
+</p>
+
+<details id='orgca49bb1' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#orgca49bb1'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">class</span> <span class="org-type">SimpleControllerHandlerAdapter</span>
+    <span class="org-keyword">implements</span> <span class="org-type">HandlerAdapter</span> {
+    <span class="org-keyword">public</span> SimpleControllerHandlerAdapter() {
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">boolean</span> <span class="org-function-name">supports</span>(<span class="org-type">Object</span> <span class="org-variable-name">handler</span>) {
+        <span class="org-keyword">return</span> handler <span class="org-keyword">instanceof</span> Controller;
+    }
+
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">public</span> <span class="org-type">ModelAndView</span> <span class="org-function-name">handle</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                               <span class="org-type">HttpServletResponse</span> <span class="org-variable-name">response</span>,
+                               <span class="org-type">Object</span> <span class="org-variable-name">handler</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">Exception</span> {
+        <span class="org-keyword">return</span> ((<span class="org-type">Controller</span>)handler).handleRequest(request, response);
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">long</span> <span class="org-function-name">getLastModified</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                                <span class="org-type">Object</span> <span class="org-variable-name">handler</span>) {
+        <span class="org-keyword">return</span> handler <span class="org-keyword">instanceof</span> LastModified ?
+            ((<span class="org-type">LastModified</span>)handler).getLastModified(request) :
+            -1L;
+    }
+}
+</pre>
+</div>
+        </details>
+
+<p>
+Controller 接口的定义也很简单, 仅仅定义了一个 handleRequest 方法, 具体源码如下:
+</p>
+
+<details id='orgc40baac' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#orgc40baac'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-comment-delimiter">// </span><span class="org-comment">import lines ...</span>
+
+<span class="org-c-annotation">@FunctionalInterface</span>
+<span class="org-keyword">public</span> <span class="org-keyword">interface</span> <span class="org-type">Controller</span> {
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-type">ModelAndView</span> <span class="org-function-name">handleRequest</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                               <span class="org-type">HttpServletResponse</span> <span class="org-variable-name">response</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">Exception</span>;
+}
+</pre>
+</div>
+        </details>
+
+<p>
+(2) HttpRequestHandlerAdapter
+</p>
+
+<p>
+HttpRequestHandlerAdapter 本质是调用 HttpRequestHandler 的 handleRequest 方法, 请看下述代码示例:
+</p>
+
+<details id='org3cb502e' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#org3cb502e'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">class</span> <span class="org-type">HttpRequestHandlerAdapter</span>
+    <span class="org-keyword">implements</span> <span class="org-type">HandlerAdapter</span> {
+    <span class="org-keyword">public</span> HttpRequestHandlerAdapter() {
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">boolean</span> <span class="org-function-name">supports</span>(<span class="org-type">Object</span> <span class="org-variable-name">handler</span>) {
+        <span class="org-keyword">return</span> handler <span class="org-keyword">instanceof</span> HttpRequestHandler;
+    }
+
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">public</span> <span class="org-type">ModelAndView</span> <span class="org-function-name">handle</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                               <span class="org-type">HttpServletResponse</span> <span class="org-variable-name">response</span>,
+                               <span class="org-type">Object</span> <span class="org-variable-name">handler</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">Exception</span> {
+        ((<span class="org-type">HttpRequestHandler</span>)handler).handleRequest(request, response);
+        <span class="org-keyword">return</span> <span class="org-constant">null</span>;
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">long</span> <span class="org-function-name">getLastModified</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                                <span class="org-type">Object</span> <span class="org-variable-name">handler</span>) {
+        <span class="org-keyword">return</span> handler <span class="org-keyword">instanceof</span> LastModified ?
+            ((<span class="org-type">LastModified</span>)handler).getLastModified(request) :
+            -1L;
+    }
+}
+</pre>
+</div>
+        </details>
+
+<p>
+HttpRequestHandlerAdapter 本质是 HttpRequestH andl er 的适配器, 最终调用 HttpRequestHandler 的 handleRequest 方法. 接口 HttpRequestHandler 的实现如下:
+</p>
+
+<details id='org5d80f13' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#org5d80f13'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-comment-delimiter">// </span><span class="org-comment">import lines ...</span>
+
+<span class="org-c-annotation">@FunctionalInterface</span>
+<span class="org-keyword">public</span> <span class="org-keyword">interface</span> <span class="org-type">HttpRequestHandler</span> {
+    <span class="org-type">void</span> <span class="org-function-name">handleRequest</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                       <span class="org-type">HttpServletResponse</span> <span class="org-variable-name">response</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">ServletException</span>, <span class="org-type">IOException</span>;
+}
+</pre>
+</div>
+        </details>
+
+<p>
+(3) RequestMappingHandlerAdapter
+</p>
+
+<p>
+RequestMappingHandlerAdapter 其父类是 AbstractHandlerMethodAdapter 抽象类, AbstractHandlerMethodAdapter 只是简单地实现了 HandlerAdapter 中定义的接口, 最终还是在 RequestMappingHandlerAdapter 中对代码进行实现的, AbstractHandlerMethodAdapter 中增加了执行顺序 Order, 具体如图所示.
+</p>
+
+
+<figure id="orge7d4262">
+<img src="/spring/10-4.png" alt="10-4.png">
+
+<figcaption><span class="figure-number">Figure 4: </span>RequestMappingHandlerAdapter 类继承关系</figcaption>
+</figure>
+
+<p>
+AbstractHandlerMethodAdapter 的源码如下:
+</p>
+
+<details id='org6c59986' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#org6c59986'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">abstract</span> <span class="org-keyword">class</span> <span class="org-type">AbstractHandlerMethodAdapter</span>
+    <span class="org-keyword">extends</span> <span class="org-type">WebContentGenerator</span>
+    <span class="org-keyword">implements</span> <span class="org-type">HandlerAdapter</span>, <span class="org-type">Ordered</span> {
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">static variables ...</span>
+
+    <span class="org-keyword">public</span> AbstractHandlerMethodAdapter() {
+        <span class="org-keyword">super</span>(<span class="org-constant">false</span>);
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">void</span> <span class="org-function-name">setOrder</span>(<span class="org-type">int</span> <span class="org-variable-name">order</span>) {
+        <span class="org-keyword">this</span>.order = order;
+    }
+
+    <span class="org-keyword">public</span> <span class="org-type">int</span> <span class="org-function-name">getOrder</span>() {
+        <span class="org-keyword">return</span> <span class="org-keyword">this</span>.order;
+    }
+
+    <span class="org-keyword">public</span> <span class="org-keyword">final</span> <span class="org-type">boolean</span> <span class="org-function-name">supports</span>(<span class="org-type">Object</span> <span class="org-variable-name">handler</span>) {
+        <span class="org-keyword">return</span> handler <span class="org-keyword">instanceof</span> HandlerMethod &amp;&amp;
+            <span class="org-keyword">this</span>.supportsInternal((<span class="org-type">HandlerMethod</span>)handler);
+    }
+
+    <span class="org-keyword">protected</span> <span class="org-keyword">abstract</span> <span class="org-type">boolean</span>
+        <span class="org-function-name">supportsInternal</span>(<span class="org-type">HandlerMethod</span> <span class="org-variable-name">handlerMethod</span>);
+
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">public</span> <span class="org-keyword">final</span> <span class="org-type">ModelAndView</span> <span class="org-function-name">handle</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                                     <span class="org-type">HttpServletResponse</span> <span class="org-variable-name">response</span>,
+                                     <span class="org-type">Object</span> <span class="org-variable-name">handler</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">Exception</span> {
+        <span class="org-keyword">return</span> <span class="org-keyword">this</span>.handleInternal(request, response, (<span class="org-type">HandlerMethod</span>)handler);
+    }
+
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-keyword">protected</span> <span class="org-keyword">abstract</span> <span class="org-type">ModelAndView</span> <span class="org-function-name">handleInternal</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                                                   <span class="org-type">HttpServletResponse</span> <span class="org-variable-name">response</span>,
+                                                   <span class="org-type">HandlerMethod</span> <span class="org-variable-name">handlerMethod</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">Exception</span>;
+
+    <span class="org-keyword">public</span> <span class="org-keyword">final</span> <span class="org-type">long</span> <span class="org-function-name">getLastModified</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>, <span class="org-type">Object</span> <span class="org-variable-name">handler</span>) {
+        <span class="org-keyword">return</span> <span class="org-keyword">this</span>.getLastModifiedInternal(request, (<span class="org-type">HandlerMethod</span>)handler);
+    }
+
+    <span class="org-doc">/** </span><span class="org-doc"><span class="org-doc-markup">@deprecated</span></span><span class="org-doc"> */</span>
+    <span class="org-c-annotation">@Deprecated</span>
+    <span class="org-keyword">protected</span> <span class="org-keyword">abstract</span> <span class="org-type">long</span> <span class="org-function-name">getLastModifiedInternal</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                                                    <span class="org-type">HandlerMethod</span> <span class="org-variable-name">handlerMethod</span>);
+}
+</pre>
+</div>
+        </details>
+
+<p>
+从上述代码可知, RequestMappingHandlerAdapter 的处理逻辑主要由 handlelnternal() 实现, 而核心处理逻辑由方法 invokeHandlerMethod() 实现, invokeHandlerMethod 方法具体源码如下:
+</p>
+
+<details id='orgce49de0' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#orgce49de0'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-c-annotation">@Nullable</span>
+<span class="org-keyword">protected</span> <span class="org-type">ModelAndView</span> <span class="org-function-name">invokeHandlerMethod</span>(<span class="org-type">HttpServletRequest</span> <span class="org-variable-name">request</span>,
+                                           <span class="org-type">HttpServletResponse</span> <span class="org-variable-name">response</span>,
+                                           <span class="org-type">HandlerMethod</span> <span class="org-variable-name">handlerMethod</span>)
+    <span class="org-keyword">throws</span> <span class="org-type">Exception</span> {
+    <span class="org-type">ServletWebRequest</span> <span class="org-variable-name">webRequest</span> =
+        <span class="org-keyword">new</span> <span class="org-type">ServletWebRequest</span>(request, response);
+
+    <span class="org-type">Object</span> <span class="org-variable-name">result</span>;
+    <span class="org-keyword">try</span> {
+        <span class="org-comment-delimiter">// </span><span class="org-comment">binding data</span>
+        <span class="org-type">WebDataBinderFactory</span> <span class="org-variable-name">binderFactory</span> =
+            <span class="org-keyword">this</span>.getDataBinderFactory(handlerMethod);
+        <span class="org-type">ModelFactory</span> <span class="org-variable-name">modelFactory</span> =
+            <span class="org-keyword">this</span>.getModelFactory(handlerMethod, binderFactory);
+        <span class="org-type">ServletInvocableHandlerMethod</span> <span class="org-variable-name">invocableMethod</span> =
+            <span class="org-keyword">this</span>.createInvocableHandlerMethod(handlerMethod);
+        <span class="org-keyword">if</span> (<span class="org-keyword">this</span>.argumentResolvers != <span class="org-constant">null</span>) {
+            invocableMethod.setHandlerMethodArgumentResolvers(<span class="org-keyword">this</span>.argumentResolvers);
+        }
+
+        <span class="org-keyword">if</span> (<span class="org-keyword">this</span>.returnValueHandlers != <span class="org-constant">null</span>) {
+            invocableMethod.setHandlerMethodReturnValueHandlers(<span class="org-keyword">this</span>.returnValueHandlers);
+        }
+
+        invocableMethod.setDataBinderFactory(binderFactory);
+        invocableMethod.setParameterNameDiscoverer(<span class="org-keyword">this</span>.parameterNameDiscoverer);
+        <span class="org-comment-delimiter">// </span><span class="org-comment">creating containter of modelAndView</span>
+        <span class="org-type">ModelAndViewContainer</span> <span class="org-variable-name">mavContainer</span> =
+            <span class="org-keyword">new</span> <span class="org-type">ModelAndViewContainer</span>();
+        mavContainer.addAllAttributes(RequestContextUtils.getInputFlashMap(request));
+        <span class="org-comment-delimiter">// </span><span class="org-comment">init model</span>
+        modelFactory.initModel(webRequest, mavContainer, invocableMethod);
+        mavContainer.setIgnoreDefaultModelOnRedirect(<span class="org-keyword">this</span>.ignoreDefaultModelOnRedirect);
+        <span class="org-type">AsyncWebRequest</span> <span class="org-variable-name">asyncWebRequest</span> = WebAsyncUtils.createAsyncWebRequest(request, response);
+        asyncWebRequest.setTimeout(<span class="org-keyword">this</span>.asyncRequestTimeout);
+        <span class="org-type">WebAsyncManager</span> <span class="org-variable-name">asyncManager</span> = WebAsyncUtils.getAsyncManager(request);
+        asyncManager.setTaskExecutor(<span class="org-keyword">this</span>.taskExecutor);
+        asyncManager.setAsyncWebRequest(asyncWebRequest);
+        asyncManager.registerCallableInterceptors(<span class="org-keyword">this</span>.callableInterceptors);
+        asyncManager.registerDeferredResultInterceptors(<span class="org-keyword">this</span>.deferredResultInterceptors);
+        <span class="org-keyword">if</span> (asyncManager.hasConcurrentResult()) {
+            result = asyncManager.getConcurrentResult();
+            mavContainer = (<span class="org-type">ModelAndViewContainer</span>)asyncManager.getConcurrentResultContext()[<span class="org-highlight-numbers-number">0</span>];
+            asyncManager.clearConcurrentResult();
+            LogFormatUtils.traceDebug(<span class="org-keyword">this</span>.logger, (traceOn) -&gt; {
+                    <span class="org-type">String</span> <span class="org-variable-name">formatted</span> = LogFormatUtils.formatValue(result, <span class="org-negation-char">!</span>traceOn);
+                    <span class="org-keyword">return</span> <span class="org-string">"Resume with async result ["</span> + formatted + <span class="org-string">"]"</span>;
+                });
+            invocableMethod = invocableMethod.wrapConcurrentResult(result);
+        }
+
+        <span class="org-comment-delimiter">// </span><span class="org-comment">invoking handler method</span>
+        invocableMethod.invokeAndHandle(webRequest, mavContainer, <span class="org-keyword">new</span> <span class="org-type">Object</span>[<span class="org-highlight-numbers-number">0</span>]);
+        <span class="org-keyword">if</span> (<span class="org-negation-char">!</span>asyncManager.isConcurrentHandlingStarted()) {
+            <span class="org-type">ModelAndView</span> <span class="org-variable-name">var15</span> =
+                <span class="org-keyword">this</span>.getModelAndView(mavContainer, modelFactory, webRequest);
+            <span class="org-keyword">return</span> var15;
+        }
+
+        result = <span class="org-constant">null</span>;
+    } <span class="org-keyword">finally</span> {
+        webRequest.requestCompleted();
+    }
+
+    <span class="org-keyword">return</span> (<span class="org-type">ModelAndView</span>)result;
+}
+</pre>
+</div>
+        </details>
+
+<p>
+从上述代码可知, RequestMappingHandlerAdapter 内部对于每个请求都会实例化一个 ServletlnvocableHandlerMethod(InvocableHandlerMethod 的子类) 进行处理. ServletlnvocableHandlerMethod 类继承关系如图所示.
+</p>
+
+
+<figure id="orgbf1252e">
+<img src="/spring/10-5.png" alt="10-5.png">
+
+<figcaption><span class="figure-number">Figure 5: </span>ServletlnvocableHandlerMethod 类继承关系</figcaption>
+</figure>
+
+<p>
+InvocableHadlerMethod 类通过调用 getMethodArgumentValues() 获取方法的输入参数, 具体源码如下:
+</p>
+
+<details id='orgce4ba53' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#orgce4ba53'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">protected</span> <span class="org-type">Object</span>[] <span class="org-function-name">getMethodArgumentValues</span>(<span class="org-type">NativeWebRequest</span> <span class="org-variable-name">request</span>,
+                                           <span class="org-c-annotation">@Nullable</span> <span class="org-type">ModelAndViewContainer</span> <span class="org-variable-name">mavContainer</span>,
+                                           <span class="org-type">Object</span>... <span class="org-variable-name">providedArgs</span>) <span class="org-keyword">throws</span> <span class="org-type">Exception</span> {
+    <span class="org-type">MethodParameter</span>[] <span class="org-variable-name">parameters</span> = <span class="org-keyword">this</span>.getMethodParameters();
+    <span class="org-keyword">if</span> (ObjectUtils.isEmpty(parameters)) {
+        <span class="org-keyword">return</span> EMPTY_ARGS;
+    } <span class="org-keyword">else</span> {
+        <span class="org-type">Object</span>[] <span class="org-variable-name">args</span> = <span class="org-keyword">new</span> <span class="org-type">Object</span>[parameters.length];
+
+        <span class="org-keyword">for</span>(<span class="org-type">int</span> <span class="org-variable-name">i</span> = <span class="org-highlight-numbers-number">0</span>; i &lt; parameters.<span class="org-type">length</span>; ++i) {
+            <span class="org-type">MethodParameter</span> <span class="org-variable-name">parameter</span> = parameters[i];
+            parameter.initParameterNameDiscovery(<span class="org-keyword">this</span>.parameterNameDiscoverer);
+            args[i] = findProvidedArgument(parameter, providedArgs);
+            <span class="org-keyword">if</span> (args[i] == <span class="org-constant">null</span>) {
+                <span class="org-keyword">if</span> (<span class="org-negation-char">!</span><span class="org-keyword">this</span>.resolvers.supportsParameter(parameter)) {
+                    <span class="org-keyword">throw</span> <span class="org-keyword">new</span> <span class="org-type">IllegalStateException</span>(formatArgumentError(parameter,
+                                                                        <span class="org-string">"No suitable resolver"</span>));
+                }
+
+                <span class="org-keyword">try</span> {
+                    args[i] = <span class="org-keyword">this</span>.resolvers.resolveArgument(parameter,
+                                                             mavContainer,
+                                                             request,
+                                                             <span class="org-keyword">this</span>.dataBinderFactory);
+                } <span class="org-keyword">catch</span> (<span class="org-type">Exception</span> <span class="org-variable-name">var10</span>) {
+                    <span class="org-keyword">if</span> (logger.isDebugEnabled()) {
+                        <span class="org-type">String</span> <span class="org-variable-name">exMsg</span> = var10.getMessage();
+                        <span class="org-keyword">if</span> (exMsg != <span class="org-constant">null</span> &amp;&amp; <span class="org-negation-char">!</span>exMsg.contains(parameter.getExecutable().toGenericString())) {
+                            logger.debug(formatArgumentError(parameter, exMsg));
+                        }
+                    }
+
+                    <span class="org-keyword">throw</span> var10;
+                }
+            }
+        }
+
+        <span class="org-keyword">return</span> args;
+    }
+}
+</pre>
+</div>
+        </details>
+
+<p>
+从上述代码可知, 解析参数的方式和 handlerMappings, handlerAdapters 类似, 都是从一个 HandlerMethodArgumentResolver 列表中遍历, 找到一个能够处理的 bean, 然后调用 bean 的核心方法处理. HandlerMethodArgumentResolver 接口的定义如下所示:
+</p>
+
+<details id='org364de49' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#org364de49'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">interface</span> <span class="org-type">HandlerMethodArgumentResolver</span> {
+    <span class="org-type">boolean</span> <span class="org-function-name">supportsParameter</span>(<span class="org-type">MethodParameter</span> <span class="org-variable-name">parameter</span>);
+
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-type">Object</span> <span class="org-function-name">resolveArgument</span>(<span class="org-type">MethodParameter</span> <span class="org-variable-name">parameter</span>,
+                           <span class="org-c-annotation">@Nullable</span> <span class="org-type">ModelAndViewContainer</span> <span class="org-variable-name">mavContainer</span>,
+                           <span class="org-type">NativeWebRequest</span> <span class="org-variable-name">webRequest</span>,
+                           <span class="org-c-annotation">@Nullable</span> <span class="org-type">WebDataBinderFactory</span> <span class="org-variable-name">binderFactory</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">Exception</span>;
+}
+</pre>
+</div>
+        </details>
+
+<p>
+HandlerMethodArgumentResolver 类通过 supportsParameter 筛选符合条件的 resolver, 然后调用 resolver 的 resolveArgument 解析前端参数. Spring 提供许多 HandlerMethodArgumentResolver, 具体可以在 RequestMappingHandlerAdapter.afterPropertiesSetQ 方法中查看.
+</p>
+
+<details id='orgccd6251' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#orgccd6251'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">private</span> <span class="org-type">List</span>&lt;<span class="org-type">HandlerMethodArgumentResolver</span>&gt; <span class="org-function-name">getDefaultArgumentResolvers</span>() {
+    <span class="org-type">List</span>&lt;<span class="org-type">HandlerMethodArgumentResolver</span>&gt; <span class="org-variable-name">resolvers</span> = <span class="org-keyword">new</span> <span class="org-type">ArrayList</span>(<span class="org-highlight-numbers-number">30</span>);
+    <span class="org-comment-delimiter">// </span><span class="org-comment">annotation-based argument resolution</span>
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestParamMethodArgumentResolver</span>(<span class="org-keyword">this</span>.getBeanFactory(), <span class="org-constant">false</span>));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestParamMapMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">PathVariableMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">PathVariableMapMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">MatrixVariableMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">MatrixVariableMapMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ServletModelAttributeMethodProcessor</span>(<span class="org-constant">false</span>));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestResponseBodyMethodProcessor</span>(
+                                                         <span class="org-keyword">this</span>.getMessageConverters(),
+                                                         <span class="org-keyword">this</span>.requestResponseBodyAdvice));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestPartMethodArgumentResolver</span>(<span class="org-keyword">this</span>.getMessageConverters(),
+                                                        <span class="org-keyword">this</span>.requestResponseBodyAdvice));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestHeaderMethodArgumentResolver</span>(<span class="org-keyword">this</span>.getBeanFactory()));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestHeaderMapMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ServletCookieValueMethodArgumentResolver</span>(<span class="org-keyword">this</span>.getBeanFactory()));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ExpressionValueMethodArgumentResolver</span>(<span class="org-keyword">this</span>.getBeanFactory()));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">SessionAttributeMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestAttributeMethodArgumentResolver</span>());
+    <span class="org-comment-delimiter">// </span><span class="org-comment">type-based argument resolution</span>
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ServletRequestMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ServletResponseMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">HttpEntityMethodProcessor</span>(<span class="org-keyword">this</span>.getMessageConverters(),
+                                                <span class="org-keyword">this</span>.requestResponseBodyAdvice));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RedirectAttributesMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ModelMethodProcessor</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">MapMethodProcessor</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ErrorsMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">SessionStatusMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">UriComponentsBuilderMethodArgumentResolver</span>());
+    <span class="org-keyword">if</span> (KotlinDetector.isKotlinPresent()) {
+        resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ContinuationHandlerMethodArgumentResolver</span>());
+    }
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">custom arguments</span>
+    <span class="org-keyword">if</span> (<span class="org-keyword">this</span>.getCustomArgumentResolvers() != <span class="org-constant">null</span>) {
+        resolvers.addAll(<span class="org-keyword">this</span>.getCustomArgumentResolvers());
+    }
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">default all</span>
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">PrincipalMethodArgumentResolver</span>());
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">RequestParamMethodArgumentResolver</span>(<span class="org-keyword">this</span>.getBeanFactory(), <span class="org-constant">true</span>));
+    resolvers.add(<span class="org-keyword">new</span> <span class="org-type">ServletModelAttributeMethodProcessor</span>(<span class="org-constant">true</span>));
+    <span class="org-keyword">return</span> resolvers;
+}
+</pre>
+</div>
+        </details>
+
+<p>
+从上述代码可知, 除了 Spring 提供的 RequestParamMethodArgumentResolver
+</p>
+
+<p>
+PathVariableMethodArgumentResolver&gt; SessionAttributeMethodArgumentResolver 等默认 resolver 之外, 还可以自定义 resolver, 通过注解来指定处理的参数类型, 然后通过 getCustomArgumentResolvers 方法会注册到 revolver 列表. 下面以 RequestParamMethodArgumentResolver 为例做简单的分析, 具体类继承关系如图所示.
+</p>
+
+
+<figure id="orge432f2e">
+<img src="/spring/10-6.png" alt="10-6.png">
+
+<figcaption><span class="figure-number">Figure 6: </span>ServletlnvocableHandlerMethod 类继承关系</figcaption>
+</figure>
+
+<p>
+RequestParamMethodArgumentResolver 父类是 AbstractNamedValueMethodArgumentResolver, 其中最核心的方法是 resolveArgument:
+</p>
+
+<details id='org22b0321' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#org22b0321'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-c-annotation">@Nullable</span>
+<span class="org-keyword">public</span> <span class="org-keyword">final</span> <span class="org-type">Object</span> <span class="org-function-name">resolveArgument</span>(<span class="org-type">MethodParameter</span> <span class="org-variable-name">parameter</span>,
+                                    <span class="org-c-annotation">@Nullable</span> <span class="org-type">ModelAndViewContainer</span> <span class="org-variable-name">mavContainer</span>,
+                                    <span class="org-type">NativeWebRequest</span> <span class="org-variable-name">webRequest</span>,
+                                    <span class="org-c-annotation">@Nullable</span> <span class="org-type">WebDataBinderFactory</span> <span class="org-variable-name">binderFactory</span>)
+    <span class="org-keyword">throws</span> <span class="org-type">Exception</span> {
+    <span class="org-type">NamedValueInfo</span> <span class="org-variable-name">namedValueInfo</span> =
+        <span class="org-keyword">this</span>.getNamedValueInfo(parameter);
+    <span class="org-type">MethodParameter</span> <span class="org-variable-name">nestedParameter</span> =
+        parameter.nestedIfOptional();
+    <span class="org-type">Object</span> <span class="org-variable-name">resolvedName</span> = <span class="org-keyword">this</span>.resolveEmbeddedValuesAndExpressions(namedValueInfo.name);
+    <span class="org-keyword">if</span> (resolvedName == <span class="org-constant">null</span>) {
+        <span class="org-keyword">throw</span> <span class="org-keyword">new</span> <span class="org-type">IllegalArgumentException</span>(<span class="org-string">"Specified name must not resolve to null: ["</span> +
+                                           namedValueInfo.name + <span class="org-string">"]"</span>);
+    } <span class="org-keyword">else</span> {
+        <span class="org-type">Object</span> <span class="org-variable-name">arg</span> = <span class="org-keyword">this</span>.resolveName(resolvedName.toString(),
+                                      nestedParameter, webRequest);
+        <span class="org-keyword">if</span> (arg == <span class="org-constant">null</span>) {
+            <span class="org-keyword">if</span> (namedValueInfo.defaultValue != <span class="org-constant">null</span>) {
+                arg =
+                    <span class="org-keyword">this</span>.resolveEmbeddedValuesAndExpressions(namedValueInfo.defaultValue);
+            } <span class="org-keyword">else</span> <span class="org-keyword">if</span> (namedValueInfo.required &amp;&amp; <span class="org-negation-char">!</span>nestedParameter.isOptional()) {
+                <span class="org-keyword">this</span>.handleMissingValue(namedValueInfo.name, nestedParameter, webRequest);
+            }
+
+            arg = <span class="org-keyword">this</span>.handleNullValue(namedValueInfo.name, arg,
+                                       nestedParameter.getNestedParameterType());
+        } <span class="org-keyword">else</span> <span class="org-keyword">if</span> (<span class="org-string">""</span>.equals(arg) &amp;&amp; namedValueInfo.defaultValue != <span class="org-constant">null</span>) {
+            arg = <span class="org-keyword">this</span>.resolveEmbeddedValuesAndExpressions(namedValueInfo.defaultValue);
+        }
+
+        <span class="org-keyword">if</span> (binderFactory != <span class="org-constant">null</span>) {
+            <span class="org-type">WebDataBinder</span> <span class="org-variable-name">binder</span> = binderFactory.createBinder(webRequest,
+                                                              (Object)<span class="org-constant">null</span>, namedValueInfo.name);
+
+            <span class="org-keyword">try</span> {
+                arg = binder.convertIfNecessary(arg, parameter.getParameterType(), parameter);
+            } <span class="org-keyword">catch</span> (<span class="org-type">ConversionNotSupportedException</span> <span class="org-variable-name">var11</span>) {
+                <span class="org-keyword">throw</span> <span class="org-keyword">new</span> <span class="org-type">MethodArgumentConversionNotSupportedException</span>(arg,
+                                                                        var11.getRequiredType(),
+                                                                        namedValueInfo.name,
+                                                                        parameter,
+                                                                        var11.getCause());
+            } <span class="org-keyword">catch</span> (<span class="org-type">TypeMismatchException</span> <span class="org-variable-name">var12</span>) {
+                <span class="org-keyword">throw</span> <span class="org-keyword">new</span> <span class="org-type">MethodArgumentTypeMismatchException</span>(arg, var12.getRequiredType(),
+                                                              namedValueInfo.name,
+                                                              parameter,
+                                                              var12.getCause());
+            }
+
+            <span class="org-keyword">if</span> (arg == <span class="org-constant">null</span> &amp;&amp; namedValueInfo.defaultValue == <span class="org-constant">null</span> &amp;&amp;
+                namedValueInfo.required &amp;&amp;
+                <span class="org-negation-char">!</span>nestedParameter.isOptional()) {
+                <span class="org-keyword">this</span>.handleMissingValueAfterConversion(namedValueInfo.name,
+                                                       nestedParameter,
+                                                       webRequest);
+            }
+        }
+
+        <span class="org-keyword">this</span>.handleResolvedValue(arg,
+                                 namedValueInfo.name,
+                                 parameter,
+                                 mavContainer,
+                                 webRequest);
+        <span class="org-keyword">return</span> arg;
+    }
+}
+</pre>
+</div>
+        </details>
+
+<p>
+由上述代码可知, Spring MVC 框架将 ServletRequest 对象及处理方法的参数对象实例传递给 DataBinder, DataBinder 会调用装配在 Spring MVC 上下文的 ConversionService 组件进行数据类型转换, 数据格式转换工作, 并将 ServletRequest 中的消息填充到参数对象中. 然后再调用 Validator 组件对绑定了请求消息数据的参数对象进行数据合法性校验, 并最终生成数据绑定结果 BindingResult 对象. BindingResuIt 包含已完成数据绑定的参数对象, 还包含相应的检验错误对象.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org749aabd" class="outline-2">
+<h2 id="org749aabd"><span class="section-number-2">3.</span> ViewResoIver</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orga8d10e2" class="outline-3">
+<h3 id="orga8d10e2"><span class="section-number-3">3.1.</span> ViewResolver Overview</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+ViewResoIver 是 Spring MVC 处理流程中的最后一个环节, Spring MVC 流程最后返回给用户的视图为具体的 View 对象, View 对象包含 Model 对象, 而 Model 对象存放后端需要反馈给前端的数据. 视图解析器把一个逻辑上的视图名称解析为一个具体的 View 视图对象, 最终的视图可以是 JSP, Excek JFreeChart 等.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c17a53" class="outline-3">
+<h3 id="org9c17a53"><span class="section-number-3">3.2.</span> Resolution Process</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+SpringMVC 的视图解析流程为:
+</p>
+
+<p>
+(1) SpringMVC 调用目标方法, 将目标方法返回的 String, View, ModelMap 或 ModelAndView 都转换为一个 Model And View 对象.
+</p>
+
+<p>
+(2) 通过视图解析器 ViewResoIver 将 ModelAndView 对象中的 View 对象进行解析, 将逻辑视图 View 对象解析为一个物理视图 View 对象.
+</p>
+
+<p>
+(3) 调用物理视图 View 对象的 render() 方法进行视图渲染, 得到响应结果.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd10b486" class="outline-3">
+<h3 id="orgd10b486"><span class="section-number-3">3.3.</span> Usual ViewResolver</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+SpringMVC 提供很多视图解析器类, 具体如图所示.
+</p>
+
+
+<figure id="org7f07608">
+<img src="/spring/10-7.png" alt="10-7.png">
+
+<figcaption><span class="figure-number">Figure 7: </span>ViewResoIver 类继承关系</figcaption>
+</figure>
+
+<p>
+下面介绍一些常用的视图解析器类. 除了上图所示的 resolver 之外, 还有 GroovyMarkupViewResolver, TilesViewResolver, 不过那些暂时不考虑, 所以先行省略了.
+</p>
+
+<p>
+(1) ViewResolver
+</p>
+
+<p>
+ViewResolver 是所有视图解析器的父类, 具体源码如下:
+</p>
+
+<details id='orgeab7ff2' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#orgeab7ff2'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-keyword">public</span> <span class="org-keyword">interface</span> <span class="org-type">ViewResolver</span> {
+    <span class="org-c-annotation">@Nullable</span>
+    <span class="org-type">View</span> <span class="org-function-name">resolveViewName</span>(<span class="org-type">String</span> <span class="org-variable-name">viewName</span>,
+                         <span class="org-type">Locale</span> <span class="org-variable-name">locale</span>)
+        <span class="org-keyword">throws</span> <span class="org-type">Exception</span>;
+}
+</pre>
+</div>
+        </details>
+
+<p>
+ViewResolver 的主要作用是把一个逻辑上的视图名称解析为一个真正的视图, 然后通过 View 对象进行渲染.
+</p>
+
+<p>
+(2) AbstractCachingViewResolver
+</p>
+
+<p>
+抽象类, 这种视图解析器会把解析过的视图保存起来, 然后在每次解析视图时先从缓存里面查找, 如果找到了对应的视图就直接返回, 如果没有找到就创建一个新的视图对象, 然后把它存放到用于缓存的 Map 中, 接着再把新建的视图返回. 使用这种视图缓存的方式可以把解析视图的性能问题降到最低.
+</p>
+
+<p>
+(3) UrlBasedViewResolver
+</p>
+
+<p>
+该类继承了 AbstractCachingViewResolver, 主要是提供一种拼接 URL 的方式来解析视图, 它可以通过 prefix 属性指定的前缀, 通过 suffix 属性指定后缀, 然后把返回的逻辑视图名称加上指定的前缀和后缀就是指定的视图 URL 了. 如 prefix=/WEB-INF/jsps/, suffix=.jsp, 返回的视图名称 viewName=test/indx, 贝 U UrlBasedViewResolver 解析出来的视图 URL 就是 AVEB-INF/jsps/test/index.jsp, 默认的 prefix 和 suffix 都是空串.
+</p>
+
+<p>
+URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这样就可以支持 URL 在客户端的跳转, 如当返回的视图名称是 &ldquo;redirect: test.do&rdquo; 的时候, URLBasedViewResolver 发现返回的视图名称包含&ldquo;redirect: &rdquo; 前缀, 于是把返回的视图名称前缀&ldquo;redirect: “去掉, 取后面的 test.do 组成一个 Redirect View, Redirect View 中将把请求返回的模型属性组合成查询参数的形式组合到 redirect 的 URL 后面, 然后调用 HttpServletResponse 对象的 sendRedirect 方法进行重定向. 同样 URLBasedViewResolver 还支持 forword: 前缀, 对于视图名称中包含 forword: 前缀的视图名称将会被封装成一个 InternalResourceView 对象, 然后在服务器端利用 RequestDispatcher 的 forword 方式跳转到指定的地址. 使用 UrlBasedViewResolver 的时候必须指定属性 viewClass, 表示解析成哪种视图, 一般使用较多的就是 InternalResourceView, 利用它来展现 JSP, 但是当使用 JSTL 的时候必须使用 JstlViewo 具体实例如下所示:
+</p>
+
+<details id='org056dc37' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#org056dc37'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span>
+    <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.UrlBasedViewResolver"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"prefix"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"/WEB-INF/"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"suffix"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">".jsp"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"viewClass"</span>
+            <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"org.springframework.web.servlet.view.InternalResourceView"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+上述代码中, 当返回的逻辑视图名称为 test 时, UrlBasedViewResolver 将逻辑视图名称加上定义好的前缀和后缀, 即 &ldquo;/WEB.INF/test.jsp&rdquo;, 然后新建一个 viewClass 属性指定的视图类型予以返回, 即返回一个 URL 为&ldquo;/WEB-INF/test.jsp&rdquo; 的 InternalResourceView 对象.
+</p>
+
+<p>
+(4) InternalResourceViewResolver
+</p>
+
+<p>
+该类是 URLBasedViewResolver 的子类, 所以 URLBasedViewResolver 支持的特性它都支持. InternalResourceViewResolver 是使用最广泛的一个视图解析器. 可以把 InternalResourceViewResolver 解释为内部资源视图解析器, InternalResourceViewResolver 会把返回的视图名称都解析为 InternalResourceView 对象, InternalResourceView 会把 Controller 处理器方法返回的模型属性都存放到对应的 request 属性中, 然后通过 RequestDispatcher 在服务器端把请求 forword 重定向到目标 URL. 比如在 InternalResourceViewResolver 中定义了 prefix=AVEB-INF/, suffix=.jsp, 然后请求的 Controller 处理器方法返回的视图名称为 test, 那么这个时候 InternalResourceViewResolver 就会把 test 解析为一个 InternalResourceView 对象, 先把返回的模型属性都存放到对应的 HttpServletRequest 属性中, 然后利用 RequestDispatcher 在服务器端把请求 forword 到 /WEB-INF/test.jsp. 这就是 InternalResourceViewResolver 一个非常重要的特性.
+</p>
+
+<p>
+存放在 <code>/WEB-INF/</code> 下面的内容是不能直接通过 request 请求的方式请求到的, 为了安全性考虑, 通常会把 JSP 文件放在 WEB-INF 目录下, 而 InternalResourceView 在服务器端跳转的方式可以很好地解决这个问题.
+</p>
+
+<p>
+上述代码是一个 InternalResourceViewResolver 的定义, 根据该定义当返回的逻辑视图名称是 test 的时候, InternalResourceViewResolver 会给它加上定义好的前缀和后缀, 组成 &ldquo;/WEB-INF/test.jsp&rdquo; 的形式, 然后把它当做一个 InternalResourceView 的 URL 新建一个 InternalResourceView 对象返回.
+</p>
+
+<p>
+(5) XmlViewResolver
+</p>
+
+<p>
+在实验的环境 (5.3.22) 中这个解析器已经被标了 deprecated. 但还是说一些老的吧.
+</p>
+
+<p>
+它继承自 AbstractCachingViewResolver 抽象类, 所以它也是支持视图缓存的. XmlViewResolver 需要给定一个 XML 配置文件, 该文件将使用和 Spring 的 bean 工厂配置文件一样的 DTD 定义, 所以其实该文件就是用来定义视图的 bean 对象的. 在该文件中定义的每一个视图的 bean 对象都给定一个名字, 然后 XmlViewResolver 将根据 Controller 处理器方法返回的逻辑视图名称到 XmlViewResolver 指定的配置文件中寻找对应名称的视图 bean 用于处理视图. 该配置文件默认是 /WEB-INF/views.xml 文件, 如果不使用默认值的时候可以在 XmlViewResolver 的 location 属性中指定它的位置. XmlViewResolver 还实现了 Ordered 接口, 因此可以通过其 order 属性来指定在 ViewResolver 链中它所处的位置, order 的值越小优先级越高. 以下是使用 XmlViewResolver 的一个示例:
+</p>
+
+<details id='org7b7c9cc' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#org7b7c9cc'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.XmlViewResolver"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"location"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"/WEB-INF/views.xml"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"order"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"1"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+在 Spring MVC 的配置文件中加入 XmlViewResolver 的 bean 定义. 使用 location 属性指定其配置文件所在的位置, order 属性指定当有多个 ViewResolver 的时候其处理视图的优先级.
+</p>
+
+<p>
+在 XmlViewResolver 对应的配置文件中配置好所需要的视图定义, 视图配置文件 views.xml 具体的配置如下所示:
+</p>
+
+<details id='orgf8c171f' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#orgf8c171f'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="UTF-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">beans</span> <span class="org-nxml-namespace-attribute-xmlns">xmlns</span>=<span class="org-string">"http://www.springframework.org/schema/beans"</span>
+       <span class="org-nxml-namespace-attribute-xmlns">xmlns</span><span class="org-nxml-namespace-attribute-colon">:</span><span class="org-nxml-namespace-attribute-prefix">xsi</span>=<span class="org-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="org-nxml-attribute-prefix">xsi</span><span class="org-nxml-attribute-colon">:</span><span class="org-nxml-attribute-local-name">schemaLocation</span>=<span class="org-string">"http://www.springframework.org/schema/beans</span>
+<span class="org-string">                           http://www.springframework.org/schema/beansspring-beans-3.0.xsd"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">id</span>=<span class="org-string">"index"</span>
+        <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.InternalResourceView"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"url"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"/index.jsp"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">beans</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+最后, 定义一个返回的逻辑视图名称为在 XmlViewResolver 配置文件中定义的视图名称 index:
+</p>
+
+<details id='org07f4fed' class='code' open><summary><span class="lang">Java</span></summary>
+        <div class='gutter'>
+        <a href='#org07f4fed'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-java"><span class="org-c-annotation">@RequestMapping</span>(<span class="org-string">"/index"</span>)
+<span class="org-keyword">public</span> <span class="org-type">String</span> <span class="org-function-name">index</span>() {
+    <span class="org-keyword">return</span> <span class="org-string">"index"</span>;
+}
+</pre>
+</div>
+        </details>
+
+<p>
+当访问上面定义好的 index 方法的时候返回的逻辑视图名称为 &ldquo;index&rdquo;, 这时候 Spring MVC 会从 views.xml 配置文件中寻找 id 或者 name 为 &ldquo;index&rdquo; 的 bean 对象予以返回, 这里 Spring 找到的是一个 URL 为 &ldquo;/index.jsp&rdquo; 的 InternalResourceView 对象, 然后进行视图解析, 将最终的视图页面显示给用户.
+</p>
+
+<p>
+(6) BeanNameViewResolver
+</p>
+
+<p>
+这个视图解析器跟 XmlViewResolver 有点类似, 也是通过把返回的逻辑视图名称匹配定义好的视图 bean 对象. 主要的区别有两点:
+</p>
+
+<ol class="org-ol">
+<li>BeanNameViewResolver 要求视图 bean 对象都定义在 Spring 的 application context 中, 而 XmlViewResolver 是在指定的配置文件中寻找视图 bean 对象.</li>
+
+<li>BeanNameViewResolver 不会进行视图缓存.</li>
+</ol>
+
+<p>
+下面来看一个具体的实例:
+</p>
+
+<details id='org25bc35a' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#org25bc35a'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.BeanNameViewResolver"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"order"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"1"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">id</span>=<span class="org-string">"test"</span>
+      <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.InternalResourceView"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"url"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"/index.jsp"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+上述代码中, 在 Spring MVC 的配置文件中定义了一个 BeanNameViewResolver 视图解析器和一个 id 为 test 的 InternalResourceView bean 对象. 这样当返回的逻辑视图名称为 test 时, 就会解析为上面定义好的 id 为 test 的 InternalResourceView 对象, 然后跳转到 index.jsp 页面.
+</p>
+
+<p>
+(7) ResourceBundleViewResolver
+</p>
+
+<p>
+该类也是继承自 AbstractCaching ViewResolver 类, 但是它缓存的不是视图. 和 XmlViewResolver 一样, 它也需要有一个配置文件来定义逻辑视图名称和真正的 View 对象的对应关系, 不同的是 ResourceBundleViewResolver 的配置文件是一个属性文件, 而且必须是放在 classpath 路径下面的, 默认情况下这个配置文件是在 classpath 根目录下的 views.properties 文件, 如果不使用默认值, 则可以通过属性 baseName 或 baseNames 来指定. baseName R 是指定一个基名称, Spring 会在指定的 classpath 根目录下寻找已指定的 baseName 开始的属性文件进行 View 解析, 如指定的 baseName 是 base, 那么 base.properties, baseabc.properties 等以 base 开始的属性文件都会被 Spring 当做 ResourceBundleViewResolver 解析视图的资源文件. ResourceBundleViewResolver 使用的属性配置文件的内容类似于这样:
+</p>
+
+<details id='orgeb6d2e7' class='code' open><summary><span class="lang">Configuration File</span></summary>
+        <div class='gutter'>
+        <a href='#orgeb6d2e7'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-conf"><span class="org-variable-name">resourceBundle.(class)</span>=org.springframework.web.servlet.view.InternalResourceView
+<span class="org-variable-name">resourceBundle.url</span>=/index.jsp
+<span class="org-variable-name">test.(class)</span>=org.springframework.web.servlet.view.InternalResourceView
+<span class="org-variable-name">test.url</span>=/test.jsp
+</pre>
+</div>
+        </details>
+
+<p>
+在这个配置文件中定义了两个 InternalResourceView 对象, 一个名称是 resourceBundle, 对应的 URL 是 /index.jsp, 另一个名称是 test, 对应的 URL 是 /test.jsp. 从这个定义可以知道, resourceBundle 是对应的视图名称, 使用 resourceBundle.(class) 来指定它对应的视图类型, resourceBundle.url 指定这个视图的 URL 属性.
+</p>
+
+<p>
+读者可以看到, resourceBundle 的 class 属性要用小括号包起来, 而它的 URL 属性为什么不需要呢？这就需要从 ResourceBundleViewResolver 进行视图解析的方法来说明. ResourceBundleViewResolver 还是通过 bean 工厂来获得对应视图名称的视图 bean 对象来解析视图的, 那么这些 bean 从哪里来呢？就是从定义的 properties 属性文件中来. 在 ResourceBundleViewResolver 第一次进行视图解析的时候会先 new 一个 BeanFactory 对象, 然后把 properties 文件中定义好的属性按照它自身的规则生成一个个的 bean 对象注册到该 BeanFactory 中, 之后会把该 BeanFactory 对象保存起来, 所以 ResourceBundleViewResolver 缓存的是 BeanFactory, 而不是直接缓存从 BeanFactory 中取出的视图 bean. 然后会从 bean 工厂中取出名称为逻辑视图名称的视图 bean 进行返回.
+</p>
+
+<p>
+接下来介绍 Spring 通过 properties 文件生成 bean 的规则. 它会把 properties 文件中定义的属性名称按最后一个点进行分割, 把点前面的内容当做是 bean 名称, 点后面的内容当做是 bean 的属性. 这其中有几个特别的属性, Spring 把它们用小括号包起来了, 这些特殊的属性一般是对应的 attribute, 但不是 bean 对象所有的 attribute 都可以这样用. 其中(class) 是一个, 除 T(class) 之外, 还有(scope),(parent),(abstract),(lazy-init). 而除了这些特殊的属性之外的其他属性, Spring 会把它们当做 bean 对象的一般属性进行处理, 就是 bean 对象对应的 propertyO 所以根据上面的属性配置文件将生成如下两个 bean 对象:
+</p>
+
+<details id='org38c44f9' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#org38c44f9'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">id</span>=<span class="org-string">"resourceBundle"</span>
+      <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.BeanNameViewResolver"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"url"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"/index.jsp"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">id</span>=<span class="org-string">"test"</span>
+      <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.InternalResourceView"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"url"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"/test.jsp"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+(8) FreeMarkerViewResolver
+</p>
+
+<p>
+FreeMarkerViewResolver 是 UrlBasedViewResolver 的一个子类, 它会把 Controller 处理方法返回的逻辑视图解析为 FreeMarkerViewo FreeMarkerViewResolver 会按照 UrlBasedViewResolver 拼接 URL 的方式进行视图路径的解析, 但是使用 FreeMarkerViewResolver 的时候不需要指定其 viewClass, 因为 FreeMarkerViewResolver 中已经把 viewClass 定死为 FreeMarkerView 了. 先在 Spring MVC 的配置文件里面定义一个 FreeMarkerViewResolver 视图解析器, 并定义其解析视图的 order 顺序为 1, 代码示例如下:
+</p>
+
+<details id='org38bba53' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#org38bba53'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span>
+     <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"prefix"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"fm_"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"suffix"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">".ftl"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+    <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"order"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"1"</span><span class="org-nxml-tag-delimiter">&gt;&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">property</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+
+<p>
+当请求的处理器方法返回一个逻辑视图名称 viewName 的时候, 就会被该视图处理器加上前后缀解析为一个 URL 为 &ldquo;fin_viewName.fU&rdquo; 的 FreeMarkerView 对象. 对于 FreeMarkerView 需要给定一个 FreeMarkerConfig 的 bean 对象来定义 FreeMarker 的配置信息. FreeMarkerConfig 是一个接口, Spring 已经提供了一个实现, 它就是 FreeMarkerConfigurer. 可以通过在 Spring MVC 的配置文件里定义该 bean 对象来定义 FreeMarker 的配置信息, 该配置信息将会在 FreeMarkerView 进行渲染的时候使用到. 对于 FreeMarkerConfigurer 而言, 最简单的就是配置一个 templateLoaderPath, 告诉 Spring 应该到哪里寻找 FreeMarker 的模板文件. 这个 templateLoaderPath 也支持使用 &ldquo;classpath:&rdquo; 和 &ldquo;file:&rdquo; 前缀. 当 FreeMarker 的模板文件放在多个不同的路径下面的时候, 可以使用 templateLoaderPaths 属性来指定多个路径. 在这里指定模板文件放在 &ldquo;/WEB-INF/fireemarker/template&rdquo; 下面, 示例代码如下:
+</p>
+
+<details id='org75c8e34' class='code' open><summary><span class="lang">XML</span></summary>
+        <div class='gutter'>
+        <a href='#org75c8e34'>#</a>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>        </div>
+        <div class="org-src-container">
+<pre class="src src-xml"><span class="org-nxml-processing-instruction-delimiter">&lt;?</span><span class="org-nxml-processing-instruction-target">xml</span> <span class="org-nxml-processing-instruction-content">version="1.0" encoding="utf-8"</span><span class="org-nxml-processing-instruction-delimiter">?&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">bean</span> <span class="org-nxml-attribute-local-name">class</span>=<span class="org-string">"org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"</span><span class="org-nxml-tag-delimiter">&gt;</span>
+  <span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-element-local-name">property</span> <span class="org-nxml-attribute-local-name">name</span>=<span class="org-string">"templateLoaderPath"</span> <span class="org-nxml-attribute-local-name">value</span>=<span class="org-string">"/WEB-INF/freemarker/template"</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-tag-delimiter">&gt;</span>
+<span class="org-nxml-tag-delimiter">&lt;</span><span class="org-nxml-tag-slash">/</span><span class="org-nxml-element-local-name">bean</span><span class="org-nxml-tag-delimiter">&gt;</span>
+</pre>
+</div>
+        </details>
+</div>
+</div>
+
+<div id="outline-container-orgbba9b9a" class="outline-3">
+<h3 id="orgbba9b9a"><span class="section-number-3">3.4.</span> ViewResolver Chain</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+在 Spring MVC 中可以同时定义多个 ViewResolver 视图解析器, 然后它们会组成一个 ViewResolver 链. 当 Controller 处理器方法返回一个逻辑视图名称后 ViewResolver 链将根据其
+</p>
+
+<p>
+中 ViewResolver 的优先级来进行处理. 所有的 ViewResolver 都实现了 Ordered 接口, 在 Spring 中实现了这个接口的类都是可以排序的. ViewResolver 是通过 order 属性来指定顺序的, 默认都是最大值. 所以可以通过指定 ViewResolver 的 order 属性来实现 ViewResolver 的优先级, order 属性是 Integer 类型, order 越小优先级越高, 所以第一个进行解析的将是 ViewResolver 链中 order 值最小的那个.
+</p>
+
+<p>
+如果 ViewResolver 进行视图解析后返回的 View 对象为 null, 则表示 ViewResolver 不能解析该视图, 这个时候如果还存在其他 order 值比它大的 ViewResolver, 就会调用剩余的 ViewResolver 中 order 值最小的那个来解析该视图, 依此类推. 当 ViewResolver 在进行视图解析后返回的是一个非空的 View 对象的时候, 则表示该 ViewResolver 能够解析该视图, 那么视图解析就完成了, 后续的 ViewResolver 将不会再用来解析该视图. 当定义的所有 ViewResolver 都不能解析该视图的时候, Spring 就会抛出一个异常.
+</p>
+
+<p>
+基于 Spring 支持的这种 ViewResolver 链模式, 就可以在 Spring MVC 应用中同时定义多个 ViewResolver, 给定不同的 order 值, 这样就可以对特定的视图进行处理, 以此来支持同一应用中有多种视图类型.
+</p>
+
+<p>
+像 InternalResourceViewResolver 这种能解析所有的视图, 即永远能返回一个非空 View 对象的 ViewResolver, 一定要把它放在 ViewResolver 链的最后面.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Luke Yao</p>
+<p class="date">Created: 2022-10-09 Sun 18:20</p>
+</div>
+</div>
+</body>
+</html>
