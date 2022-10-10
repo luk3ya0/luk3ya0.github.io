@@ -1587,15 +1587,15 @@ dl a[href^="#"]:hover::selection {
 }
 
 *:target::before {
-    display: none;
+    /* display: none; */
     /* content: "🠖"; */
-    position: absolute;
-    left: -7rem;
-    top: calc(0.5em - 2rem);
-    line-height: 1;
-    color: #e65353aa;
-    font-size: 1em;
-    font-style: normal;
+    /* position: absolute; */
+    /* left: -7rem; */
+    /* top: calc(0.5em - 2rem); */
+    /* line-height: 1; */
+    /* color: #e65353aa; */
+    /* font-size: 1em; */
+    /* font-style: normal; */
 }
 
 @media (max-width: 1000px) {
