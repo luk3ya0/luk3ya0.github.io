@@ -142,4 +142,28 @@
 body {
     font-family: "Fira Code", -apple-system;
 }
+
+h1, h2, h3 {
+    font-size: 1em !important;
+}
+
+h1[id]::before {
+    content: "* "
+}
+
+h2[id]::before {
+    content: "** "
+}
+
+h3[id]::before {
+    content: "*** "
+}
+
+h4[id]::before {
+    content: "***** "
+}
+
+h5[id]::before {
+    content: "****** "
+}
 </style>
