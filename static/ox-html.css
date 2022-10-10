@@ -1586,18 +1586,6 @@ dl a[href^="#"]:hover::selection {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
 }
 
-*:target::before {
-    /* display: none; */
-    /* content: "🠖"; */
-    /* position: absolute; */
-    /* left: -7rem; */
-    /* top: calc(0.5em - 2rem); */
-    /* line-height: 1; */
-    /* color: #e65353aa; */
-    /* font-size: 1em; */
-    /* font-style: normal; */
-}
-
 @media (max-width: 1000px) {
     *:target::before {
         content: "🠔";
