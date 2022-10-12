@@ -1,123 +1,37 @@
 {{ $class := .Attributes.class | default ""    }}
 {{ $lang  := .Attributes.lang  | default .Type }}
 {{ if transform.CanHighlight $lang }}
+<script>
+function copyPreToClipbord(button) {
+  if (navigator && navigator.clipboard) {
+    clipboard = navigator.clipboard;
+  } else {
+    const script = document.createElement("script");
+    script.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/clipboard-polyfill/2.7.0/clipboard-polyfill.promise.js";
+    script.integrity = "sha256-waClS2re9NUbXRsryKoof+F9qc1gjjIhc2eT7ZbIv94=";
+    script.crossOrigin = "anonymous";
+    script.onload = () => addCopyButtons(clipboard);
+    document.body.appendChild(script);
+  }
+  
+  function pbcopy(clipboard) {
+    // 1. Look for pre > code elements in the DOM
+    var codeBlock = button.parentElement.nextElementSibling.getElementsByTagName('pre')[0]
+    clipboard.writeText(codeBlock.innerText);
+  }
+}
+</script>
 <details class='code'>
-    <summary>Code</summary>
+    <summary><span class="code-up">{{ $lang }}</span></summary>
     <div class='gutter'>
-        <button title='Copy to clipboard'>⎘</button>
+        <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>
     </div>
-    <div class="{{ $class }}">
-        <style>
-        /* CSS */
-        @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
-        details {
-            display: block;
-        }
-        summary {
-            display: list-item;
-        }
-        
-        details.code {
-            margin-top: 2em;
-            margin-bottom: 2em;
-            position: relative;
-        }
-        
-        details.code summary {
-            position: relative;
-            left: -2.5px;
-            padding-left: 10px;
-            padding-bottom: 4px;
-            margin-left: -10px;
-            z-index: 1;
-            outline: none;
-            font-family: "Fira Code", sans;
-            font-weight: normal;
-            font-style: normal;
-            font-size: 0.8em;
-            line-height: 1.5;
-            color: #7b7b7b;
-        }
-        
-        details.code[open] {
-            margin-top: 1em;
-            margin-bottom: 3em;
-        }
-
-	details.code[open] div {
-	    margin-top: 1em;
-	}
-
-        details.code summary .name {
-            font-size: 1em;
-            color: #222;
-            margin-right: 0.7em;
-        }
-        
-        details.code summary::marker {
-            color: #444;
-        }
-        
-        details.code[open] summary {
-            margin-bottom: -32px;
-        }
-        
-        details.code[open] summary .lang {
-            display: none;
-        }
-        
-        details.code[open] summary.named {
-            margin-bottom: -26px;
-        }
-        
-        details.code:not([open]) summary {
-            margin-bottom: -5px;
-        }
-    
-        .gutter:hover {
-            opacity: 1;
-        }
-        
-        .gutter * {
-            display: block;
-            width: 100%;
-            text-align: right;
-            padding: 0;
-            margin: 0;
-            color: #7b7b7b;
-        }
-        
-        .gutter *:hover {
-            color: #c8c8c8;
-        }
-        
-        .gutter *:active {
-            font-weight: bold;
-        }
-        
-        .gutter a {
-            display: none;
-            text-decoration: none;
-            font-size: 1em;
-        }
-        
-        .gutter button {
-            background: none;
-            border: none;
-        }
-        pre, pre span{
-            font-family: "Fira Code" !important;
-    	line-height: 1.5;
-        }
-        .highlight {
-            background-color: transparent;
-        }
-        </style>
-        {{ highlight .Inner $lang }}
+    <div class="org-src-container">
+    {{ highlight .Inner $lang }}
+    <span class="code-bottom">&nbsp;{{ $lang }}</span>
     </div>
 </details>
 {{else}}
 <pre><code class="{{ $class }}">{{.Inner}}</code></pre>
 {{end}}
-
-
