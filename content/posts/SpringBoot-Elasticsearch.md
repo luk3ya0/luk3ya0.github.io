@@ -3,6 +3,7 @@ title = "SpringBoot with ElasticSearch"
 description = ""
 date = "2020-01-17"
 aliases = ["springboot-with-es"]
+tags = ["elasticsearch", "springboot"]
 author = "Luke Yao"
 +++
 

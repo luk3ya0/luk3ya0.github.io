@@ -4,6 +4,7 @@ description = ""
 date = "2020-05-28"
 aliases = ["about-canal","mysql-binlog"]
 author = "Luke Yao"
+tags = ["mysql", "docker", "canal", "binlog"]
 +++
 
 ## 创建 docker network

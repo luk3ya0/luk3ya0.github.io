@@ -3,6 +3,7 @@ title = "Kafka on Docker"
 description = ""
 date = "2020-01-13"
 aliases = ["kafka-on-docker"]
+tags = ["kafka", "docker"]
 author = "Luke Yao"
 +++
 
