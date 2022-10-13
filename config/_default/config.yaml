@@ -1,7 +1,9 @@
-baseURL: https://luk3ya0.github.io
-languageCode: en-us
+baseURL: https://luk3ya0.github.io/
+languageCode: en-gb
 title: 
-theme: PaperMod
+theme: smoooooth
 enableEmoji: true
-
-
+taxonomies:
+  tag: tags
+social:
+  twitter: Example

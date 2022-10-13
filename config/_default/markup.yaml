@@ -1,8 +1,10 @@
+pygmentsCodefences: true
+pygmentsStyle: pygments
 goldmark:
   renderer:
     unsafe: true
 highlight:
   lineNos: false
   codeFences: true
-  noClasses: true
+  noClasses: false
   style: monokailight
