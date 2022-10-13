@@ -44,7 +44,7 @@ docker run -d --name canal-server --net mynetwork --ip 172.18.0.9 -p 11111:11111
 
 对于自建 MySQL , 需要先开启 `Binlog` 写入功能, 配置 `binlog-format` 为 ROW 模式, 通过修改mysql配置文件来开启 bin~log~, 使用 `find / -name my.cnf` 查找 `my.cnf`, 修改文件内容如下
 
-```conf
+```pkgconfig
 [mysqld]
 log-bin=mysql-bin # 开启 binlog
 binlog-format=ROW # 选择 ROW 模式
