@@ -178,10 +178,6 @@ Spring 为了尽可能屏蔽 Servlet 的细节, 在 Servlet 处理外部到 Disp
 
 2. 使用了 `/*` 的 wildcard URL, 作用：符合 `/*` 的 web 路径 (即所有的请求) 都将由 DispatcherServlet 处理.
 
-接着编写一个简单的 Controller, 内容如下:
-
-```java
-```
 为了让 DispatchServlet 找到自行编写的 Controller, Spring 提供了实用 xml 的配置方法:
 
 在 `WEB-INF` 文件夹下, 也就是 web.xml 隔壁, 创建一个 fake-shop-book-servlet.xml (注意命名 -servlet.xml):
