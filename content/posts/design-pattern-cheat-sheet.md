@@ -44,7 +44,7 @@ Prototype: Specifies the kinds of objects to create using a prototypical instanc
 
 ## Structual
 
-### bridge
+### Bridge
 
 Bridge: Depart implementations of different dimension to decouple the abstraction, avoid creating a bunch of subclasses.
 
