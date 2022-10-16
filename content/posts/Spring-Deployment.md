@@ -1,9 +1,9 @@
 +++
-title = "Spring Deployment from xml to annotation, from manually to maven plugin"
+title = "Spring Deployment from xml to annotation, from manually to jenkins"
 description = ""
 date = "2020-01-19"
 aliases = ["springmvc-deployment"]
-tags = ["spring", "mvc", "deployment"]
+tags = ["spring", "mvc", "deployment", "jenkins"]
 author = "Luke Yao"
 draft = false
 +++
@@ -243,6 +243,8 @@ curl -s http://localhost:8080/fake-world/book | jq
 Spring 本身逐渐从 XML 转向了基于 Annotation 的配置, 与之类似的, Servlet API 从 3.0 开始也支持了基于 Annotation 的配置.
 
 在 Servlet 3 中, 可以继承 `ServletContainerInitializer` 来实现替代 `web.xml` 的作用. Servlet 3 要求在 deploy 目录中加入 `META-INF/services/javax.servlet.ServletContainerInitializer` 文件, 来指示 `ServletContainerInitializer` 的实现者, 用于 Servlet 的初始化.
+
+取得的效果就是在 Servlet 3 中可以用 `@WebServlet` 来配置路由, 进一步实现了 config 和 source 的集中处理.
 
 SpringMVC 也做了这件事情, 在 `spring-web-4.3.9.RELEASE` 这个 jar 里可以找到 `javax.servlet.ServletContainerInitializer` 这个文件, 里面的内容是: `org.springframework.web.SpringServletContainerInitializer` 
 
@@ -539,3 +541,114 @@ brew services start tomcat@8
 
 6. 重新部署运行 `mvn tomcat7:redeploy`
 
+
+## Deploy Spring MVC war on Tomcat by Jenkins
+
+### Installation
+
+```shell
+brew install jenkins-lts
+```
+### Config the service
+
+编辑 homebrew.mxcl.jenkins-lts.plist 如下:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>homebrew.mxcl.jenkins-lts</string>
+	<key>LimitLoadToSessionType</key>
+	<array>
+		<string>Aqua</string>
+		<string>Background</string>
+		<string>LoginWindow</string>
+		<string>StandardIO</string>
+		<string>System</string>
+	</array>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/luke/Library/Java/JavaVirtualMachines/azul-17.0.4.1/Contents/Home/bin/java</string>
+		<string>-Dmail.smtp.starttls.enable=true</string>
+		<string>-Dhudson.plugins.git.GitSCM.ALLOW_LOCAL_CHECKOUT=true</string>
+		<string>-jar</string>
+		<string>/opt/homebrew/opt/jenkins-lts/libexec/jenkins.war</string>
+		<string>--httpListenAddress=localhost</string>
+		<string>--httpPort=8090</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
+```
+- `-Dhudson.plugins.git.GitSCM.ALLOW_LOCAL_CHECKOUT=true` 使 Jenkins 可以使用本地的 Git Repo.
+
+- `open http://localhost:8090`.
+
+### Jenkins Plugins Installation
+
+- Pipeline
+
+- Maven
+
+- Deploy to Container
+
+- Git info
+
+安装好上述的四方面的 plugins.
+
+### New Item
+
+在 dashboard 中 new item, 或者 create new job, 开始配置:
+
+1. General > Description: Maven War against Tomcat;
+
+2. Source Code Management > Git > 
+
+   Repositories >
+   
+       - Repository URL: file:///Users/luke/IdeaProjects/fake-world
+       
+       - Credentials: None
+   
+   Branches to Build:  */master
+
+3. Build Triggers: 先跳过, 按需配置即可
+
+4. Build Environment: 先跳过, 按需配置即可
+
+5. Pre Steps: 先跳过, 按需配置即可
+
+6. Build >
+   
+   Root POM: default
+   
+   Goals and options: clean install
+   
+7. Post Steps: Run only if build succeeds   
+
+8. Build Settings: 先跳过, 按需配置即可
+
+9. Post-build Actions:
+
+   - Add post-build action > Deploy war/ear to a container
+   
+   - WAR/EAR files: `**/*.war`
+   
+   - Context path: fake-world
+   
+   - Container > Tomcat8.x remote
+   
+     Credentials from tomcat-users.xml
+     
+     Tomcat URL: http://localhost:8080
+     
+     Manager context path: defalut as /manager
+
+10. Apply and Save
+
+最后可以 `brew services stop tomcat@8`, 并删除相关的 fake-world 目录和 war 包. 在 Jenkins dashboard 中点击 Build now.
+
+再测试部署结果.
