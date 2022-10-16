@@ -250,7 +250,7 @@ public interface Controller {
 }
 ```
 
-\(2\) HttpRequestHandlerAdapter
+(2) HttpRequestHandlerAdapter
 
 HttpRequestHandlerAdapter 本质是调用 HttpRequestHandler 的 handleRequest 方法, 请看下述代码示例:
 
@@ -545,7 +545,7 @@ private List<HandlerMethodArgumentResolver> getDefaultArgumentResolvers() {
 
 从上述代码可知, 除了 Spring 提供的 RequestParamMethodArgumentResolver
 
-PathVariableMethodArgumentResolver\> SessionAttributeMethodArgumentResolver 等默认 resolver 之外, 还可以自定义 resolver, 通过注解来指定处理的参数类型, 然后通过 getCustomArgumentResolvers 方法会注册到 revolver 列表. 下面以 RequestParamMethodArgumentResolver 为例做简单的分析, 具体类继承关系如图所示.
+PathVariableMethodArgumentResolver, SessionAttributeMethodArgumentResolver 等默认 resolver 之外, 还可以自定义 resolver, 通过注解来指定处理的参数类型, 然后通过 getCustomArgumentResolvers 方法会注册到 revolver 列表. 下面以 RequestParamMethodArgumentResolver 为例做简单的分析, 具体类继承关系如图所示.
 
 ![ServletlnvocableHandlerMethod 类继承关系](/image/spring/10-6.svg)
 
@@ -668,9 +668,9 @@ ViewResolver 的主要作用是把一个逻辑上的视图名称解析为一个�
 
 (3) UrlBasedViewResolver
 
-该类继承了 AbstractCachingViewResolver, 主要是提供一种拼接 URL 的方式来解析视图, 它可以通过 prefix 属性指定的前缀, 通过 suffix 属性指定后缀, 然后把返回的逻辑视图名称加上指定的前缀和后缀就是指定的视图 URL 了. 如 prefix=/WEB-INF/jsps/, suffix=.jsp, 返回的视图名称 viewName=test/indx, 贝 U UrlBasedViewResolver 解析出来的视图 URL 就是 AVEB-INF/jsps/test/index.jsp, 默认的 prefix 和 suffix 都是空串.
+该类继承了 AbstractCachingViewResolver, 主要是提供一种拼接 URL 的方式来解析视图, 它可以通过 prefix 属性指定的前缀, 通过 suffix 属性指定后缀, 然后把返回的逻辑视图名称加上指定的前缀和后缀就是指定的视图 URL 了. 如 prefix=/WEB-INF/jsps/, suffix=.jsp, 返回的视图名称 viewName=test/indx, 贝 U UrlBasedViewResolver 解析出来的视图 URL 就是 WEB-INF/jsps/test/index.jsp, 默认的 prefix 和 suffix 都是空串.
 
-URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这样就可以支持 URL 在客户端的跳转, 如当返回的视图名称是 \"redirect: test.do\" 的时候, URLBasedViewResolver 发现返回的视图名称包含\"redirect: \" 前缀, 于是把返回的视图名称前缀\"redirect: "去掉, 取后面的 test.do 组成一个 Redirect View, Redirect View 中将把请求返回的模型属性组合成查询参数的形式组合到 redirect 的 URL 后面, 然后调用 HttpServletResponse 对象的 sendRedirect 方法进行重定向. 同样 URLBasedViewResolver 还支持 forword: 前缀, 对于视图名称中包含 forword: 前缀的视图名称将会被封装成一个 InternalResourceView 对象, 然后在服务器端利用 RequestDispatcher 的 forword 方式跳转到指定的地址. 使用 UrlBasedViewResolver 的时候必须指定属性 viewClass, 表示解析成哪种视图, 一般使用较多的就是 InternalResourceView, 利用它来展现 JSP, 但是当使用 JSTL 的时候必须使用 JstlViewo 具体实例如下所示:
+URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这样就可以支持 URL 在客户端的跳转, 如当返回的视图名称是 "redirect: test.do" 的时候, URLBasedViewResolver 发现返回的视图名称包含 "redirect:" 前缀, 于是把返回的视图名称前缀 "redirect:" 去掉, 取后面的 test.do 组成一个 Redirect View, Redirect View 中将把请求返回的模型属性组合成查询参数的形式组合到 redirect 的 URL 后面, 然后调用 HttpServletResponse 对象的 sendRedirect 方法进行重定向. 同样 URLBasedViewResolver 还支持 forword: 前缀, 对于视图名称中包含 forword: 前缀的视图名称将会被封装成一个 InternalResourceView 对象, 然后在服务器端利用 RequestDispatcher 的 forword 方式跳转到指定的地址. 使用 UrlBasedViewResolver 的时候必须指定属性 viewClass, 表示解析成哪种视图, 一般使用较多的就是 InternalResourceView, 利用它来展现 JSP, 但是当使用 JSTL 的时候必须使用 JstlViewo 具体实例如下所示:
 
 ``` xml
 <bean
@@ -686,11 +686,11 @@ URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这�
 
 (4) InternalResourceViewResolver
 
-该类是 URLBasedViewResolver 的子类, 所以 URLBasedViewResolver 支持的特性它都支持. InternalResourceViewResolver 是使用最广泛的一个视图解析器. 可以把 InternalResourceViewResolver 解释为内部资源视图解析器, InternalResourceViewResolver 会把返回的视图名称都解析为 InternalResourceView 对象, InternalResourceView 会把 Controller 处理器方法返回的模型属性都存放到对应的 request 属性中, 然后通过 RequestDispatcher 在服务器端把请求 forword 重定向到目标 URL. 比如在 InternalResourceViewResolver 中定义了 prefix=AVEB-INF/, suffix=.jsp, 然后请求的 Controller 处理器方法返回的视图名称为 test, 那么这个时候 InternalResourceViewResolver 就会把 test 解析为一个 InternalResourceView 对象, 先把返回的模型属性都存放到对应的 HttpServletRequest 属性中, 然后利用 RequestDispatcher 在服务器端把请求 forword 到 /WEB-INF/test.jsp. 这就是 InternalResourceViewResolver 一个非常重要的特性.
+该类是 URLBasedViewResolver 的子类, 所以 URLBasedViewResolver 支持的特性它都支持. InternalResourceViewResolver 是使用最广泛的一个视图解析器. 可以把 InternalResourceViewResolver 解释为内部资源视图解析器, InternalResourceViewResolver 会把返回的视图名称都解析为 InternalResourceView 对象, InternalResourceView 会把 Controller 处理器方法返回的模型属性都存放到对应的 request 属性中, 然后通过 RequestDispatcher 在服务器端把请求 forword 重定向到目标 URL. 比如在 InternalResourceViewResolver 中定义了 prefix=WEB-INF/, suffix=.jsp, 然后请求的 Controller 处理器方法返回的视图名称为 test, 那么这个时候 InternalResourceViewResolver 就会把 test 解析为一个 InternalResourceView 对象, 先把返回的模型属性都存放到对应的 HttpServletRequest 属性中, 然后利用 RequestDispatcher 在服务器端把请求 forword 到 /WEB-INF/test.jsp. 这就是 InternalResourceViewResolver 一个非常重要的特性.
 
 存放在 `/WEB-INF/` 下面的内容是不能直接通过 request 请求的方式请求到的, 为了安全性考虑, 通常会把 JSP 文件放在 WEB-INF 目录下, 而 InternalResourceView 在服务器端跳转的方式可以很好地解决这个问题.
 
-上述代码是一个 InternalResourceViewResolver 的定义, 根据该定义当返回的逻辑视图名称是 test 的时候, InternalResourceViewResolver 会给它加上定义好的前缀和后缀, 组成 \"/WEB-INF/test.jsp\" 的形式, 然后把它当做一个 InternalResourceView 的 URL 新建一个 InternalResourceView 对象返回.
+上述代码是一个 InternalResourceViewResolver 的定义, 根据该定义当返回的逻辑视图名称是 test 的时候, InternalResourceViewResolver 会给它加上定义好的前缀和后缀, 组成 "/WEB-INF/test.jsp" 的形式, 然后把它当做一个 InternalResourceView 的 URL 新建一个 InternalResourceView 对象返回.
 
 (5) XmlViewResolver
 
@@ -731,7 +731,7 @@ public String index() {
 }
 ```
 
-当访问上面定义好的 index 方法的时候返回的逻辑视图名称为 \"index\", 这时候 Spring MVC 会从 views.xml 配置文件中寻找 id 或者 name 为 \"index\" 的 bean 对象予以返回, 这里 Spring 找到的是一个 URL 为 \"/index.jsp\" 的 InternalResourceView 对象, 然后进行视图解析, 将最终的视图页面显示给用户.
+当访问上面定义好的 index 方法的时候返回的逻辑视图名称为 "index", 这时候 Spring MVC 会从 views.xml 配置文件中寻找 id 或者 name 为 "index" 的 bean 对象予以返回, 这里 Spring 找到的是一个 URL 为 "/index.jsp" 的 InternalResourceView 对象, 然后进行视图解析, 将最终的视图页面显示给用户.
 
 (6) BeanNameViewResolver
 
@@ -796,7 +796,7 @@ FreeMarkerViewResolver 是 UrlBasedViewResolver 的一个子类, 它会把 Contr
 </bean>
 ```
 
-当请求的处理器方法返回一个逻辑视图名称 viewName 的时候, 就会被该视图处理器加上前后缀解析为一个 URL 为 \"fin~viewName~.fU\" 的 FreeMarkerView 对象. 对于 FreeMarkerView 需要给定一个 FreeMarkerConfig 的 bean 对象来定义 FreeMarker 的配置信息. FreeMarkerConfig 是一个接口, Spring 已经提供了一个实现, 它就是 FreeMarkerConfigurer. 可以通过在 Spring MVC 的配置文件里定义该 bean 对象来定义 FreeMarker 的配置信息, 该配置信息将会在 FreeMarkerView 进行渲染的时候使用到. 对于 FreeMarkerConfigurer 而言, 最简单的就是配置一个 templateLoaderPath, 告诉 Spring 应该到哪里寻找 FreeMarker 的模板文件. 这个 templateLoaderPath 也支持使用 \"classpath:\" 和 \"file:\" 前缀. 当 FreeMarker 的模板文件放在多个不同的路径下面的时候, 可以使用 templateLoaderPaths 属性来指定多个路径. 在这里指定模板文件放在 \"/WEB-INF/fireemarker/template\" 下面, 示例代码如下:
+当请求的处理器方法返回一个逻辑视图名称 viewName 的时候, 就会被该视图处理器加上前后缀解析为一个 URL 为 "finviewName.fu" 的 FreeMarkerView 对象. 对于 FreeMarkerView 需要给定一个 FreeMarkerConfig 的 bean 对象来定义 FreeMarker 的配置信息. FreeMarkerConfig 是一个接口, Spring 已经提供了一个实现, 它就是 FreeMarkerConfigurer. 可以通过在 Spring MVC 的配置文件里定义该 bean 对象来定义 FreeMarker 的配置信息, 该配置信息将会在 FreeMarkerView 进行渲染的时候使用到. 对于 FreeMarkerConfigurer 而言, 最简单的就是配置一个 templateLoaderPath, 告诉 Spring 应该到哪里寻找 FreeMarker 的模板文件. 这个 templateLoaderPath 也支持使用 "classpath:" 和 "file:" 前缀. 当 FreeMarker 的模板文件放在多个不同的路径下面的时候, 可以使用 templateLoaderPaths 属性来指定多个路径. 在这里指定模板文件放在 "/WEB-INF/fireemarker/template" 下面, 示例代码如下:
 
 ``` xml
 <bean class="org.image/springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

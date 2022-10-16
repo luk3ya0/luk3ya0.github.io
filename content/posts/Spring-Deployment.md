@@ -176,11 +176,11 @@ Spring 为了尽可能屏蔽 Servlet 的细节, 在 Servlet 处理外部到 Disp
 
 1. 加入的 `load-on-startup` 参数, 作用：告知 Container 在启动的时候就加载这个 Servlet (而非收到请求时才加载)
 
-2. 使用了 `/*` 的 wildcard URL, 作用：符合 `/*` 的 web 路径 (即所有的请求) 都将由 DispatcherServlet 处理.
+2. 使用了 `/*` 的 wildcard URL, 作用：符合 `/*` 的 web 路径 (即所有的请求) 都将由 DispatcherServlet 处理. 在 Tomcat 部署环境中, 这部分代表了 DispatcherServlet 的 Servlet Path, 而应用本身在 webapp 下的目录相当于 Context Path. 一个正常 URL 构成: http://localhost:8080/context-path/servlet-path/filename
 
 为了让 DispatchServlet 找到自行编写的 Controller, Spring 提供了实用 xml 的配置方法:
 
-在 `WEB-INF` 文件夹下, 也就是 web.xml 隔壁, 创建一个 fake-shop-book-servlet.xml (注意命名 -servlet.xml):
+在 `WEB-INF` 文件夹下, 也就是 web.xml 隔壁, 创建一个 fake-world-servlet.xml (注意命名 -servlet.xml):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
