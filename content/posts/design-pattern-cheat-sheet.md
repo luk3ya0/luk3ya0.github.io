@@ -42,7 +42,7 @@ Prototype: Specifies the kinds of objects to create using a prototypical instanc
 
 ![](/image/Prototype.svg)
 
-## Structual
+## Structural
 
 ### Bridge
 
@@ -73,3 +73,9 @@ Adapter: Adapt real services to the another service adopted by the client using 
 Composite: Lets you compose objects into tree structures and then work with these structures as if they were individual objects.
 
 ![](/image/Composite.svg)
+
+### Facade
+
+Facade: The *Facade* provides convenient access to a particular part of the subsystem’s functionality. It knows where to direct the client’s request and how to operate all the moving parts.
+
+![](/image/Facade.svg)
