@@ -67,3 +67,9 @@ Adapter: Adapt real services to the another service adopted by the client using 
 - Inheritance:
 
 ![](/image/Adapter-Inheritance.svg)
+
+### Composite
+
+Composite: Lets you compose objects into tree structures and then work with these structures as if they were individual objects.
+
+![](/image/Composite.svg)
