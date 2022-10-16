@@ -79,3 +79,18 @@ Composite: Lets you compose objects into tree structures and then work with thes
 Facade: The *Facade* provides convenient access to a particular part of the subsystem’s functionality. It knows where to direct the client’s request and how to operate all the moving parts.
 
 ![](/image/Facade.svg)
+
+### Flyweight
+
+Flyweight: is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
+
+![](/image/Flyweight.svg)
+
+### Proxy
+
+Proxy: Lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.
+
+![](/image/Proxy.svg)
+
+## Behavioral
+
