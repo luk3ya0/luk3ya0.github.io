@@ -13,12 +13,13 @@ draft = false
 从最初的 J2EE (1999 - 2006) 到 JavaEE (2006 - 2019), 再到 Jakarta (2019 - so far), 其实本质上还是一个东西, 由于历史原因出现了若干名称, 是 Oracle 最初为了区分服务和平台而创建的 Java Platform, Enterprise Edition, 相对于 Standard Edition, 加入了以 javax 为 prefix domain 的 jar 包 (for web development). 所以总结如下:
 
 ```text
-  J2EE   = JavaEE = JEE = Jakarta
+J2EE   = JavaEE = JEE = Jakarta
 
-                         ┌─ javax.servlet
-  JavaEE = JavaSE + jar ─┼─ javax.websocket
-                         └─ ...
-
+                       ┌─ javax.servlet
+                       │
+JavaEE = JavaSE + jar ─┼─ javax.websocket
+                       │
+                       └─ ...
 ```
 
 其中 Servlet 是 JavaEE 平台提出并逐渐成为业内主流实际的 Java Web Development Standard, 但是 Servlet 只是一个标准, 并没有提供完整的实现, 要运行 Servlet 还需要类似 Python WSGI 平台 的 Servlet Container.
