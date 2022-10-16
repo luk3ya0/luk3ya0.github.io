@@ -5,6 +5,7 @@ date = "2020-01-13"
 aliases = ["design-pattern-cheat-sheets"]
 tags = ["design pattern", "architect", "cheat sheet", "tl;dr"]
 author = "Luke Yao"
+draft = false
 +++
 
 The Structure images for patterns come from refatorguru, and rebuilt by drawio.
@@ -48,3 +49,15 @@ Prototype: Specifies the kinds of objects to create using a prototypical instanc
 Decorator: Attaches additional responsibilities to an object dynamically.
 
 ![](/image/Decorator.svg)
+
+### Adapter
+
+Adapt real services to the another service the client using aggregation or inheritance.
+
+- Composition:
+
+![](/image/Adapter-Composition.svg)
+
+- Inheritance:
+
+![](/image/Adapter-Inheritance.svg)
