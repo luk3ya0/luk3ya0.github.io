@@ -7,7 +7,7 @@ tags = ["design pattern", "architect", "cheat sheet", "tl;dr"]
 author = "Luke Yao"
 +++
 
-The Structure <file:images> for patterns come from refatorguru, and rebuilt by drawio.
+The Structure images for patterns come from refatorguru, and rebuilt by drawio.
 
 ## Creational
 
