@@ -44,6 +44,12 @@ Prototype: Specifies the kinds of objects to create using a prototypical instanc
 
 ## Structual
 
+### bridge
+
+Bridge: Depart implementations of different dimension to decouple the abstraction, avoid creating a bunch of subclasses.
+
+![](/image/Bridge.svg)
+
 ### Decorator
 
 Decorator: Attaches additional responsibilities to an object dynamically.
@@ -52,7 +58,7 @@ Decorator: Attaches additional responsibilities to an object dynamically.
 
 ### Adapter
 
-Adapt real services to the another service adopted by the client using aggregation or inheritance.
+Adapter: Adapt real services to the another service adopted by the client using aggregation or inheritance.
 
 - Composition:
 
