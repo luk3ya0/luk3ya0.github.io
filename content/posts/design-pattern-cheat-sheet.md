@@ -52,7 +52,7 @@ Decorator: Attaches additional responsibilities to an object dynamically.
 
 ### Adapter
 
-Adapt real services to the another service the client using aggregation or inheritance.
+Adapt real services to the another service adopted by the client using aggregation or inheritance.
 
 - Composition:
 
