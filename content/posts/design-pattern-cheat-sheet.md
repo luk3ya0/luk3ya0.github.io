@@ -94,3 +94,52 @@ Proxy: Lets you provide a substitute or placeholder for another object. A proxy 
 
 ## Behavioral
 
+### Chain of Responsibility
+
+Chain of Responsibility: is a behavioral design pattern that lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.
+
+![](/image/Chain-of-Responsibility.svg)
+
+### Command
+
+Command: is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
+
+![](/image/Command.svg)
+
+### Iterator
+
+Iterator: Lets you traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.). 
+
+![](/image/Iterator.svg)
+
+### Memento
+
+Memento: Lets you save and restore the previous state of an object without revealing the details of its implementation.
+
+TODO
+
+### Mediator
+
+Mediator: Lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
+
+TODO
+
+### Observer
+
+TODO
+
+### State
+
+TODO
+
+### Strategy
+
+TODO
+
+### Template Method
+
+TODO
+
+### Visitor
+
+TODO
