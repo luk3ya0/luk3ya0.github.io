@@ -623,19 +623,19 @@ public final Object resolveArgument(MethodParameter parameter,
 
 由上述代码可知, Spring MVC 框架将 ServletRequest 对象及处理方法的参数对象实例传递给 DataBinder, DataBinder 会调用装配在 Spring MVC 上下文的 ConversionService 组件进行数据类型转换, 数据格式转换工作, 并将 ServletRequest 中的消息填充到参数对象中. 然后再调用 Validator 组件对绑定了请求消息数据的参数对象进行数据合法性校验, 并最终生成数据绑定结果 BindingResult 对象. BindingResuIt 包含已完成数据绑定的参数对象, 还包含相应的检验错误对象.
 
-## ViewResoIver
+## ViewResolver
 
 ### ViewResolver Overview
 
-ViewResoIver 是 Spring MVC 处理流程中的最后一个环节, Spring MVC 流程最后返回给用户的视图为具体的 View 对象, View 对象包含 Model 对象, 而 Model 对象存放后端需要反馈给前端的数据. 视图解析器把一个逻辑上的视图名称解析为一个具体的 View 视图对象, 最终的视图可以是 JSP, Excek JFreeChart 等.
+ViewResolver 是 Spring MVC 处理流程中的最后一个环节, Spring MVC 流程最后返回给用户的视图为具体的 View 对象, View 对象包含 Model 对象, 而 Model 对象存放后端需要反馈给前端的数据. 视图解析器把一个逻辑上的视图名称解析为一个具体的 View 视图对象, 最终的视图可以是 JSP, Excek JFreeChart 等.
 
 ### Resolution Process
 
 SpringMVC 的视图解析流程为:
 
-(1) SpringMVC 调用目标方法, 将目标方法返回的 String, View, ModelMap 或 ModelAndView 都转换为一个 Model And View 对象.
+(1) SpringMVC 调用目标方法, 将目标方法返回的 String, View, ModelMap 或 ModelAndView 都转换为一个 ModelAndView 对象.
 
-(2) 通过视图解析器 ViewResoIver 将 ModelAndView 对象中的 View 对象进行解析, 将逻辑视图 View 对象解析为一个物理视图 View 对象.
+(2) 通过视图解析器 ViewResolver 将 ModelAndView 对象中的 View 对象进行解析, 将逻辑视图 View 对象解析为一个物理视图 View 对象.
 
 (3) 调用物理视图 View 对象的 render() 方法进行视图渲染, 得到响应结果.
 
@@ -643,7 +643,7 @@ SpringMVC 的视图解析流程为:
 
 SpringMVC 提供很多视图解析器类, 具体如图所示.
 
-![ViewResoIver 类继承关系](/image/spring/10-7.svg)
+![ViewResolver 类继承关系](/image/spring/10-7.svg)
 
 下面介绍一些常用的视图解析器类. 除了上图所示的 resolver 之外, 还有 GroovyMarkupViewResolver, TilesViewResolver, 不过那些暂时不考虑, 所以先行省略了.
 
@@ -668,7 +668,7 @@ ViewResolver 的主要作用是把一个逻辑上的视图名称解析为一个�
 
 (3) UrlBasedViewResolver
 
-该类继承了 AbstractCachingViewResolver, 主要是提供一种拼接 URL 的方式来解析视图, 它可以通过 prefix 属性指定的前缀, 通过 suffix 属性指定后缀, 然后把返回的逻辑视图名称加上指定的前缀和后缀就是指定的视图 URL 了. 如 prefix=/WEB-INF/jsps/, suffix=.jsp, 返回的视图名称 viewName=test/indx, 贝 U UrlBasedViewResolver 解析出来的视图 URL 就是 WEB-INF/jsps/test/index.jsp, 默认的 prefix 和 suffix 都是空串.
+该类继承了 AbstractCachingViewResolver, 主要是提供一种拼接 URL 的方式来解析视图, 它可以通过 prefix 属性指定的前缀, 通过 suffix 属性指定后缀, 然后把返回的逻辑视图名称加上指定的前缀和后缀就是指定的视图 URL 了. 如 prefix=/WEB-INF/jsps/, suffix=.jsp, 返回的视图名称 viewName=test/indx, UrlBasedViewResolver 解析出来的视图 URL 就是 WEB-INF/jsps/test/index.jsp, 默认的 prefix 和 suffix 都是空串.
 
 URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这样就可以支持 URL 在客户端的跳转, 如当返回的视图名称是 "redirect: test.do" 的时候, URLBasedViewResolver 发现返回的视图名称包含 "redirect:" 前缀, 于是把返回的视图名称前缀 "redirect:" 去掉, 取后面的 test.do 组成一个 Redirect View, Redirect View 中将把请求返回的模型属性组合成查询参数的形式组合到 redirect 的 URL 后面, 然后调用 HttpServletResponse 对象的 sendRedirect 方法进行重定向. 同样 URLBasedViewResolver 还支持 forword: 前缀, 对于视图名称中包含 forword: 前缀的视图名称将会被封装成一个 InternalResourceView 对象, 然后在服务器端利用 RequestDispatcher 的 forword 方式跳转到指定的地址. 使用 UrlBasedViewResolver 的时候必须指定属性 viewClass, 表示解析成哪种视图, 一般使用较多的就是 InternalResourceView, 利用它来展现 JSP, 但是当使用 JSTL 的时候必须使用 JstlViewo 具体实例如下所示:
 
@@ -682,7 +682,7 @@ URLBasedViewResolver 支持返回的视图名称中包含 redirect: 前缀, 这�
 </bean>
 ```
 
-上述代码中, 当返回的逻辑视图名称为 test 时, UrlBasedViewResolver 将逻辑视图名称加上定义好的前缀和后缀, 即 \"/WEB.INF/test.jsp\", 然后新建一个 viewClass 属性指定的视图类型予以返回, 即返回一个 URL 为\"/WEB-INF/test.jsp\" 的 InternalResourceView 对象.
+上述代码中, 当返回的逻辑视图名称为 test 时, UrlBasedViewResolver 将逻辑视图名称加上定义好的前缀和后缀, 即 "/WEB.INF/test.jsp", 然后新建一个 viewClass 属性指定的视图类型予以返回, 即返回一个 URL 为 "/WEB-INF/test.jsp" 的 InternalResourceView 对象.
 
 (4) InternalResourceViewResolver
 
@@ -806,9 +806,7 @@ FreeMarkerViewResolver 是 UrlBasedViewResolver 的一个子类, 它会把 Contr
 
 ### ViewResolver Chain
 
-在 Spring MVC 中可以同时定义多个 ViewResolver 视图解析器, 然后它们会组成一个 ViewResolver 链. 当 Controller 处理器方法返回一个逻辑视图名称后 ViewResolver 链将根据其
-
-中 ViewResolver 的优先级来进行处理. 所有的 ViewResolver 都实现了 Ordered 接口, 在 Spring 中实现了这个接口的类都是可以排序的. ViewResolver 是通过 order 属性来指定顺序的, 默认都是最大值. 所以可以通过指定 ViewResolver 的 order 属性来实现 ViewResolver 的优先级, order 属性是 Integer 类型, order 越小优先级越高, 所以第一个进行解析的将是 ViewResolver 链中 order 值最小的那个.
+在 Spring MVC 中可以同时定义多个 ViewResolver 视图解析器, 然后它们会组成一个 ViewResolver 链. 当 Controller 处理器方法返回一个逻辑视图名称后 ViewResolver 链将根据其中 ViewResolver 的优先级来进行处理. 所有的 ViewResolver 都实现了 Ordered 接口, 在 Spring 中实现了这个接口的类都是可以排序的. ViewResolver 是通过 order 属性来指定顺序的, 默认都是最大值. 所以可以通过指定 ViewResolver 的 order 属性来实现 ViewResolver 的优先级, order 属性是 Integer 类型, order 越小优先级越高, 所以第一个进行解析的将是 ViewResolver 链中 order 值最小的那个.
 
 如果 ViewResolver 进行视图解析后返回的 View 对象为 null, 则表示 ViewResolver 不能解析该视图, 这个时候如果还存在其他 order 值比它大的 ViewResolver, 就会调用剩余的 ViewResolver 中 order 值最小的那个来解析该视图, 依此类推. 当 ViewResolver 在进行视图解析后返回的是一个非空的 View 对象的时候, 则表示该 ViewResolver 能够解析该视图, 那么视图解析就完成了, 后续的 ViewResolver 将不会再用来解析该视图. 当定义的所有 ViewResolver 都不能解析该视图的时候, Spring 就会抛出一个异常.
 
