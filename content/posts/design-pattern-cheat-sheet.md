@@ -112,34 +112,54 @@ Iterator: Lets you traverse elements of a collection without exposing its underl
 
 ![](/image/Iterator.svg)
 
+### Observer
+
+Observer: Lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing.
+
+![](/image/Observer.svg)
+
+### State
+
+State: Lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.
+
+![](/image/State.svg)
+
+### Strategy
+
+Strategy: Lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+
+![](/image/Strategy.svg)
+
+### Template Method
+
+Template Method: Defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
+
+![](/image/Template-Method.svg)
+
 ### Memento
 
 Memento: Lets you save and restore the previous state of an object without revealing the details of its implementation.
 
-TODO
+- Implementation based on nested classes
+
+![](/image/Memento-nested-classes.svg)
+
+- Implementation based on an intermediate interface
+
+![](/image/Memento-intermediate-interface.svg)
+
+- Implementation with even stricter encapsulation
+
+![](/image/Memento-stricter-encapsulation.svg)
+
+### Visitor
+
+Visitor: Lets you separate algorithms from the objects on which they operate.
+
+![](/image/Visitor.svg)
 
 ### Mediator
 
 Mediator: Lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
 
-TODO
-
-### Observer
-
-TODO
-
-### State
-
-TODO
-
-### Strategy
-
-TODO
-
-### Template Method
-
-TODO
-
-### Visitor
-
-TODO
+![](/image/Mediator.svg)
