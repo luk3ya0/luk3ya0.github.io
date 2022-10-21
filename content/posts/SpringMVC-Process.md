@@ -809,3 +809,4 @@ FreeMarkerViewResolver 是 UrlBasedViewResolver 的一个子类, 它会把 Contr
 基于 Spring 支持的这种 ViewResolver 链模式, 就可以在 Spring MVC 应用中同时定义多个 ViewResolver, 给定不同的 order 值, 这样就可以对特定的视图进行处理, 以此来支持同一应用中有多种视图类型.
 
 像 InternalResourceViewResolver 这种能解析所有的视图, 即永远能返回一个非空 View 对象的 ViewResolver, 一定要把它放在 ViewResolver 链的最后面.
+
