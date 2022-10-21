@@ -8,10 +8,6 @@ author = "Luke Yao"
 draft = false
 +++
 
-![](/image/spring/10-0.svg)
-
-上图是 Spring 与 Servlet 交互的大体概览, 但是 The devil is in the details. DispatcherServlet 分发了请求之后的细节满满, 下面尝试深入 Spring MVC 的源码, 理解一下 Spring MVC 流程原理.
-
 ## Spring MVC Process
 
 Spring MVC 框架整体的请求流程如图所示, 该图显示了用户从请求到响应的完整流程.
