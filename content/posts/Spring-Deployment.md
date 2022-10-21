@@ -39,23 +39,23 @@ EJB 全称 *Enterprise JavaBean*, 和 *Servlet* 一样, 也是 JavaEE 当中的�
 mvn 的 dependencies 有:
 
 ```xml
- <dependency>
-     <groupId>org.springframework</groupId>
-     <artifactId>spring-webmvc</artifactId>
-     <version>4.3.8.RELEASE</version>
- </dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>4.3.8.RELEASE</version>
+</dependency>
 
- <dependency>
-     <groupId>com.fasterxml.jackson.core</groupId>
-     <artifactId>jackson-databind</artifactId>
-     <version>2.7.3</version>
- </dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.7.3</version>
+</dependency>
 
- <dependency>
-     <groupId>com.github.javafaker</groupId>
-     <artifactId>javafaker</artifactId>
-     <version>1.0.2</version>
- </dependency>
+<dependency>
+    <groupId>com.github.javafaker</groupId>
+    <artifactId>javafaker</artifactId>
+    <version>1.0.2</version>
+</dependency>
 ```
 
 其中除了主要的 springframework, 还有用于序列化支持 jackson core, 提供假数据的 javafaker. 而项目的大体结构一开始如下:
