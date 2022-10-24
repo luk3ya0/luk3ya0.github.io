@@ -1,3 +1,216 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="752" height="337" viewBox="-0.5 -0.5 752 337">
-        <defs><style> @import url(https://fonts.googleapis.com/css?family=Fira+Code); </style></defs>
-        <path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="M160 45h75.53" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m225.76 51 12-6-12-6" /><path class="none-stroke" d="M0 15h160v60H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:158px;padding-top:45px;margin-left:1px"><div  class="centerdiv"><div class="normaldiv">Client<br/></div></div></div></foreignObject><path class="none-stroke" d="M240 0h160v60H240z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:158px;padding-top:30px;margin-left:241px"><div  class="centerdiv"><div class="normaldiv">&lt;&lt;interface&gt;&gt;<br/>Client Interface<br/></div></div></div></foreignObject><path class="none-stroke" d="M240 60h160v30H240z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:158px;padding-top:75px;margin-left:242px"><div  class="leftdiv"><div class="normaldiv"><div>+ method(data)</div></div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M440 155v-32.5H320v-18.26" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m320 92.24 6 12h-12Z" /><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M440 155v-32.5h175v-18.26" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m615 92.24 6 12h-12Z" /><path class="none-stroke" d="M350 155h180v30H350z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:178px;padding-top:170px;margin-left:351px"><div  class="centerdiv"><div class="normaldiv">Adapter<br/></div></div></div></foreignObject><path class="none-stroke" d="M350 185h180v30H350z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:178px;padding-top:200px;margin-left:352px"><div  class="leftdiv"><div class="normaldiv"><div>- adaptee: Service</div></div></div></div></foreignObject><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="M440 248v27" /><circle cx="440" cy="245" r="3" fill="gray" stroke="gray" stroke-width="2" /><path class="none-stroke" d="M350 215h180v30H350z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:178px;padding-top:230px;margin-left:352px"><div  class="leftdiv"><div class="normaldiv"><div>+ method(data)</div></div></div></div></foreignObject><path class="none-stroke" d="M480 0h270v30H480z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:268px;padding-top:15px;margin-left:481px"><div  class="centerdiv"><div class="normaldiv">Service<br/></div></div></div></foreignObject><path class="none-stroke" d="M480 30h270v30H480z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:268px;padding-top:45px;margin-left:482px"><div  class="leftdiv"><div class="normaldiv"><div>...</div></div></div></div></foreignObject><path class="none-stroke" d="M480 60h270v30H480z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:268px;padding-top:75px;margin-left:482px"><div  class="leftdiv"><div class="normaldiv"><div>+ serviceMethod(specialDta)</div></div></div></div></foreignObject><path fill="#e1e1e1" stroke="gray" stroke-miterlimit="10" d="M232.5 275h405l10 10v50h-415v-60Z" /><path fill-opacity=".05" d="M637.5 275v10h10Z" /><path class="none-stroke" stroke-miterlimit="10" d="M637.5 275v10h10" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:413px;padding-top:305px;margin-left:235px"><div class="leftdiv"><div class="normaldiv">specialData = convertToServiceFormat(data)<br/>return adaptee.serviceMethod(specialData)</div></div></div></foreignObject></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="332" viewBox="-0.5 -0.5 682 332" width="682" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style>
+   @import url(https://fonts.googleapis.com/css?family=Fira+Code);
+  </style>
+  <style>
+   svg {
+           color: gray; 
+           font-size: 14px; 
+           font-family: "Fira Code";
+       } 
+       .none-stroke {
+           fill: none; 
+           stroke: gray;
+       } 
+       .fill-stroke {
+           fill: #333; 
+           stroke: gray;
+       } 
+       foreignObject {
+           width: 100%; 
+           height: 100%;
+       } 
+       .leftdiv {
+           overflow: visible; 
+           text-align: left;
+       } 
+       .centerdiv {
+           box-sizing:border-box; 
+           text-align:center
+       } 
+       .normaldiv {
+           display:inline-block; 
+           line-height:1.2; 
+           white-space:normal; 
+           overflow-wrap:normal
+       } 
+       .flexcenter {
+           display:flex; 
+           align-items:unsafe center; 
+           justify-content:unsafe center;
+       }
+       .flexstart {
+           display:flex; 
+           align-items:unsafe center; 
+           justify-content:unsafe flex-start;
+       } 
+       .flexzero {height: 1px;}
+  </style>
+ </defs>
+ <path d="M150 48h20l15.53-.39" fill="none" pointer-events="stroke" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m175.92 53.85 11.84-6.29-12.14-5.7" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M0 23h150v50H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:148px;height:1px;padding-top:48px;margin-left:1px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <font color="gray" face="Fira Code">
+      <span style="font-size:15px">
+       Client
+       <br/>
+      </span>
+     </font>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M190 10h180v50H190z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:178px;height:1px;padding-top:35px;margin-left:191px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <font color="gray" face="Fira Code">
+      <span style="font-size:15px">
+       &lt;&lt;interface&gt;&gt;
+       <br/>
+       Client Interface
+       <br/>
+      </span>
+     </font>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M190 60h180v30H190z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:178px;height:1px;padding-top:75px;margin-left:192px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <div>
+      <font color="gray" face="Fira Code">
+       <span style="font-size:15px">
+        + method(data)
+       </span>
+      </font>
+     </div>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M380 150v-30H280v-15.76" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m280 92.24 6 12h-12Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M380 150v-30h165v-15.76" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m545 92.24 6 12h-12Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M290 150h180v30H290z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:178px;height:1px;padding-top:165px;margin-left:291px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <font color="gray" face="Fira Code">
+      <span style="font-size:15px">
+       Adapter
+       <br/>
+      </span>
+     </font>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M290 180h180v30H290z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:178px;height:1px;padding-top:195px;margin-left:292px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <div>
+      <font color="gray" face="Fira Code">
+       <span style="font-size:15px">
+        - adaptee: Service
+       </span>
+      </font>
+     </div>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M290 210h180v30H290z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:178px;height:1px;padding-top:225px;margin-left:292px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <div>
+      <font color="gray" face="Fira Code">
+       <span style="font-size:15px">
+        + method(data)
+       </span>
+      </font>
+     </div>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M410 0h270v30H410z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:268px;height:1px;padding-top:15px;margin-left:411px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <font color="gray" face="Fira Code">
+      <span style="font-size:15px">
+       Service
+       <br/>
+      </span>
+     </font>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M410 30h270v30H410z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:268px;height:1px;padding-top:45px;margin-left:412px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <div>
+      <font color="gray" face="Fira Code">
+       <span style="font-size:15px">
+        ...
+       </span>
+      </font>
+     </div>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M410 60h270v30H410z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:268px;height:1px;padding-top:75px;margin-left:412px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+     <div>
+      <font color="gray" face="Fira Code">
+       <span style="font-size:15px">
+        + serviceMethod(specialDta)
+       </span>
+      </font>
+     </div>
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M380 280v-40" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M185 280h380l10 10v40H185v-50Z" fill="#333" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <path d="M565 280v10h10Z" fill-opacity=".05" pointer-events="all"/>
+ <path d="M565 280v10h10" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:388px;height:1px;padding-top:305px;margin-left:187px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     specialData = convertToServiceFormat(data)
+     <br/>
+     return adaptee.serviceMethod(specialData)
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+</svg>

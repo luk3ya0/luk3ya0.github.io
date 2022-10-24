@@ -24,7 +24,7 @@ Spring MVC 框架整体的请求流程如图所示, 该图显示了用户从请�
 
 (6) Handler 执行完毕后会返回 ModelAndView 给 HandlerAdapter.
 
-![Spring MVC 框架整体的请求流程](/image/spring/10-1.svg)
+![Spring MVC 框架整体的请求流程](/image/spring/Overview.svg)
 
 (7) HandlerAdapter 接收到 Handler 返回的 ModelAndView 后, 将其返回给 DispatcherServlet.
 
@@ -46,7 +46,7 @@ HandlerAdapter 执行 Handler(或称为 Controller) 的过程中, Spring 还做�
 
 - Data Validation: 验证请求数据的有效性, 并将验证的结果存储到 BindingResult 或 Error 中.
 
-![数据转换, 格式化, 校验](/image/spring/10-2.svg)
+![数据转换, 格式化, 校验](/image/spring/DataBinding.svg)
 
 以上就是 Sring MVC 请求到响应的整个工作流程, 中间使用到的组件有 DispatcherServlet, HandlerMapping, HandlerAdapter, Handler or Controller, ViewResolver 和 View 等.
 
@@ -96,7 +96,7 @@ public class DispatcherServlet extends FrameworkServlet {
 
 DispatcherServlet 类的类继承结构如图所示.
 
-![DispatcherServlet 的类结构](/image/spring/10-3.svg)
+![DispatcherServlet 的类结构](/image/spring/DispatcherServlet.svg)
 
 由图可知, DispatcherServlet 最上层的父类是 Servlet 类, 也就是说 DispatcherServlet 也是一个 Servlet, 且包含有 deGet() 和 doPost() 方法. initStrategies 方法在 WebApplicationContext 初始化后自动执行, 自动扫描上下文的 Bean, 根据名称或者类型匹配的机制查找自定义的组件, 如果没有找到, 会装配 Spring 的默认组件. Spring 的默认组件在 org.springframework.web.servlet 路径下的 DispatcherServlet.properties 配置文件中配置. DispatcherServlet.properties 的具体代码如下:
 
@@ -295,7 +295,7 @@ public interface HttpRequestHandler {
 
 RequestMappingHandlerAdapter 其父类是 AbstractHandlerMethodAdapter 抽象类, AbstractHandlerMethodAdapter 只是简单地实现了 HandlerAdapter 中定义的接口, 最终还是在 RequestMappingHandlerAdapter 中对代码进行实现的, AbstractHandlerMethodAdapter 中增加了执行顺序 Order, 具体如图所示.
 
-![RequestMappingHandlerAdapter 类继承关系](/image/spring/10-4.svg)
+![RequestMappingHandlerAdapter 类继承关系](/image/spring/ReqMappingHandlerAdapter.svg)
 
 AbstractHandlerMethodAdapter 的源码如下:
 
@@ -425,7 +425,7 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
 
 从上述代码可知, RequestMappingHandlerAdapter 内部对于每个请求都会实例化一个 ServletlnvocableHandlerMethod(InvocableHandlerMethod 的子类) 进行处理. ServletlnvocableHandlerMethod 类继承关系如图所示.
 
-![ServletlnvocableHandlerMethod 类继承关系](/image/spring/10-5.svg)
+![ServletlnvocableHandlerMethod 类继承关系](/image/spring/ServletInvocableHandlerMethod.svg)
 
 InvocableHadlerMethod 类通过调用 getMethodArgumentValues() 获取方法的输入参数, 具体源码如下:
 
@@ -543,7 +543,7 @@ private List<HandlerMethodArgumentResolver> getDefaultArgumentResolvers() {
 
 PathVariableMethodArgumentResolver, SessionAttributeMethodArgumentResolver 等默认 resolver 之外, 还可以自定义 resolver, 通过注解来指定处理的参数类型, 然后通过 getCustomArgumentResolvers 方法会注册到 revolver 列表. 下面以 RequestParamMethodArgumentResolver 为例做简单的分析, 具体类继承关系如图所示.
 
-![ServletlnvocableHandlerMethod 类继承关系](/image/spring/10-6.svg)
+![ServletlnvocableHandlerMethod 类继承关系](/image/spring/RequestParamMethodArgumentResolver.svg)
 
 RequestParamMethodArgumentResolver 父类是 AbstractNamedValueMethodArgumentResolver, 其中最核心的方法是 resolveArgument:
 
@@ -639,7 +639,7 @@ SpringMVC 的视图解析流程为:
 
 SpringMVC 提供很多视图解析器类, 具体如图所示.
 
-![ViewResolver 类继承关系](/image/spring/10-7.svg)
+![ViewResolver 类继承关系](/image/spring/ViewResolver.svg)
 
 下面介绍一些常用的视图解析器类. 除了上图所示的 resolver 之外, 还有 GroovyMarkupViewResolver, TilesViewResolver, 不过那些暂时不考虑, 所以先行省略了.
 

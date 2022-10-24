@@ -92,6 +92,7 @@ Proxy: Lets you provide a substitute or placeholder for another object. A proxy 
 
 ![](/image/Proxy.svg)
 
+
 ## Behavioral
 
 ### Chain of Responsibility

@@ -1,3 +1,438 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="842" height="796" viewBox="-0.5 -0.5 842 796">
-        <defs><style> @import url(https://fonts.googleapis.com/css?family=Fira+Code); </style></defs>
-        <path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="m697.32 422.66-54.64-27.32" /><circle cx="700" cy="424" r="3" fill="gray" stroke="gray" stroke-width="2" /><circle cx="640" cy="394" r="3" fill="gray" stroke="gray" stroke-width="2" /><path fill="#e1e1e1" stroke="gray" stroke-miterlimit="10" d="M560 424h270l10 10v140H560V424Z" /><path fill-opacity=".05" d="M830 424v10h10Z" /><path class="none-stroke" stroke-miterlimit="10" d="M830 424v10h10" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:278px;padding-top:499px;margin-left:562px"><div class="leftdiv"><div class="normaldiv">builder.reset()<br/>if (type == &quot;simple&quot;) {<br/>builder.buildStepA()<br/>} else {<br/>builder.buildStepB()<br/>builder.buildStepC()<br/>}</div></div></div></foreignObject><path class="none-stroke" d="M140 214h240v60H140z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:238px;padding-top:244px;margin-left:141px"><div class="centerdiv"><div class="normaldiv">&lt;&lt;interface&gt;&gt;<br/>Creator</div></div></div></foreignObject><path class="none-stroke" d="M140 274h240v30H140z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:289px;margin-left:142px"><div class="leftdiv"><div class="normaldiv">+ reset()</div></div></div></foreignObject><path class="none-stroke" d="M140 304h240v30H140z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:319px;margin-left:142px"><div class="leftdiv"><div class="normaldiv">+ buildStepA()</div></div></div></foreignObject><path class="none-stroke" d="M140 334h240v30H140z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:349px;margin-left:142px"><div class="leftdiv"><div class="normaldiv">+ buildStepB()</div></div></div></foreignObject><path class="none-stroke" d="M140 364h240v30H140z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:379px;margin-left:142px"><div class="leftdiv"><div class="normaldiv">+ buildStepC()</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M120 474v-40h140v-29.76" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m260 396.24 4 8h-8Z" /><path class="none-stroke" d="M0 474h240v60H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:238px;padding-top:504px;margin-left:1px"><div class="centerdiv"><div class="normaldiv">Concrete<br/>Builder1</div></div></div></foreignObject><path class="none-stroke" d="M0 564h240v30H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:579px;margin-left:2px"><div class="leftdiv"><div class="normaldiv">+ reset()</div></div></div></foreignObject><path class="none-stroke" d="M0 594h240v30H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:609px;margin-left:2px"><div class="leftdiv"><div class="normaldiv">+ buildStepA()</div></div></div></foreignObject><path class="none-stroke" d="M0 624h240v30H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:639px;margin-left:2px"><div class="leftdiv"><div class="normaldiv">+ buildStepB()</div></div></div></foreignObject><path class="none-stroke" d="M0 654h240v30H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:669px;margin-left:2px"><div class="leftdiv"><div class="normaldiv">+ buildStepC()</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M400 474v-40H260v-29.76" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m260 396.24 4 8h-8Z" /><path class="none-stroke" d="M280 474h240v60H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:238px;padding-top:504px;margin-left:281px"><div class="centerdiv"><div class="normaldiv">Concrete<br/>Builder2</div></div></div></foreignObject><path class="none-stroke" d="M280 564h240v30H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:579px;margin-left:282px"><div class="leftdiv"><div class="normaldiv">+ reset()</div></div></div></foreignObject><path class="none-stroke" d="M280 594h240v30H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:609px;margin-left:282px"><div class="leftdiv"><div class="normaldiv">+ buildStepA()</div></div></div></foreignObject><path class="none-stroke" d="M280 624h240v30H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:639px;margin-left:282px"><div class="leftdiv"><div class="normaldiv">+ buildStepB()</div></div></div></foreignObject><path class="none-stroke" d="M280 654h240v30H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:669px;margin-left:282px"><div class="leftdiv"><div class="normaldiv">+ buildStepC()</div></div></div></foreignObject><path class="none-stroke" d="M0 534h240v30H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:549px;margin-left:2px"><div class="leftdiv"><div class="normaldiv">- result: Product1</div></div></div></foreignObject><path class="none-stroke" d="M280 534h240v30H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:549px;margin-left:282px"><div class="leftdiv"><div class="normaldiv">- result: Product2</div></div></div></foreignObject><path class="none-stroke" d="M520 234h240v40H520z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:238px;padding-top:254px;margin-left:521px"><div class="centerdiv"><div class="normaldiv">Director</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M520 289h-70v-45h-56.03" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m381.97 244 6-3.53 6 3.53-6 3.53Z" /><path class="none-stroke" d="M520 274h240v30H520z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:289px;margin-left:522px"><div class="leftdiv"><div class="normaldiv">- builder: Builder</div></div></div></foreignObject><path class="none-stroke" d="M520 304h240v30H520z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:319px;margin-left:522px"><div class="leftdiv"><div class="normaldiv">+ Director(builder)</div></div></div></foreignObject><path class="none-stroke" d="M520 334h240v30H520z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:349px;margin-left:522px"><div class="leftdiv"><div class="normaldiv">+ changeBuilder(builder)</div></div></div></foreignObject><path class="none-stroke" d="M520 364h240v30H520z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:379px;margin-left:522px"><div class="leftdiv"><div class="normaldiv">+ make(type)</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="m557.6 607.2-35.2-26.4" /><circle cx="560" cy="609" r="3" fill="gray" stroke="gray" stroke-width="2" /><circle cx="520" cy="579" r="3" fill="gray" stroke="gray" stroke-width="2" /><path fill="#e1e1e1" stroke="gray" stroke-miterlimit="10" d="M560 594h270l10 10v20H560v-30Z" /><path fill-opacity=".05" d="M830 594v10h10Z" /><path class="none-stroke" stroke-miterlimit="10" d="M830 594v10h10" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:278px;padding-top:609px;margin-left:562px"><div class="leftdiv"><div class="normaldiv">result = new Product2()</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="m557.32 657.66-34.64-17.32" /><circle cx="560" cy="659" r="3" fill="gray" stroke="gray" stroke-width="2" /><circle cx="520" cy="639" r="3" fill="gray" stroke="gray" stroke-width="2" /><path fill="#e1e1e1" stroke="gray" stroke-miterlimit="10" d="M560 644h270l10 10v20H560v-30Z" /><path fill-opacity=".05" d="M830 644v10h10Z" /><path class="none-stroke" stroke-miterlimit="10" d="M830 644v10h10" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:278px;padding-top:659px;margin-left:562px"><div class="leftdiv"><div class="normaldiv">result.setFeatureB()</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="m557.09 708.27-34.18-8.54" /><circle cx="560" cy="709" r="3" fill="gray" stroke="gray" stroke-width="2" /><circle cx="520" cy="699" r="3" fill="gray" stroke="gray" stroke-width="2" /><path fill="#e1e1e1" stroke="gray" stroke-miterlimit="10" d="M560 694h270l10 10v20H560v-30Z" /><path fill-opacity=".05" d="M830 694v10h10Z" /><path class="none-stroke" stroke-miterlimit="10" d="M830 694v10h10" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:278px;padding-top:709px;margin-left:562px"><div class="leftdiv"><div class="normaldiv">return this.result</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M400 714v26.03" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m400 752.03-3.53-6 3.53-6 3.53 6Z" /><path class="none-stroke" d="M280 684h240v30H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:699px;margin-left:282px"><div class="leftdiv"><div class="normaldiv">+ getResult(): Product2</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M120 714v26.03" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m120 752.03-3.53-6 3.53-6 3.53 6Z" /><path class="none-stroke" d="M0 684h240v30H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:699px;margin-left:2px"><div class="leftdiv"><div class="normaldiv">+ getResult(): Product1</div></div></div></foreignObject><path class="none-stroke" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2" d="M450 107v34" /><circle cx="450" cy="104" r="3" fill="gray" stroke="gray" stroke-width="2" /><circle cx="450" cy="144" r="3" fill="gray" stroke="gray" stroke-width="2" /><path fill="#e1e1e1" stroke="gray" stroke-miterlimit="10" d="M330 4h230l10 10v90H330V4Z" /><path fill-opacity=".05" d="M560 4v10h10Z" /><path class="none-stroke" stroke-miterlimit="10" d="M560 4v10h10" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexstart flexzero" style="width:238px;padding-top:54px;margin-left:332px"><div class="leftdiv"><div class="normaldiv">b = new ConcreteBuilder1()<br/>d = new Director(b)<br/>d.make()<br/>Product1 p = b.getResult()</div></div></div></foreignObject><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="M377 164H120v296.03" /><circle cx="380" cy="164" r="3" fill="gray" stroke="gray" stroke-width="2" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m120 472.03-3.53-6 3.53-6 3.53 6Z" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="M523 164h117v56.03" /><circle cx="520" cy="164" r="3" fill="gray" stroke="gray" stroke-width="2" /><path class="none-stroke" stroke-miterlimit="10" stroke-width="2" d="m640 232.03-3.53-6 3.53-6 3.53 6Z" /><path class="none-stroke" d="M380 144h140v40H380z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:138px;padding-top:164px;margin-left:381px"><div class="centerdiv"><div class="normaldiv">client</div></div></div></foreignObject><path class="none-stroke" d="M0 754h240v40H0z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:238px;padding-top:774px;margin-left:1px"><div class="centerdiv"><div class="normaldiv">Product1</div></div></div></foreignObject><path class="none-stroke" d="M280 754h240v40H280z" /><foreignObject    class="leftdiv"><div xmlns="http://www.w3.org/1999/xhtml" class="flexdiv flexzero" style="width:238px;padding-top:774px;margin-left:281px"><div class="centerdiv"><div class="normaldiv">Product2</div></div></div></foreignObject></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="752" viewBox="-0.5 -0.5 802 752" width="802" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style>
+   @import url(https://fonts.googleapis.com/css?family=Fira+Code);
+  </style>
+  <style>
+   svg {
+           color: gray; 
+           font-size: 14px; 
+           font-family: "Fira Code";
+       } 
+       .none-stroke {
+           fill: none; 
+           stroke: gray;
+       } 
+       .fill-stroke {
+           fill: #333; 
+           stroke: gray;
+       } 
+       foreignObject {
+           width: 100%; 
+           height: 100%;
+       } 
+       .leftdiv {
+           overflow: visible; 
+           text-align: left;
+       } 
+       .centerdiv {
+           box-sizing:border-box; 
+           text-align:center
+       } 
+       .normaldiv {
+           display:inline-block; 
+           line-height:1.2; 
+           white-space:normal; 
+           overflow-wrap:normal
+       } 
+       .flexcenter {
+           display:flex; 
+           align-items:unsafe center; 
+           justify-content:unsafe center;
+       }
+       .flexstart {
+           display:flex; 
+           align-items:unsafe center; 
+           justify-content:unsafe flex-start;
+       } 
+       .flexzero {height: 1px;}
+  </style>
+ </defs>
+ <path d="M680 348v-25" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <circle cx="680" cy="351" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <circle cx="680" cy="320" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <path d="M560 351h230l10 10v140H560V351Z" fill="#333" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <path d="M790 351v10h10Z" fill-opacity=".05" pointer-events="all"/>
+ <path d="M790 351v10h10" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:426px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     builder.reset()
+     <br/>
+     if (type == "simple") {
+     <br/>
+     builder.buildStepA()
+     <br/>
+     } else {
+     <br/>
+     builder.buildStepB()
+     <br/>
+     builder.buildStepC()
+     <br/>
+     }
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M140 190h240v50H140z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:238px;height:1px;padding-top:215px;margin-left:141px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     &lt;&lt;interface&gt;&gt;
+     <br/>
+     Creator
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M140 240h240v30H140z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:255px;margin-left:142px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + reset()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M140 270h240v30H140z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:285px;margin-left:142px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepA()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M140 300h240v30H140z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:315px;margin-left:142px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepB()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M140 330h240v30H140z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:345px;margin-left:142px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepC()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M120 450v-45h140v-34.76" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m260 362.24 4 8h-8Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M0 450h240v50H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:238px;height:1px;padding-top:475px;margin-left:1px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     Concrete
+     <br/>
+     Builder1
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M0 530h240v30H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:545px;margin-left:2px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + reset()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M0 560h240v30H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:575px;margin-left:2px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepA()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M0 590h240v30H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:605px;margin-left:2px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepB()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M0 620h240v30H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:635px;margin-left:2px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepC()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M400 450v-45H260v-34.76" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m260 362.24 4 8h-8Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M280 450h240v50H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:238px;height:1px;padding-top:475px;margin-left:281px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     Concrete
+     <br/>
+     Builder2
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M280 530h240v30H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:545px;margin-left:282px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + reset()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M280 560h240v30H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:575px;margin-left:282px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepA()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M280 590h240v30H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:605px;margin-left:282px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepB()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M280 620h240v30H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:635px;margin-left:282px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + buildStepC()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M0 500h240v30H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:515px;margin-left:2px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     - result: Product1
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M280 500h240v30H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:515px;margin-left:282px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     - result: Product2
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M560 170h240v30H560z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:238px;height:1px;padding-top:185px;margin-left:561px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     Director
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M560 215H393.97" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m381.97 215 6-3.53 6 3.53-6 3.53Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M560 200h240v30H560z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:215px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     - builder: Builder
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M560 230h240v30H560z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:245px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + Director(builder)
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M560 260h240v30H560z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:275px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + changeBuilder(builder)
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M560 290h240v30H560z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:305px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + make(type)
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M557 545h-34" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <circle cx="560" cy="545" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <circle cx="520" cy="545" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <path d="M560 530h230l10 10v20H560v-30Z" fill="#333" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <path d="M790 530v10h10Z" fill-opacity=".05" pointer-events="all"/>
+ <path d="M790 530v10h10" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:545px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     result = new Product2()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M557 605h-34" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <circle cx="560" cy="605" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <circle cx="520" cy="605" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <path d="M560 590h230l10 10v20H560v-30Z" fill="#333" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <path d="M790 590v10h10Z" fill-opacity=".05" pointer-events="all"/>
+ <path d="M790 590v10h10" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:605px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     result.setFeatureB()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="m557 665.93-34-.86" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <circle cx="560" cy="666" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <circle cx="520" cy="665" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <path d="M560 651h230l10 10v20H560v-30Z" fill="#333" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <path d="M790 651v10h10Z" fill-opacity=".05" pointer-events="all"/>
+ <path d="M790 651v10h10" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:666px;margin-left:562px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     return this.result
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M400 680v26.03" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m400 718.03-3.53-6 3.53-6 3.53 6Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M280 650h240v30H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:665px;margin-left:282px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + getResult(): Product2
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M120 680v26.03" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="m120 718.03-3.53-6 3.53-6 3.53 6Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M0 650h240v30H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:238px;height:1px;padding-top:665px;margin-left:2px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     + getResult(): Product1
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M440 93v24" fill="none" pointer-events="stroke" stroke="gray" stroke-dasharray="6 6" stroke-miterlimit="10" stroke-width="2"/>
+ <circle cx="440" cy="90" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <circle cx="440" cy="120" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <path d="M305 0h260l10 10v80H305V0Z" fill="#333" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <path d="M565 0v10h10Z" fill-opacity=".05" pointer-events="all"/>
+ <path d="M565 0v10h10" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe flex-start;width:268px;height:1px;padding-top:45px;margin-left:307px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:left">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     b = new ConcreteBuilder1()
+     <br/>
+     d = new Director(b)
+     <br/>
+     d.make()
+     <br/>
+     Product1 p = b.getResult()
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M377 135H120v301.03" fill="none" pointer-events="stroke" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <circle cx="380" cy="135" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <path d="m120 448.03-3.53-6 3.53-6 3.53 6Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M503 135h177v21.03" fill="none" pointer-events="stroke" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <circle cx="500" cy="135" fill="gray" pointer-events="all" r="3" stroke="gray" stroke-width="2"/>
+ <path d="m680 168.03-3.53-6 3.53-6 3.53 6Z" fill="none" pointer-events="all" stroke="gray" stroke-miterlimit="10" stroke-width="2"/>
+ <path d="M380 120h120v30H380z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:135px;margin-left:381px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     client
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M0 720h240v30H0z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:238px;height:1px;padding-top:735px;margin-left:1px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     Product1
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+ <path d="M280 720h240v30H280z" fill="none" pointer-events="all" stroke="gray"/>
+ <foreignObject height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left" width="100%">
+  <div style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:238px;height:1px;padding-top:735px;margin-left:281px" xmlns="http://www.w3.org/1999/xhtml">
+   <div data-drawio-colors="color: #808080;" style="box-sizing:border-box;font-size:0;text-align:center">
+    <div style='display:inline-block;font-size:15px;font-family:"Fira Code";color:gray;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal'>
+     Product2
+    </div>
+   </div>
+  </div>
+ </foreignObject>
+</svg>
