@@ -14,3 +14,8 @@ $ tree -L 1 .
 ├── static      # static resources
 └── themes      # the code make content presentable
 ```
+### About
+
+This is a draft of my reading and portfolio website. I use this to exercise some skills like golang, css, javascript and so on.
+
+You can take a further view of my hugo theme project.
