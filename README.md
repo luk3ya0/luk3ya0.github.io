@@ -19,3 +19,10 @@ $ tree -L 1 .
 This is a draft of my reading and portfolio website. I use this to exercise some skills like golang, css, javascript and so on.
 
 You can take a further view of my hugo theme project.
+
+### Change log
+
+- [X] State.svg responsive css; - 2022-10-26
+- [X] Decorator.svg responsive css; - 2022-10-27
+- [X] Proxy.svg responsive css; - 2022-10-27
+- [X] Observer.svg responsive css; - 2022-10-27
