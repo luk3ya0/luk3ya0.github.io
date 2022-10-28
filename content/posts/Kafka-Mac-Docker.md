@@ -7,7 +7,7 @@ tags = ["kafka", "docker"]
 author = "Luke Yao"
 +++
 
-## 建立Zookeeper容器:
+## 建立 Zookeeper 容器:
 
 这里用最简单的方式创建一个独立的Zookeeper节点, 如果要考虑zookeeper的高可用, 可以将其做成一个集群, 最好是能有多台机器.
 
@@ -17,7 +17,7 @@ $ docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper
 
 默认的, 容器内配置文件在, /conf/zoo.cfg, 数据和日志目录默认在/data 和 /datalog, 需要的话可以将上述目录映射到宿主机的可靠文件目录下.
 
-## 建立kafka集群节点:
+## 建立 Kafka 集群节点:
 
 使用docker命令可快速在同一台机器搭建多个kafka, 只需要改变brokerId和端口
 
