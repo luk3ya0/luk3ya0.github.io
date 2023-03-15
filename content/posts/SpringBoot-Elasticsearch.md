@@ -579,9 +579,9 @@ public class DocJunit {
         bulkRequest.timeout(TimeValue.timeValueSeconds(10));
         // 创建对象
         List<UserDocument> userArrayList = new ArrayList<>();
-        userArrayList.add(new UserDocument("张三", "男", 30, "武汉"));
+        userArrayList.add(new UserDocument("张五", "男", 30, "武汉"));
         userArrayList.add(new UserDocument("里斯", "女", 31, "北京"));
-        userArrayList.add(new UserDocument("王五", "男", 32, "武汉"));
+        userArrayList.add(new UserDocument("王三", "男", 32, "武汉"));
         userArrayList.add(new UserDocument("赵六", "女", 33, "长沙"));
         userArrayList.add(new UserDocument("七七", "男", 34, "武汉"));
         // 添加请求
